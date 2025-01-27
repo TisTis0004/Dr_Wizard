@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.circle {
+  width: 200px;
+  height: 200px;
+  background-color: none;
+  border: 5px solid #000;
+  border-radius: 50%;
+  transition: border-color 1s;
+}
+.make-male {
+  transform: translateX(-335px) translateY(-100px) rotate(-40deg);
+}
+.male-color {
+  border-color: #005eff;
+}
+.make-female {
+  transform: translateX(-485px) translateY(180px) rotate(90deg);
+}
+.female-color {
+  border-color: #db43b7;
+}
+.line {
+  width: 150px;
+  border-width: 3px;
+  border-style: solid;
+  transition: border-color 1s, transform 1s;
+}
+
+.sex {
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.male {
+  background-color: #005eff;
+  color: white;
+}
+.female {
+  background-color: #db43b7;
+  color: white;
+}
