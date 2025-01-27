@@ -103,11 +103,6 @@ def GFR(age:int,creatinine:float, gender:str, cystatin=0.0):
                 B = -1.2
         gfr = 142 * (creatinine / A) ** B * 0.9938 ** age
     #!Validation lines
-    print("=" * 10,"Validation", "=" * 10)
-    print(f"creatinine = {round(creatinine,2)}")
-    print(f"cystatin = {cystatin}")
-    print(f"A = {A}\nB = {B}\nC = {C}\nD = {D}")
-    print("=" * 32)
     return f"GFR = {round(gfr, 2)} ml/min/1.73 m²"
 
 def IBW(height:float, gender:str):
@@ -163,3 +158,32 @@ def LMP(day, month, year):
             new_day = new_day - 30
             new_month = new_month + 1
     return f"EDD = ({new_day}, {new_month}, {new_year})"
+
+
+
+#? Testing
+# print(TSAT(150, 400, "f"))
+
+# print(Mentz(80, 8))
+
+# print(ESR(25, "f"))
+
+# print(CRP(25, "f"))
+
+# print(W_to_H(85, 1.6, "f"))
+
+# print(GFR(40, 1.5, "f"))
+
+# print(IBW(160, "f"))
+
+# print(ABW(160, 70, "f"))
+
+# print(BMI(80, 1.7))
+
+# print(is_obese(70, 1.7, "f"))
+
+
+# print(CrCl(1.1, 28, 160, 65, "f"))
+
+
+# print(LMP(30, 10, 2025))

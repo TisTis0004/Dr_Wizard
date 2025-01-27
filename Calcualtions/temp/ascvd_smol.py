@@ -99,3 +99,73 @@ def compute_ten_year_score(
 
     pct = 1 - s010Ret ** math.exp(predictRet - mnxbRet)
     return round(pct * 100 * 10) / 10
+
+# Test case 1
+# result1 = compute_ten_year_score(
+#     isMale=True,      # isMale
+#     isBlack=False,    # isBlack
+#     smoker=True,      # smoker
+#     hypertensive=True, # hypertensive
+#     diabetic=True,    # diabetic
+#     age=45,           # age
+#     systolicBloodPressure=140,  # systolicBloodPressure
+#     totalCholesterol=200,      # totalCholesterol
+#     hdl=50                   # hdl
+# )
+# print("Test case 1 result:", result1)  # Expected output will be based on input
+
+# # Test case 2
+# result2 = compute_ten_year_score(
+#     isMale=False,     # isMale
+#     isBlack=True,     # isBlack
+#     smoker=False,     # smoker
+#     hypertensive=False, # hypertensive
+#     diabetic=True,    # diabetic
+#     age=60,           # age
+#     systolicBloodPressure=130,  # systolicBloodPressure
+#     totalCholesterol=180,      # totalCholesterol
+#     hdl=60                   # hdl
+# )
+# print("Test case 2 result:", result2)  # Expected output will be based on input
+
+# # Test case 3
+# result3 = compute_ten_year_score(
+#     isMale=True,      # isMale
+#     isBlack=True,     # isBlack
+#     smoker=False,     # smoker
+#     hypertensive=True, # hypertensive
+#     diabetic=False,   # diabetic
+#     age=50,           # age
+#     systolicBloodPressure=120,  # systolicBloodPressure
+#     totalCholesterol=220,      # totalCholesterol
+#     hdl=55                   # hdl
+# )
+# print("Test case 3 result:", result3)  # Expected output will be based on input
+
+# # Test case 4 - Invalid age (below 40)
+# result4 = compute_ten_year_score(
+#     isMale=False,     # isMale
+#     isBlack=False,    # isBlack
+#     smoker=True,      # smoker
+#     hypertensive=True, # hypertensive
+#     diabetic=False,   # diabetic
+#     age=30,           # age
+#     systolicBloodPressure=150,  # systolicBloodPressure
+#     totalCholesterol=200,      # totalCholesterol
+#     hdl=45                   # hdl
+# )
+# print("Test case 4 result:", result4)  # Expected output: None (invalid age)
+
+# # Test case 5 - Invalid age (above 79)
+# result5 = compute_ten_year_score(
+#     isMale=True,      # isMale
+#     isBlack=True,     # isBlack
+#     smoker=False,     # smoker
+#     hypertensive=True, # hypertensive
+#     diabetic=True,    # diabetic
+#     age=80,           # age
+#     systolicBloodPressure=120,  # systolicBloodPressure
+#     totalCholesterol=190,      # totalCholesterol
+#     hdl=60                   # hdl
+# )
+# print("Test case 5 result:", result5)  # Expected output: None (invalid age)

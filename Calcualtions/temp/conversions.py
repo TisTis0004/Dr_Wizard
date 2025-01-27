@@ -1,5 +1,4 @@
 import time
-from DANGER_date_conversion import hijri_to_gregorian
 #Glucose units
 def Glucose_mg_to_mmol(mg):
     return round(mg/18.0182, 2)
@@ -28,8 +27,5 @@ def Calcium_mmol_to_mg(mmol):
 def Hgb1ac_percent_to_unit(percent):
     return f"Hgb1ac = {28.7 * percent - 46.7} mg/dL"
 
-#Date conversion
-def hijri_to_gregorian(h_year, h_month, h_day):
-    return hijri_to_gregorian(h_year, h_month, h_day)
+# print(time.localtime())# gestational age: LMP - Today's date
 
-print(time.localtime())# gestational age: LMP - Today's date
