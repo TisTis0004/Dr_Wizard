@@ -1,4 +1,4 @@
-import { hijriToGregorian } from "./hijri_converter.js";
+import { hijriToGregorian } from "./helpers/hijri_converter.js";
 
 // Glucose units
 function Glucose_mg_to_mmol(mg) {

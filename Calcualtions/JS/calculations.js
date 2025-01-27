@@ -1,4 +1,4 @@
-import computeTenYearScore from "./ascvd_smol.js";
+import computeTenYearScore from "./helpers/ascvd_smol.js";
 
 function TSAT(Fe, TIBC, gender) {
   let tsat = (Fe / TIBC) * 100;
