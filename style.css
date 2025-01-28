@@ -1,0 +1,44 @@
+body {
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.quick-links-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #b96bb9;
+  padding-bottom: 1rem;
+}
+
+.quick-links-container ul {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: larger;
+}
+
+.quick-links-container ul a {
+  text-decoration: none; /* Remove underline from links */
+  color: black; /* Set default text color */
+}
+
+.quick-links-container ul a li {
+  width: 100px;
+  text-align: center;
+  padding: 1rem;
+  background-color: #b96bb9;
+  transition: background-color 0.75s, color 0.5s;
+  border-radius: 2rem;
+}
+
+.quick-links-container ul a:hover li {
+  background-color: #ce18ce;
+  cursor: pointer;
+  color: white;
+}
