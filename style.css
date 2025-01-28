@@ -1,44 +1,97 @@
+@font-face {
+  font-family: "Knight";
+  src: url("Assets/fonts/KnightWarrior.otf") format("truetype");
+}
+@font-face {
+  font-family: "SuperPixel";
+  src: url("Assets/fonts/SuperPixel.ttf") format("truetype");
+}
+*::selection {
+  background-color: #5e047a;
+  color: white;
+}
 body {
   background-color: #f0f0f0;
   margin: 0;
   padding: 0;
+  background-image: url("Assets/images/brick_wall.png");
+  background-size: auto 100%;
 }
-
+h1 {
+  font-family: "Knight", sans-serif;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0 0 0.5rem black;
+}
 .quick-links-container {
   display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
+  align-items: center;
+  background-image: url("Assets/images/shelf_background_test.png");
+  background-size: contain;
+  background-position: center;
+}
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.quick-links-container a {
+  font-family: SuperPixel;
+  padding: 0.75rem 0;
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #b96bb9;
-  padding-bottom: 1rem;
-}
-
-.quick-links-container ul {
-  list-style-type: none;
-  width: 100%;
-  padding: 0;
+  position: relative;
+  font-size: 0.9rem;
+  flex: 1;
+  background-color: #4f230d;
+  transition: color 0.7s, box-shadow 0.7s, border-radius 0.7s, filter 0.7s;
+  border-radius: 0;
   margin: 0;
-  display: flex;
-  justify-content: space-around;
-  font-size: larger;
+  text-decoration: none;
+  border: 2px solid black;
+  border-width: 2px 3px;
+  box-shadow: 0 1.5rem 5rem black;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: url("Assets/icons/candle.png"), auto;
 }
-
-.quick-links-container ul a {
-  text-decoration: none; /* Remove underline from links */
-  color: black; /* Set default text color */
+.book1,
+.book2,
+.book3,
+.book4 {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-
-.quick-links-container ul a li {
-  width: 100px;
-  text-align: center;
-  padding: 1rem;
-  background-color: #b96bb9;
-  transition: background-color 0.75s, color 0.5s;
-  border-radius: 2rem;
+.book1 {
+  background-image: url("Assets/images/book1.png");
 }
-
-.quick-links-container ul a:hover li {
-  background-color: #ce18ce;
-  cursor: pointer;
-  color: white;
+.book2 {
+  background-image: url("Assets/images/book2.png");
+}
+.book3 {
+  background-image: url("Assets/images/book3.png");
+}
+.book4 {
+  background-image: url("Assets/images/book4.png");
+}
+.quick-links-container img {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 2.3rem;
+}
+.quick-links-container a:hover {
+  border: 2px solid #4f230d;
+  border-width: 2px 3px;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  filter: brightness(2);
 }
