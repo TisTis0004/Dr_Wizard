@@ -21,22 +21,33 @@ body {
   background-attachment: scroll;
 }
 body::-webkit-scrollbar {
-  width: 20px;
+  width: 1em;
+  padding: 0;
 }
 
 body::-webkit-scrollbar-track {
-  background: linear-gradient(green, yellow);
+  background: linear-gradient(#18023f, #601fd2);
 }
-
 body::-webkit-scrollbar-thumb {
   background: transparent;
   background-image: url("Assets/images/bone.png");
-  background-size: 20px 70px;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
-  border-radius: 25px;
-  border: 5px solid transparent;
+  background-size: contain;
+  /* border: 2px solid red; */
 }
+body::-webkit-scrollbar-button {
+  display: none;
+}
+/* body::-webkit-scrollbar-button {
+  background: #1a1122;
+  border: 1px solid #4a1f96;
+  height: 15px;
+  transition: background 0.3s;
+}
+body::-webkit-scrollbar-button:hover {
+  background: #3a0751;
+} */
 h1 {
   font-family: "Knight", sans-serif;
   letter-spacing: 0.5rem;
