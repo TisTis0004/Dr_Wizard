@@ -15,7 +15,27 @@ body {
   margin: 0;
   padding: 0;
   background-image: url("Assets/images/brick_wall.png");
-  background-size: auto 100%;
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: scroll;
+}
+body::-webkit-scrollbar {
+  width: 20px;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(green, yellow);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  background-image: url("Assets/images/bone.png");
+  background-size: 20px 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  border: 5px solid transparent;
 }
 h1 {
   font-family: "Knight", sans-serif;
@@ -40,7 +60,6 @@ h1 {
   align-items: flex-end;
   flex-wrap: wrap;
   width: 100%;
-  /* gap: 1rem; */
 }
 .quick-links-container a {
   font-family: SuperPixel;
@@ -85,12 +104,12 @@ h1 {
   background-image: url("Assets/images/book4.png");
 }
 .quick-links-container img {
-  width: 2.3em; /* Adjust size for SVG images */
+  width: 2.3em;
   height: 2.3em;
   max-width: 100%;
   position: absolute;
-  /* right: 2.5em; Adjusted for scalability */
-  right: 2.5em; /* Adjusted for scalability */
+
+  right: 2.5em;
 }
 .quick-links-container a:hover {
   border: 2px solid #4f230d;
@@ -100,7 +119,6 @@ h1 {
   filter: brightness(2);
 }
 
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .quick-links-container {
     background-repeat: no-repeat;
