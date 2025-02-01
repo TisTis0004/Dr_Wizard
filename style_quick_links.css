@@ -19,6 +19,7 @@ body {
   background-repeat: repeat;
   background-position: center;
   background-attachment: scroll;
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar {
   width: 1em;

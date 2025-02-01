@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style_mind_reader.css" />
     <link rel="stylesheet" href="style_global_vars.css" />
     <link rel="stylesheet" href="style_quick_links.css" />
     <!-- <link rel="stylesheet" href="style_test.css" /> -->
@@ -59,6 +60,8 @@
             <span>3</span>
             <input
               type="range"
+              min="0"
+              max="3"
               min="3"
               max="100"
               value="60"
@@ -166,12 +169,344 @@
         </div>
       </div>
     </div>
+    <h1>The Mind Readers</h1>
     <div class="mind-reader">
       <div class="tests-container">
-        <div class="test GAD">GAD</div>
-        <div class="test PHQ">PHQ</div>
+        <div class="test GAD-container">
+          <p>GAD-7</p>
+          <div class="legend">
+            <span>0: Not at all</span>
+            <span>1: Several days</span>
+            <span>2: More than half the days</span>
+            <span>3: Nearly every day</span>
+          </div>
+          <p>
+            Ask the patient: How often have they been bothered by the following
+            over the past 2 weeks?
+          </p>
+          <div class="question GAD">
+            <label for="GAD-1">1. Feeling nervous, anxious, or on edge?</label>
+            <div class="GAD-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="GAD"
+                class="GAD-range"
+                id="GAD-1"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="question GAD">
+            <label for="GAD-2"
+              >2. Not being able to stop or control worrying?</label
+            >
+            <div class="GAD-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="GAD"
+                class="GAD-range"
+                id="GAD-2"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="question GAD">
+            <label for="GAD-3"
+              >3. Worrying too much about different things?</label
+            >
+            <div class="GAD-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="GAD"
+                class="GAD-range"
+                id="GAD-3"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="question GAD">
+            <label for="GAD-4">4. Trouble relaxing?</label>
+            <div class="GAD-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="GAD"
+                class="GAD-range"
+                id="GAD-4"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="question GAD">
+            <label for="GAD-5"
+              >5. Being so restless that it's hard to sit still?</label
+            >
+            <div class="GAD-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="GAD"
+                class="GAD-range"
+                id="GAD-5"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="question GAD">
+            <label for="GAD-6">6. Becoming easily annoyed or irritable?</label>
+            <div class="GAD-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="GAD"
+                class="GAD-range"
+                id="GAD-6"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="question GAD">
+            <label for="GAD-7"
+              >7. Feeling afraid as if something awful might happen?</label
+            >
+            <div class="GAD-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="GAD"
+                class="GAD-range"
+                id="GAD-7"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="GAD-result-container">Read Mind</div>
+        </div>
+        <div class="test PHQ">
+          <p>PHQ-9</p>
+          <div class="legend">
+            <span>0: Not at all</span>
+            <span>1: Several days</span>
+            <span>2: More than half the days</span>
+            <span>3: Nearly every day</span>
+          </div>
+          <p>
+            Ask the patient: How often have they been bothered by the following
+            over the past 2 weeks?
+          </p>
+          <p>Depression Screening</p>
+          <div class="question">
+            <label for=""
+              >1. Little interest or pleasure in doing things?</label
+            >
+            <div class="PHQ-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="PHQ"
+                class="PHQ-range"
+                id="PHQ-1"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <div class="question">
+            <label for="">2. Feeling down, depressed, or hopeless?</label>
+            <div class="PHQ-range-container">
+              <span>0&nbsp;</span
+              ><input
+                type="range"
+                value="0"
+                min="0"
+                max="3"
+                name="PHQ"
+                class="PHQ-range"
+                id="PHQ-1"
+              />
+              <span>&nbsp;3</span>
+            </div>
+          </div>
+          <p>
+            PHQ-9 Depression Assessment(will show depends on "Depression
+            Screening")
+          </p>
+          <div class="PHQ-9">
+            <div class="question">
+              <label for=""
+                >3. Trouble falling or staying asleep, or sleeping too
+                much?</label
+              >
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+            <div class="question">
+              <label for="">4. Feeling tired or having little energy?</label>
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+            <div class="question">
+              <label for="">5. Poor appetite or overeating?</label>
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+            <div class="question">
+              <label for=""
+                >6. Feeling bad about yourself — or that you are a failure or
+                have let yourself or your family down?</label
+              >
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+            <div class="question">
+              <label for=""
+                >7. Trouble concentrating on things, such as reading the
+                newspaper or watching television?</label
+              >
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+            <div class="question">
+              <label for=""
+                >8.Moving or speaking so slowly that other people could have
+                noticed? Or so fidgety or restless that you have been moving a
+                lot more than usual?</label
+              >
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+            <div class="question">
+              <label for=""
+                >9. Thoughts that you would be better off dead, or thoughts of
+                hurting yourself in some way?</label
+              >
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+            <div class="question">
+              <label for="">10. ???</label>
+              <div class="PHQ-range-container">
+                <span>0&nbsp;</span
+                ><input
+                  type="range"
+                  value="0"
+                  min="0"
+                  max="3"
+                  name="PHQ"
+                  class="PHQ-range"
+                  id="PHQ-1"
+                />
+                <span>&nbsp;3</span>
+              </div>
+            </div>
+          </div>
+          <div class="PHQ-result-container">Read Mind</div>
+        </div>
       </div>
-      <div class="mind-reader-results"></div>
+      <div class="mind-reader-results">Results</div>
     </div>
   </body>
 </html>
