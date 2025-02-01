@@ -1,0 +1,214 @@
+@font-face {
+  font-family: "Knight";
+  src: url("Assets/fonts/KnightWarrior.otf") format("truetype");
+}
+@font-face {
+  font-family: "SuperPixel";
+  src: url("Assets/fonts/SuperPixel.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Belion";
+  src: url("Assets/fonts/BelionRadego.otf") format("truetype");
+}
+@font-face {
+  font-family: "Distropiax";
+  src: url("Assets/fonts/Distropiax.ttf") format("truetype");
+}
+.global-vars {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vars-container {
+  display: flex;
+  justify-content: space-between;
+}
+.age-container,
+.measures-container,
+.gender-container {
+  background-color: #64399b;
+  width: 350px;
+  height: 200px;
+  padding: 0.8em 1em;
+  border-radius: 1em;
+  margin: 0 1.5em;
+}
+/*===================================AGE===================================*/
+h2 {
+  text-align: center;
+  font-family: Belion;
+  letter-spacing: 0.1em;
+  margin-bottom: 0;
+}
+.age-container {
+  height: 200px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.age-range-container {
+  font-family: Distropiax;
+  font-weight: bold;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.age-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90%;
+  height: 8px;
+  background: linear-gradient(to right, #9df5ff, #06474e);
+  border-radius: 5px;
+  outline: none;
+}
+.age-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.age-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+h3 {
+  font-family: Distropiax;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*===================================MEASURES VARIABLES===================================*/
+.measures-container {
+  background-image: url(Assets/images/flex_boy.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  height: 400px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.measures-container > div {
+  width: 100%;
+  height: 3.2em;
+  background-color: #803ed66b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.measure-title {
+  margin: 0;
+  font-size: 0.7em;
+  text-align: center;
+  font-family: SuperPixel;
+}
+
+/* Input box styling */
+.measure-container input {
+  width: 50%;
+  padding: 0.2em;
+  font-size: 16px;
+  border: 2px solid #ccc; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  outline: none; /* Remove default focus outline */
+  transition: border-color 0.3s ease; /* Smooth transition for focus */
+}
+
+/* Input box focus state */
+.measure-container input:focus {
+  border-color: #e30cf3; /* Highlight color when focused */
+}
+
+/* Placeholder styling */
+.measure-container input::placeholder {
+  color: #999; /* Light gray placeholder text */
+  font-size: 1em;
+}
+
+/* Optional: Add a subtle shadow for depth */
+.measure-container input {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/*===================================Gender===================================*/
+.gender-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gender {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.choose-gender {
+  padding: 0.5em;
+  border-radius: 1em;
+  color: white;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #3108686f;
+}
+.gender-symbol {
+  position: relative;
+  width: 5.5em;
+  height: 5.5em;
+  border-radius: 50%;
+  border: 4px solid black;
+  transition: border-color 0.7s;
+}
+.male-color {
+  border-color: #006aff;
+}
+.female-color {
+  border-color: #d400ff;
+}
+.gender-arrow {
+  position: absolute;
+  width: 4%;
+  height: 3%;
+  rotate: 45deg;
+  background-color: transparent;
+  top: -5%;
+  right: -5%;
+}
+.arrow-head {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 11px 12px 11px;
+  border-color: transparent transparent transparent transparent;
+  position: absolute;
+  width: 4%;
+  height: 3%;
+  rotate: 45deg;
+  background-color: transparent;
+  top: -30%;
+  right: -35%;
+  transition: border-color 0.3s;
+}
+.female-cross {
+  width: 4%;
+  height: 70%;
+  background-color: transparent;
+  position: absolute;
+  left: -25%;
+}

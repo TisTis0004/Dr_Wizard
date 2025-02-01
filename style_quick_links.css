@@ -29,6 +29,7 @@ body::-webkit-scrollbar-track {
   background: linear-gradient(#18023f, #601fd2);
 }
 body::-webkit-scrollbar-thumb {
+  min-height: 1em;
   background: transparent;
   background-image: url("Assets/images/bone.png");
   background-position: top;
@@ -64,6 +65,7 @@ h1 {
   background-image: url("Assets/images/shelf_background_test.png");
   background-size: contain;
   background-position: center;
+  margin-bottom: 2em;
 }
 .links {
   display: flex;

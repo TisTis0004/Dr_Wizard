@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style_global_vars.css" />
     <link rel="stylesheet" href="style_quick_links.css" />
     <!-- <link rel="stylesheet" href="style_test.css" /> -->
     <script
@@ -23,6 +24,7 @@
       defer
     ></script>
     <script src="script.js" defer></script>
+    <script src="gender.js" defer></script>
   </head>
   <body>
     <div class="quick-links-container">
@@ -47,6 +49,104 @@
         >
           <img src="Assets/icons/search.svg" alt="" />
         </a>
+      </div>
+    </div>
+    <div class="global-vars">
+      <h1>Global Vars</h1>
+      <div class="vars-container">
+        <div class="age-container">
+          <h2>The Herald oF Passing Moons</h2>
+          <div class="age-range-container">
+            <span>3</span>
+            <input
+              type="range"
+              min="3"
+              max="99"
+              class="age-range"
+              name="age"
+              id="age"
+            />
+            <span>99</span>
+          </div>
+          <h3>
+            <div>Age&nbsp;:&nbsp;<span class="range-value"></span></div>
+            <img
+              class="age-img"
+              src="Assets/images/old.png"
+              alt=""
+              width="64px"
+              height="64px"
+            />
+          </h3>
+        </div>
+        <div class="measures-container">
+          <div class="measure-container">
+            <p class="measure-title">Height</p>
+            <input
+              type="number"
+              id="height"
+              name="height"
+              min="20"
+              max="250"
+              step="0.1"
+              placeholder="CM"
+            />
+          </div>
+          <div class="measure-container">
+            <p class="measure-title">Waist</p>
+            <input
+              type="number"
+              id="waist"
+              name="waist"
+              min="20"
+              max="200"
+              step="0.1"
+              placeholder="CM"
+            />
+          </div>
+          <div class="measure-container">
+            <p class="measure-title">Hips</p>
+            <input
+              type="number"
+              id="hip"
+              name="hip"
+              min="20"
+              max="200"
+              step="0.1"
+              placeholder="CM"
+            />
+          </div>
+          <div class="measure-container">
+            <p class="measure-title">Weight</p>
+            <input
+              type="number"
+              id="weight"
+              name="weight"
+              min="20"
+              max="300"
+              step="0.1"
+              placeholder="KG"
+            />
+          </div>
+        </div>
+        <div class="gender-container">
+          <h2>Scroll oF Identity</h2>
+          <div class="gender">
+            <div class="choose-gender">
+              <label for="male">Wizard</label>
+              <input type="radio" name="gender" id="male" />
+              <br />
+              <input type="radio" name="gender" id="female" />
+              <label for="female">Witch</label>
+            </div>
+            <div class="gender-symbol">
+              <div class="gender-arrow"></div>
+              <div class="arrow-head"></div>
+              <div class="female-cross"></div>
+              <!-- CLASS IS NOT MIRROR I HATE YOU ASMA (•̀ - •́) -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
