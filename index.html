@@ -24,7 +24,6 @@
       defer
     ></script>
     <script src="script.js" defer></script>
-    <script src="gender.js" defer></script>
   </head>
   <body>
     <div class="quick-links-container">
@@ -52,7 +51,7 @@
       </div>
     </div>
     <div class="global-vars">
-      <h1>Global Vars</h1>
+      <h1>Craft Your Patient</h1>
       <div class="vars-container">
         <div class="age-container">
           <h2>The Herald oF Passing Moons</h2>
@@ -61,15 +60,16 @@
             <input
               type="range"
               min="3"
-              max="99"
+              max="100"
+              value="60"
               class="age-range"
               name="age"
               id="age"
             />
-            <span>99</span>
+            <span>100</span>
           </div>
           <h3>
-            <div>Age&nbsp;:&nbsp;<span class="range-value"></span></div>
+            <div>Age&nbsp;:&nbsp;<span class="range-value">60</span></div>
             <img
               class="age-img"
               src="Assets/images/old.png"
@@ -79,11 +79,43 @@
             />
           </h3>
         </div>
+        <div class="gender-submit-container">
+          <div class="gender-container">
+            <h2>Scroll oF Identity</h2>
+            <div class="gender">
+              <div class="choose-gender">
+                <label class="gender-label-male" for="male">Wizard</label>
+                <input type="radio" name="gender" id="male" />
+                <br />
+                <input type="radio" name="gender" id="female" />
+                <label class="gender-label-female" for="female">Witch</label>
+              </div>
+              <div class="gender-symbol">
+                <div class="gender-arrow"></div>
+                <div class="arrow-head"></div>
+                <div class="female-cross"></div>
+                <div class="eye">👁️</div>
+                <img
+                  class="gender-image"
+                  src="Assets/images/"
+                  width="100%"
+                  height="100%"
+                  alt=""
+                />
+                <!-- CLASS IS NOT MIRROR I HATE YOU ASMA (•̀ - •́) -->
+              </div>
+            </div>
+          </div>
+          <div class="submit-container">
+            <span class="submit-span">CREATE</span>
+          </div>
+        </div>
         <div class="measures-container">
           <div class="measure-container">
             <p class="measure-title">Height</p>
             <input
               type="number"
+              class="number-input"
               id="height"
               name="height"
               min="20"
@@ -96,6 +128,7 @@
             <p class="measure-title">Waist</p>
             <input
               type="number"
+              class="number-input"
               id="waist"
               name="waist"
               min="20"
@@ -108,6 +141,7 @@
             <p class="measure-title">Hips</p>
             <input
               type="number"
+              class="number-input"
               id="hip"
               name="hip"
               min="20"
@@ -120,6 +154,7 @@
             <p class="measure-title">Weight</p>
             <input
               type="number"
+              class="number-input"
               id="weight"
               name="weight"
               min="20"
@@ -129,32 +164,14 @@
             />
           </div>
         </div>
-        <div class="gender-container">
-          <h2>Scroll oF Identity</h2>
-          <div class="gender">
-            <div class="choose-gender">
-              <label for="male">Wizard</label>
-              <input type="radio" name="gender" id="male" />
-              <br />
-              <input type="radio" name="gender" id="female" />
-              <label for="female">Witch</label>
-            </div>
-            <div class="gender-symbol">
-              <div class="gender-arrow"></div>
-              <div class="arrow-head"></div>
-              <div class="female-cross"></div>
-              <img
-                class="gender-image"
-                src="Assets/images/"
-                width="100%"
-                height="100%"
-                alt=""
-              />
-              <!-- CLASS IS NOT MIRROR I HATE YOU ASMA (•̀ - •́) -->
-            </div>
-          </div>
-        </div>
       </div>
+    </div>
+    <div class="mind-reader">
+      <div class="tests-container">
+        <div class="test GAD">GAD</div>
+        <div class="test PHQ">PHQ</div>
+      </div>
+      <div class="mind-reader-results"></div>
     </div>
   </body>
 </html>

@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Knight";
+  src: url("Assets/fonts/KnightWarrior.otf") format("truetype");
+}
+@font-face {
+  font-family: "SuperPixel";
+  src: url("Assets/fonts/SuperPixel.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Belion";
+  src: url("Assets/fonts/BelionRadego.otf") format("truetype");
+}
+@font-face {
+  font-family: "Distropiax";
+  src: url("Assets/fonts/Distropiax.ttf") format("truetype");
+}

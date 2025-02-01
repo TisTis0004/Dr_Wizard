@@ -26,13 +26,17 @@
 }
 .age-container,
 .measures-container,
-.gender-container {
+.gender-container,
+.submit-container {
   background-color: #64399b;
-  width: 350px;
-  height: 200px;
+  width: 22em;
+  height: 12.5em;
   padding: 0.8em 1em;
   border-radius: 1em;
   margin: 0 1.5em;
+}
+br {
+  user-select: none;
 }
 /*===================================AGE===================================*/
 h2 {
@@ -61,7 +65,9 @@ h2 {
   appearance: none;
   width: 90%;
   height: 8px;
-  background: linear-gradient(to right, #9df5ff, #06474e);
+  box-shadow: 0 0 5px black;
+
+  background: linear-gradient(to right, #807d7d, #000);
   border-radius: 5px;
   outline: none;
 }
@@ -84,13 +90,18 @@ h2 {
 }
 
 h3 {
-  font-family: Distropiax;
+  font-family: Belion;
   text-align: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
 }
-
+h3 div {
+  font-size: 2em;
+}
+.range-value {
+  font-family: Distropiax;
+  text-align: center;
+}
 /*===================================MEASURES VARIABLES===================================*/
 .measures-container {
   background-image: url(Assets/images/flex_boy.png);
@@ -120,29 +131,25 @@ h3 {
   font-family: SuperPixel;
 }
 
-/* Input box styling */
 .measure-container input {
   width: 50%;
   padding: 0.2em;
   font-size: 16px;
-  border: 2px solid #ccc; /* Light border */
-  border-radius: 8px; /* Rounded corners */
-  outline: none; /* Remove default focus outline */
-  transition: border-color 0.3s ease; /* Smooth transition for focus */
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-/* Input box focus state */
 .measure-container input:focus {
-  border-color: #e30cf3; /* Highlight color when focused */
+  border-color: #e30cf3;
 }
 
-/* Placeholder styling */
 .measure-container input::placeholder {
-  color: #999; /* Light gray placeholder text */
+  color: #999;
   font-size: 1em;
 }
 
-/* Optional: Add a subtle shadow for depth */
 .measure-container input {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -164,8 +171,38 @@ h3 {
   width: 30%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   background-color: #3108686f;
+}
+.gender-label-male,
+.gender-label-female {
+  width: 3.5em;
+  cursor: pointer;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background-color: black;
+  transition: background 0.3s, color 0.5s;
+  padding: 0.2em 0.5em;
+  border-radius: 1em;
+  user-select: none;
+}
+.gender-label-male:hover {
+  background-color: #aec6cf;
+}
+.gender-label-female:hover {
+  background-color: #ffc5d3;
+}
+.gender-label-male:active {
+  background-color: #002d6b;
+}
+.gender-label-female:active {
+  background-color: #620175;
+}
+#female,
+#male {
+  display: none;
 }
 .gender-symbol {
   position: relative;
@@ -176,10 +213,10 @@ h3 {
   transition: border-color 0.7s;
 }
 .male-color {
-  border-color: #006aff;
+  border-color: #aec6cf;
 }
 .female-color {
-  border-color: #d400ff;
+  border-color: #ffc5d3;
 }
 .gender-arrow {
   position: absolute;
@@ -211,6 +248,7 @@ h3 {
   background-color: transparent;
   position: absolute;
   left: -25%;
+  z-index: 10;
 }
 .gender-image {
   width: 100%;
@@ -219,4 +257,62 @@ h3 {
   margin: auto auto;
   visibility: hidden;
   transition: visibility 0.5s;
+  border-radius: 100%;
+}
+
+.eye {
+  position: absolute;
+  font-size: 1.5em;
+  width: fit-content;
+  height: 20px;
+  user-select: none;
+  scale: 0;
+}
+
+/*===================================Submit===================================*/
+.gender-submit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.submit-container {
+  color: #fff;
+  text-shadow: 0.3em 0.3em #000;
+  width: 11em;
+  height: 11em;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ba93e9;
+  transition: filter 0.5s;
+  user-select: none;
+  background-image: url("Assets/images/soup2_test.jpg");
+  border: 2px solid black;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  filter: brightness(1) grayscale(1);
+  cursor: not-allowed;
+}
+.submit-container-active {
+  cursor: pointer;
+  transition: filter 0.5s;
+  filter: grayscale(0);
+}
+.submit-container-active:hover {
+  filter: brightness(1.1);
+}
+.submit-container-inactive {
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+.submit-container span {
+  font-family: Superpixel;
+  font-size: 1.3em;
+}
+.submit-span {
+  position: absolute;
+  bottom: 10%;
 }
