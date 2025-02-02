@@ -157,7 +157,6 @@ numberInputs.forEach((input) => {
 
 submitButton.addEventListener("click", function () {
   if (submitButton.classList.contains("submit-container-active")) {
-    alert("Form submitted successfully!");
     globalVars = {
       Gender: gender,
       Age: age.value,
@@ -167,5 +166,24 @@ submitButton.addEventListener("click", function () {
       Weight: numberInputs[3].value,
     };
     console.log(globalVars);
+  }
+});
+// PHQ-9
+const rangePHQ1 = document.getElementById("PHQ-1");
+const rangePHQ2 = document.getElementById("PHQ-2");
+const PHQ = document.querySelector(".PHQ-9");
+rangePHQ1.addEventListener("input", () => {
+  if (parseInt(rangePHQ1.value) + parseInt(rangePHQ2.value) >= 3) {
+    PHQ.classList.add("PHQ-9-positive");
+    console.log(rangePHQ1.value + rangePHQ2.value);
+  } else {
+    PHQ.classList.remove("PHQ-9-positive");
+  }
+});
+rangePHQ2.addEventListener("input", () => {
+  if (parseInt(rangePHQ1.value) + parseInt(rangePHQ2.value) >= 3) {
+    PHQ.classList.add("PHQ-9-positive");
+  } else {
+    PHQ.classList.remove("PHQ-9-positive");
   }
 });

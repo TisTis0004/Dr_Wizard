@@ -17,30 +17,37 @@
 
 .mind-reader {
   text-align: center;
-  width: 100%;
   min-height: 60em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: lightblue;
+  background: url("Assets/images/castle_wall.png");
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  background-position: center;
+  background-attachment: scroll;
+  margin-top: 5em;
 }
 .tests-container {
   width: 100%;
   height: 100%;
   padding: 0.5em;
   display: flex;
-  justify-content: space-between;
-  background-color: red;
+  justify-content: space-around;
 }
 .test {
   width: 100%;
   height: fit-content;
   background-color: green;
-  height: fit-content;
   margin: 0.5em;
   border-radius: 1em;
-  border: 2px solid black;
+  padding: 1em;
+}
+.test p {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 0;
 }
 .question {
   background-color: lightblue;
@@ -49,10 +56,10 @@
   display: flex;
   justify-content: space-between;
   text-align: left;
+  border-radius: 1em;
 }
 .question label {
-  max-width: 50%;
-  cursor: text;
+  cursor: url("Assets/images/wand_2"), auto;
 }
 .mind-reader-results {
   text-align: center;
@@ -63,17 +70,31 @@
 }
 .GAD-range,
 .PHQ-range {
-  width: 19em;
+  width: 10em;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: linear-gradient(to right, #807d7d, #000);
+  border-radius: 5px;
+  outline: none;
 }
 .GAD-range::-webkit-slider-thumb,
 .PHQ-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background: red;
 }
 
 .legend {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0em 1em 1em;
 }
 .legend span {
   margin: 0 0.5em;
@@ -90,11 +111,20 @@
   border-radius: 0 0 0.9em 0.9em;
   color: white;
   transition: color 0.3s, background 0.3s;
-  border: 2px solid black;
+  border: 0.5px solid black;
 }
 .GAD-result-container:hover,
 .PHQ-result-container:hover {
-  cursor: pointer;
   background-color: lightgreen;
   color: black;
+}
+.PHQ-9 {
+  visibility: hidden;
+  transition: visibility 1.5s, opacity 1.5s;
+  opacity: 0;
+}
+.PHQ-9-positive {
+  visibility: visible;
+  transition: visibility 1.5s, opacity 1.5s;
+  opacity: 1;
 }
