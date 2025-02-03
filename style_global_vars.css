@@ -19,7 +19,9 @@
   justify-content: center;
   flex-direction: column;
 }
-
+.global-vars-head {
+  margin-top: 1.5em;
+}
 .vars-container {
   display: flex;
   justify-content: space-between;

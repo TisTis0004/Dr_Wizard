@@ -60,16 +60,26 @@ h1 {
   text-shadow: 0 0 0.5rem black;
 }
 .quick-links-container {
+  position: relative;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  background-image: url("Assets/images/shelf_background_test.png");
+  background-image: url("Assets/images/heading_background.webp");
   background-size: contain;
   background-position: center;
+  height: 10em;
   margin-bottom: 2em;
+  z-index: 2;
+}
+/* ADD STARS */
+.quick-links-container-background {
+  /* background: url(); */
+  background-color: red;
 }
 .links {
+  position: absolute;
+  bottom: -3.2em;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -82,7 +92,6 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   font-size: 0.9rem;
   flex: 1;
   background-color: #4f230d;
@@ -97,6 +106,7 @@ h1 {
   width: 1.5rem;
   height: 1.5rem;
   cursor: url("Assets/icons/candle.png"), auto;
+  position: relative;
 }
 .book1,
 .book2,
@@ -123,8 +133,8 @@ h1 {
   height: 2.3em;
   max-width: 100%;
   position: absolute;
-
   right: 2.5em;
+  visibility: hidden;
 }
 .quick-links-container a:hover {
   border: 2px solid #4f230d;
@@ -133,7 +143,9 @@ h1 {
   box-shadow: none;
   filter: brightness(2);
 }
-
+.quick-links-container a:hover img {
+  visibility: visible;
+}
 @media (max-width: 768px) {
   .quick-links-container {
     background-repeat: no-repeat;

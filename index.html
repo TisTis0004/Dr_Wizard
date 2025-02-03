@@ -27,32 +27,33 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="quick-links-container">
-      <h1 class="quick-links-header">Grab Your B-Link Quickly</h1>
-      <div class="links">
-        <a class="book1" target="_blank" href="https://www.dynamed.com">
-          <img src="Assets/icons/scrolls.svg" alt=""
-        /></a>
+    <div class="quick-links-container-background">
+      <div class="quick-links-container">
+        <div class="links">
+          <a class="book1" target="_blank" href="https://www.dynamed.com">
+            <img src="Assets/icons/scrolls.svg" alt=""
+          /></a>
 
-        <a class="book2" target="_blank" href="https://www.uptodate.com">
-          <img src="Assets/icons/potion.svg" alt=""
-        /></a>
+          <a class="book2" target="_blank" href="https://www.uptodate.com">
+            <img src="Assets/icons/potion.svg" alt=""
+          /></a>
 
-        <a class="book3" target="_blank" href="https://online.lexi.com">
-          <img src="Assets/icons/roots.svg" alt="" />
-        </a>
+          <a class="book3" target="_blank" href="https://online.lexi.com">
+            <img src="Assets/icons/roots.svg" alt="" />
+          </a>
 
-        <a
-          class="book4"
-          target="_blank"
-          href="https://www.uspreventiveservicestaskforce.org/webview/#!/"
-        >
-          <img src="Assets/icons/search.svg" alt="" />
-        </a>
+          <a
+            class="book4"
+            target="_blank"
+            href="https://www.uspreventiveservicestaskforce.org/webview/#!/"
+          >
+            <img src="Assets/icons/search.svg" alt="" />
+          </a>
+        </div>
       </div>
     </div>
     <div class="global-vars">
-      <h1>Craft Your Patient</h1>
+      <h1 class="global-vars-head">Craft Your Patient</h1>
       <div class="vars-container">
         <div class="age-container">
           <h2>The Herald oF Passing Moons</h2>
@@ -169,18 +170,29 @@
     </div>
     <div class="separator"></div>
     <div class="mind-reader">
-      <h1>The Mind Readers</h1>
+      <h1 id="mind-read-head">The Mind Readers</h1>
       <div class="legend">
-        <p>
+        <div class="zero-one">
+          <div class="test-score">0: Not at all</div>
+          <div class="test-score">1: Several days</div>
+        </div>
+        <p class="main-question">
           How often have they been bothered by the following over the past 2
           weeks?
         </p>
-        <div>
-          <span>0: Not at all</span>
-          <span>1: Several days</span>
-          <span>2: More than half the days</span>
-          <span>3: Nearly every day</span>
+        <div class="two-three">
+          <div class="test-score">2: More than half the days</div>
+          <div class="test-score">3: Nearly every day</div>
         </div>
+      </div>
+      <div class="mind-read-results">
+        <div class="orb-container">
+          <img class="orb" src="Assets/images/happy_orb.webp" alt="orb" />
+          <img class="frog" src="Assets/images/frog.webp" alt="" />
+        </div>
+      </div>
+      <div class="legend">
+        <div></div>
       </div>
       <div class="tests-container">
         <div class="test GAD-container">

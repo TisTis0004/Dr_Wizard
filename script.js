@@ -178,6 +178,9 @@ rangePHQ1.addEventListener("input", () => {
     console.log(rangePHQ1.value + rangePHQ2.value);
   } else {
     PHQ.classList.remove("PHQ-9-positive");
+    for (let i = 2; i < PHQRanges.length; i++) {
+      PHQRanges[i].value = 0;
+    }
   }
 });
 rangePHQ2.addEventListener("input", () => {
@@ -185,5 +188,46 @@ rangePHQ2.addEventListener("input", () => {
     PHQ.classList.add("PHQ-9-positive");
   } else {
     PHQ.classList.remove("PHQ-9-positive");
+    for (let i = 2; i < PHQRanges.length; i++) {
+      PHQRanges[i].value = 0;
+    }
   }
+});
+
+const GADRanges = document.querySelectorAll(".GAD-range");
+const PHQRanges = document.querySelectorAll(".PHQ-range");
+const orbImg = document.querySelector(".orb");
+GADRanges.forEach((range) => {
+  range.addEventListener("input", () => {
+    let sum = 0;
+    for (let i = 0; i < GADRanges.length; i++) {
+      sum += parseInt(GADRanges[i].value);
+    }
+    if (sum >= 0 && sum <= 4) {
+      orbImg.src = "Assets/images/happy_orb.webp";
+    } else if (sum >= 5 && sum <= 9) {
+      orbImg.src = "Assets/images/GAD_mild.webp";
+    } else if (sum >= 10 && sum <= 14) {
+      orbImg.src = "Assets/images/GAD_moderate.webp";
+    } else {
+      orbImg.src = "Assets/images/GAD_severe.webp";
+    }
+  });
+});
+PHQRanges.forEach((range) => {
+  range.addEventListener("input", () => {
+    let sum = 0;
+    for (let i = 0; i < PHQRanges.length; i++) {
+      sum += parseInt(PHQRanges[i].value);
+    }
+    if (sum >= 0 && sum <= 4) {
+      orbImg.src = "Assets/images/happy_orb.webp";
+    } else if (sum >= 5 && sum <= 9) {
+      orbImg.src = "Assets/images/PHQ_mild.webp";
+    } else if (sum >= 10 && sum <= 14) {
+      orbImg.src = "Assets/images/PHQ_moderate.webp";
+    } else {
+      orbImg.src = "Assets/images/PHQ_severe.webp";
+    }
+  });
 });
