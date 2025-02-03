@@ -29,6 +29,7 @@
 .gender-container,
 .submit-container {
   background-color: #64399b;
+  box-shadow: 0.1em 0.1em 0.5em black;
   width: 22em;
   height: 12.5em;
   padding: 0.8em 1em;
@@ -69,7 +70,6 @@ h2 {
   background: linear-gradient(to right, #807d7d, #000);
   border-radius: 5px;
   outline: none;
-  cursor: pointer;
 }
 .age-range::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -78,7 +78,6 @@ h2 {
   height: 20px;
   background: #000;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 .age-range::-moz-range-thumb {
@@ -86,7 +85,6 @@ h2 {
   height: 20px;
   background: #000;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 h3 {
@@ -101,6 +99,8 @@ h3 div {
 .range-value {
   font-family: Distropiax;
   text-align: center;
+  display: inline-block;
+  min-width: 1.2em;
 }
 /*===================================MEASURES VARIABLES===================================*/
 .measures-container {
@@ -178,7 +178,7 @@ h3 div {
 .gender-label-male,
 .gender-label-female {
   width: 3.5em;
-  cursor: pointer;
+
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -297,7 +297,6 @@ h3 div {
   cursor: not-allowed;
 }
 .submit-container-active {
-  cursor: pointer;
   transition: filter 0.5s;
   filter: grayscale(0);
 }

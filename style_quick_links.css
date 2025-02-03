@@ -155,3 +155,10 @@ h1 {
     margin: 0 auto;
   }
 }
+* {
+  cursor: url("Assets/images/wand_2.png") -3 -3, auto !important;
+}
+.quick-links-container a,
+.quick-links-container img {
+  cursor: url("Assets/icons/candle.png"), auto !important;
+}

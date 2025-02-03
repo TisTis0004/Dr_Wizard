@@ -43,6 +43,7 @@
   margin: 0.5em;
   border-radius: 1em;
   padding: 1em;
+  box-shadow: 0.1em 0.1em 0.5em black;
 }
 .test p {
   font-weight: bold;
@@ -59,7 +60,7 @@
   border-radius: 1em;
 }
 .question label {
-  cursor: url("Assets/images/wand_2"), auto;
+  cursor: url("Assets/images/wand_2.png"), auto;
 }
 .mind-reader-results {
   text-align: center;
@@ -82,7 +83,6 @@
 .PHQ-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  cursor: pointer;
   width: 1em;
   height: 1em;
   border-radius: 50%;
