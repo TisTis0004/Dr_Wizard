@@ -130,7 +130,7 @@
   justify-content: center;
   align-items: center;
   margin: 0.5em 0.5em;
-  padding: 0.5em;
+  padding: 0.4em;
   background-color: black;
   color: white;
   border-radius: 0.5em;
@@ -140,9 +140,10 @@
 .main-question {
   font-size: 1.2em;
   padding: 1.2em;
+  margin-bottom: 4.5em;
 }
 #mind-read-head {
-  margin: 0;
+  margin: 0.6em 0 0 0;
 }
 .legend {
   display: flex;
@@ -153,13 +154,67 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .orb {
+  position: relative;
+  z-index: 2;
   display: block;
-  max-width: 15em;
-  max-height: 15em;
+  max-width: 10em;
+  max-height: 10em;
   user-select: none;
   -webkit-user-drag: none;
+}
+.orb-indicator-container {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  transition: opacity 0.5s, background 0.5s;
+  opacity: 0;
+  position: relative;
+  left: 0.8em;
+}
+.orb-classes {
+  display: flex;
+  justify-content: space-between;
+}
+.orb-classes span {
+  position: relative;
+  color: white;
+  display: inline-block;
+  z-index: 3;
+}
+:root{
+  --color1: #b064c3;
+  --color2: #660088
+  --color3: #360145
+  --color4: #6a7fdf
+  --color5: #2e27a1
+  --color6: #060069
+}
+.orb-indicator {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 0.7em;
+  border-radius: 3em;
+  background: linear-gradient(
+    to right,
+    var(--color1),
+    var(--color2),
+    var(--color3)
+  );
+  transition: --color1 0.5s ease, --color2 0.5s ease, --color3 0.5s ease,
+    --color4 0.5s ease, --color5 0.5s ease, --color6 0.5s ease;
+}
+.orb-indicator-alt {
+  background: linear-gradient(
+    to right,
+    var(--color4),
+    var(--color5),
+    var(--color6)
+  );
+  visibility: visible;
 }
 .frog {
   display: block;
@@ -167,4 +222,8 @@
   max-height: 15em;
   user-select: none;
   -webkit-user-drag: none;
+  position: absolute;
+  z-index: 1;
+  top: -5em;
+  left: -2.1em;
 }

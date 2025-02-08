@@ -72,10 +72,15 @@ h1 {
   margin-bottom: 2em;
   z-index: 2;
 }
-/* ADD STARS */
 .quick-links-container-background {
-  /* background: url(); */
-  background-color: red;
+  background: url("Assets/images/stars_background.png");
+  background-size: contain;
+}
+* {
+  -webkit-user-drag: none;
+}
+input {
+  user-select: none;
 }
 .links {
   position: absolute;

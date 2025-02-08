@@ -71,7 +71,7 @@
             <span>100</span>
           </div>
           <h3>
-            <div>Age&nbsp;:&nbsp;<span class="range-value">60</span></div>
+            <div>Age : <span class="range-value">60</span></div>
             <img
               class="age-img"
               src="Assets/images/old.png"
@@ -170,25 +170,35 @@
     </div>
     <div class="separator"></div>
     <div class="mind-reader">
-      <h1 id="mind-read-head">The Mind Readers</h1>
+      <h1 id="mind-read-head">Mind Readers</h1>
       <div class="legend">
-        <div class="zero-one">
-          <div class="test-score">0: Not at all</div>
-          <div class="test-score">1: Several days</div>
-        </div>
         <p class="main-question">
           How often have they been bothered by the following over the past 2
           weeks?
         </p>
+      </div>
+      <div class="mind-read-results">
+        <div class="zero-one">
+          <div class="test-score">0: Not at all</div>
+          <div class="test-score">1: Several days</div>
+        </div>
+        <div class="orb-container">
+          <div>
+            <img class="orb" src="Assets/images/happy_orb.webp" alt="orb" />
+            <div class="orb-indicator-container">
+              <div class="orb-classes">
+                <span>Mild</span>
+                <span>Mod</span>
+                <span>Severe</span>
+              </div>
+              <div class="orb-indicator"></div>
+            </div>
+          </div>
+          <img class="frog" src="Assets/images/frog.webp" alt="" />
+        </div>
         <div class="two-three">
           <div class="test-score">2: More than half the days</div>
           <div class="test-score">3: Nearly every day</div>
-        </div>
-      </div>
-      <div class="mind-read-results">
-        <div class="orb-container">
-          <img class="orb" src="Assets/images/happy_orb.webp" alt="orb" />
-          <img class="frog" src="Assets/images/frog.webp" alt="" />
         </div>
       </div>
       <div class="legend">
@@ -200,7 +210,7 @@
           <div class="question GAD">
             <label for="GAD-1">1. Feeling nervous, anxious, or on edge?</label>
             <div class="GAD-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -210,7 +220,7 @@
                 class="GAD-range"
                 id="GAD-1"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
@@ -218,7 +228,7 @@
               >2. Not being able to stop or control worrying?</label
             >
             <div class="GAD-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -228,7 +238,7 @@
                 class="GAD-range"
                 id="GAD-2"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
@@ -236,7 +246,7 @@
               >3. Worrying too much about different things?</label
             >
             <div class="GAD-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -246,13 +256,13 @@
                 class="GAD-range"
                 id="GAD-3"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
             <label for="GAD-4">4. Trouble relaxing?</label>
             <div class="GAD-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -262,7 +272,7 @@
                 class="GAD-range"
                 id="GAD-4"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
@@ -270,7 +280,7 @@
               >5. Being so restless that it's hard to sit still?</label
             >
             <div class="GAD-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -280,13 +290,13 @@
                 class="GAD-range"
                 id="GAD-5"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
             <label for="GAD-6">6. Becoming easily annoyed or irritable?</label>
             <div class="GAD-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -296,7 +306,7 @@
                 class="GAD-range"
                 id="GAD-6"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
@@ -304,7 +314,7 @@
               >7. Feeling afraid as if something awful might happen?</label
             >
             <div class="GAD-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -314,10 +324,9 @@
                 class="GAD-range"
                 id="GAD-7"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
-          <div class="GAD-result-container">Read Mind</div>
         </div>
         <div class="test PHQ">
           <p>PHQ-9</p>
@@ -326,7 +335,7 @@
               >1. Little interest or pleasure in doing things?</label
             >
             <div class="PHQ-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -336,13 +345,13 @@
                 class="PHQ-range"
                 id="PHQ-1"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="question">
             <label for="">2. Feeling down, depressed, or hopeless?</label>
             <div class="PHQ-range-container">
-              <span>0&nbsp;</span
+              <span>0 </span
               ><input
                 type="range"
                 value="0"
@@ -352,7 +361,7 @@
                 class="PHQ-range"
                 id="PHQ-2"
               />
-              <span>&nbsp;3</span>
+              <span> 3</span>
             </div>
           </div>
           <div class="PHQ-9">
@@ -362,7 +371,7 @@
                 much?</label
               >
               <div class="PHQ-range-container">
-                <span>0&nbsp;</span
+                <span>0 </span
                 ><input
                   type="range"
                   value="0"
@@ -372,13 +381,13 @@
                   class="PHQ-range"
                   id="PHQ-3"
                 />
-                <span>&nbsp;3</span>
+                <span> 3</span>
               </div>
             </div>
             <div class="question">
               <label for="">4. Feeling tired or having little energy?</label>
               <div class="PHQ-range-container">
-                <span>0&nbsp;</span
+                <span>0 </span
                 ><input
                   type="range"
                   value="0"
@@ -388,13 +397,13 @@
                   class="PHQ-range"
                   id="PHQ-4"
                 />
-                <span>&nbsp;3</span>
+                <span> 3</span>
               </div>
             </div>
             <div class="question">
               <label for="">5. Poor appetite or overeating?</label>
               <div class="PHQ-range-container">
-                <span>0&nbsp;</span
+                <span>0 </span
                 ><input
                   type="range"
                   value="0"
@@ -404,7 +413,7 @@
                   class="PHQ-range"
                   id="PHQ-5"
                 />
-                <span>&nbsp;3</span>
+                <span> 3</span>
               </div>
             </div>
             <div class="question">
@@ -413,7 +422,7 @@
                 down?</label
               >
               <div class="PHQ-range-container">
-                <span>0&nbsp;</span
+                <span>0 </span
                 ><input
                   type="range"
                   value="0"
@@ -423,13 +432,13 @@
                   class="PHQ-range"
                   id="PHQ-6"
                 />
-                <span>&nbsp;3</span>
+                <span> 3</span>
               </div>
             </div>
             <div class="question">
               <label for="">7. Trouble concentrating on things?</label>
               <div class="PHQ-range-container">
-                <span>0&nbsp;</span
+                <span>0 </span
                 ><input
                   type="range"
                   value="0"
@@ -439,7 +448,7 @@
                   class="PHQ-range"
                   id="PHQ-7"
                 />
-                <span>&nbsp;3</span>
+                <span> 3</span>
               </div>
             </div>
             <div class="question">
@@ -448,7 +457,7 @@
                 usual?</label
               >
               <div class="PHQ-range-container">
-                <span>0&nbsp;</span
+                <span>0 </span
                 ><input
                   type="range"
                   value="0"
@@ -458,7 +467,7 @@
                   class="PHQ-range"
                   id="PHQ-8"
                 />
-                <span>&nbsp;3</span>
+                <span> 3</span>
               </div>
             </div>
             <div class="question">
@@ -467,7 +476,7 @@
                 self-harm?</label
               >
               <div class="PHQ-range-container">
-                <span>0&nbsp;</span
+                <span>0 </span
                 ><input
                   type="range"
                   value="0"
@@ -477,10 +486,9 @@
                   class="PHQ-range"
                   id="PHQ-9"
                 />
-                <span>&nbsp;3</span>
+                <span> 3</span>
               </div>
             </div>
-            <div class="PHQ-result-container">Read Mind</div>
           </div>
         </div>
       </div>
