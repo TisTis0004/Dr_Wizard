@@ -1,5 +1,6 @@
 import computeTenYearScore from "./helpers/ascvd_smol.js";
 
+//!Pre-calculated Input
 function TSAT(Fe, TIBC, gender) {
   let tsat = (Fe / TIBC) * 100;
   if (gender.toLowerCase() === "m") {
@@ -13,6 +14,7 @@ function TSAT(Fe, TIBC, gender) {
   }
 }
 
+//!Pre-calculated Input
 function Mentz(MCV, RBC) {
   let mentz = MCV / RBC;
   if (mentz > 13) {

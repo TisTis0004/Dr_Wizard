@@ -198,6 +198,7 @@ const GADRanges = document.querySelectorAll(".GAD-range");
 const PHQRanges = document.querySelectorAll(".PHQ-range");
 const orbImg = document.querySelector(".orb");
 const orbIndicator = document.querySelector(".orb-indicator");
+const orbContainer = document.querySelector(".orb-indicator-container");
 GADRanges.forEach((range) => {
   range.addEventListener("input", () => {
     PHQRanges.forEach((range) => {
@@ -217,11 +218,9 @@ GADRanges.forEach((range) => {
     } else {
       orbImg.src = "Assets/images/GAD_severe.webp";
     }
-    orbIndicator.style.background =
-      "linear-gradient(to right, #b064c3, #660088, #360145)";
-    document.querySelector(".orb-indicator-container").style.visibility =
-      "visible";
-    document.querySelector(".orb-indicator-container").style.opacity = "1";
+    orbIndicator.classList.remove("orb-indicator-alt");
+    orbContainer.style.opacity = "1";
+    orbContainer.style.visibility = "visible";
   });
 });
 PHQRanges.forEach((range) => {
@@ -243,11 +242,8 @@ PHQRanges.forEach((range) => {
       orbImg.src = "Assets/images/PHQ_severe.webp";
     }
     orbIndicator.classList.add("orb-indicator-alt");
-    document.querySelector(".orb-indicator-container").style.visibility =
-      "visible";
-    document.querySelector(".orb-indicator-container").style.opacity = "1";
-    console.log("orb color changed");
-    orbIndicator.style.background =
-      "linear-gradient(to right, #6a7fdf, #2e27a1, #060069)";
+    orbContainer.classList.add(".orb-indicator-container-alt");
+    orbContainer.style.opacity = "1";
+    orbContainer.style.visibility = "visible";
   });
 });

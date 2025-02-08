@@ -55,61 +55,60 @@
     <div class="global-vars">
       <h1 class="global-vars-head">Craft Your Patient</h1>
       <div class="vars-container">
-        <div class="age-container">
-          <h2>The Herald oF Passing Moons</h2>
-          <div class="age-range-container">
-            <span>3</span>
-            <input
-              type="range"
-              min="3"
-              max="100"
-              value="60"
-              class="age-range"
-              name="age"
-              id="age"
-            />
-            <span>100</span>
+        <div class="age-gender-container">
+          <div class="age-container">
+            <h2>The Herald oF Passing Moons</h2>
+            <div class="age-range-container">
+              <span>3</span>
+              <input
+                type="range"
+                min="3"
+                max="100"
+                value="60"
+                class="age-range"
+                name="age"
+                id="age"
+              />
+              <span>100</span>
+            </div>
+            <h3>
+              <div>Age : <span class="range-value">60</span></div>
+              <img
+                class="age-img"
+                src="Assets/images/old.png"
+                alt=""
+                width="64px"
+                height="64px"
+              />
+            </h3>
           </div>
-          <h3>
-            <div>Age : <span class="range-value">60</span></div>
-            <img
-              class="age-img"
-              src="Assets/images/old.png"
-              alt=""
-              width="64px"
-              height="64px"
-            />
-          </h3>
-        </div>
-        <div class="gender-submit-container">
-          <div class="gender-container">
-            <h2>Scroll oF Identity</h2>
-            <div class="gender">
-              <div class="choose-gender">
-                <label class="gender-label-male" for="male">Wizard</label>
-                <input type="radio" name="gender" id="male" />
-                <br />
-                <input type="radio" name="gender" id="female" />
-                <label class="gender-label-female" for="female">Witch</label>
-              </div>
-              <div class="gender-symbol">
-                <div class="gender-arrow"></div>
-                <div class="arrow-head"></div>
-                <div class="female-cross"></div>
-                <div class="eye">👁️</div>
-                <img
-                  class="gender-image"
-                  src="Assets/images/"
-                  width="100%"
-                  height="100%"
-                  alt=""
-                />
-                <!-- CLASS IS NOT MIRROR I HATE YOU ASMA (•̀ - •́) -->
+          <div class="gender-submit-container">
+            <div class="gender-container">
+              <h2>Scroll oF Identity</h2>
+              <div class="gender">
+                <div class="choose-gender">
+                  <label class="gender-label-male" for="male">Wizard</label>
+                  <input type="radio" name="gender" id="male" />
+                  <br />
+                  <input type="radio" name="gender" id="female" />
+                  <label class="gender-label-female" for="female">Witch</label>
+                </div>
+                <div class="gender-symbol">
+                  <div class="gender-arrow"></div>
+                  <div class="arrow-head"></div>
+                  <div class="female-cross"></div>
+                  <div class="eye">👁️</div>
+                  <img
+                    class="gender-image"
+                    src="Assets/images/"
+                    width="100%"
+                    height="100%"
+                    alt=""
+                  />
+                  <!-- CLASS IS NOT MIRROR I HATE YOU ASMA (•̀ - •́) -->
+                </div>
               </div>
             </div>
-          </div>
-          <div class="submit-container">
-            <span class="submit-span">CREATE</span>
           </div>
         </div>
         <div class="measures-container">
@@ -164,6 +163,11 @@
               step="0.1"
               placeholder="KG"
             />
+          </div>
+        </div>
+        <div class="final-submit-container">
+          <div class="submit-container">
+            <span class="submit-span">CREATE</span>
           </div>
         </div>
       </div>

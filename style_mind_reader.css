@@ -184,14 +184,6 @@
   display: inline-block;
   z-index: 3;
 }
-:root{
-  --color1: #b064c3;
-  --color2: #660088
-  --color3: #360145
-  --color4: #6a7fdf
-  --color5: #2e27a1
-  --color6: #060069
-}
 .orb-indicator {
   position: relative;
   z-index: 3;
@@ -199,22 +191,24 @@
   height: 0.7em;
   border-radius: 3em;
   background: linear-gradient(
-    to right,
-    var(--color1),
-    var(--color2),
-    var(--color3)
+    45deg,
+    #b064c3,
+    #660088,
+    #360145,
+    #768efa,
+    #3a32d0,
+    #040043
   );
-  transition: --color1 0.5s ease, --color2 0.5s ease, --color3 0.5s ease,
-    --color4 0.5s ease, --color5 0.5s ease, --color6 0.5s ease;
+  background-size: 400% 100%;
+  background-position: 0% 0;
+  transition: background-position 1s ease;
+}
+.orb-indicator-container-alt {
+  visibility: visible;
+  opacity: 1;
 }
 .orb-indicator-alt {
-  background: linear-gradient(
-    to right,
-    var(--color4),
-    var(--color5),
-    var(--color6)
-  );
-  visibility: visible;
+  background-position: 100% 0;
 }
 .frog {
   display: block;
