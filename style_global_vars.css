@@ -54,8 +54,6 @@ br {
 /*===================================AGE===================================*/
 h2 {
   text-align: center;
-  font-family: Belion;
-  letter-spacing: 0.1em;
   margin-bottom: 0;
 }
 .age-container {
@@ -337,7 +335,7 @@ h3 div {
   position: absolute;
   bottom: 10%;
 }
-.separator {
+.separator-global-vars {
   position: absolute;
   margin-top: 3em;
   width: 100%;

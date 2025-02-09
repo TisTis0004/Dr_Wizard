@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style_formulas.css" />
     <link rel="stylesheet" href="style_mind_reader.css" />
     <link rel="stylesheet" href="style_global_vars.css" />
     <link rel="stylesheet" href="style_quick_links.css" />
@@ -172,37 +173,38 @@
         </div>
       </div>
     </div>
-    <div class="separator"></div>
+    <div class="separator-global-vars"></div>
     <div class="mind-reader">
-      <h1 id="mind-read-head">Mind Readers</h1>
-      <div class="legend">
-        <p class="main-question">
-          How often have they been bothered by the following over the past 2
-          weeks?
-        </p>
-      </div>
-      <div class="mind-read-results">
-        <div class="zero-one">
-          <div class="test-score">0: Not at all</div>
-          <div class="test-score">1: Several days</div>
-        </div>
-        <div class="orb-container">
-          <div>
-            <img class="orb" src="Assets/images/happy_orb.webp" alt="orb" />
-            <div class="orb-indicator-container">
-              <div class="orb-classes">
-                <span>Mild</span>
-                <span>Mod</span>
-                <span>Severe</span>
-              </div>
-              <div class="orb-indicator"></div>
-            </div>
+      <h1 id="mind-read-title">Mind Readers</h1>
+      <div class="mind-read-header">
+        <img
+          class="main-question"
+          src="Assets/images/Frog_speech.png"
+          alt="Frog_speech"
+        />
+        <div class="mind-read-results">
+          <div class="zero-one">
+            <img class="test-score" src="Assets/images/0.png" alt="" />
+            <img class="test-score" src="Assets/images/1.png" alt="" />
           </div>
-          <img class="frog" src="Assets/images/frog.webp" alt="" />
-        </div>
-        <div class="two-three">
-          <div class="test-score">2: More than half the days</div>
-          <div class="test-score">3: Nearly every day</div>
+          <div class="orb-container">
+            <div>
+              <img class="orb" src="Assets/images/happy_orb.webp" alt="orb" />
+              <div class="orb-indicator-container">
+                <div class="orb-classes">
+                  <span>Mild</span>
+                  <span>Mod</span>
+                  <span>Severe</span>
+                </div>
+                <div class="orb-indicator"></div>
+              </div>
+            </div>
+            <img class="frog" src="Assets/images/frog.webp" alt="" />
+          </div>
+          <div class="two-three">
+            <img class="test-score" src="Assets/images/2.png" alt="" />
+            <img class="test-score" src="Assets/images/3.png" alt="" />
+          </div>
         </div>
       </div>
       <div class="legend">
@@ -492,6 +494,62 @@
                 />
                 <span> 3</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="separator-mind-reader"></div>
+    <div class="formulas-section">
+      <h1 class="formulas-heading">Spellbook Of Formulas</h1>
+      <div class="formulas-container">
+        <div class="formulas fat-container">
+          <div class="formula-sub-container">
+            <img src="Assets/images/fat.png" alt="fat" />
+            <h2>Pregnancy & Obesity</h2>
+            <div class="calculations-container">
+              <div class="calculation fat-calculation input-needed">
+                Gestational age & EDD(input needed)
+              </div>
+              <div class="calculation fat-calculation">
+                Ideal/Adjusted Body Weight(is obese?)
+              </div>
+              <div class="calculation fat-calculation">Waist to Hips Ratio</div>
+              <div class="calculation fat-calculation">BMI</div>
+            </div>
+          </div>
+        </div>
+        <div class="formulas blood-container">
+          <!-- <img src="Assets/images/blood.png" alt="blood" /> -->
+          <div class="formula-sub-container">
+            <img src="Assets/images/blood_2.png" alt="blood" />
+            <h2>Blood</h2>
+            <div class="calculations-container">
+              <div class="calculation blood-calculation input-needed">
+                ASCVD Risk(input needed)
+              </div>
+              <div class="calculation blood-calculation input-needed">
+                TSAT(input needed)
+              </div>
+              <div class="calculation blood-calculation input-needed">
+                Mentz(input needed)
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="formulas kidney-container">
+          <div class="formula-sub-container">
+            <img src="Assets/images/renel.png" alt="" />
+            <h2>Renel & Inflammatory Markers</h2>
+            <div class="calculations-container">
+              <div class="calculation renel-calculation input-needed">
+                eGFR(input needed)
+              </div>
+              <div class="calculation renel-calculation input-needed">
+                CrCl(input needed)
+              </div>
+              <div class="calculation renel-calculation">CRP</div>
+              <div class="calculation renel-calculation">ESR</div>
             </div>
           </div>
         </div>

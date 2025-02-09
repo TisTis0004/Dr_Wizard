@@ -1,6 +1,6 @@
 import computeTenYearScore from "./helpers/ascvd_smol.js";
 
-//!Pre-calculated Input
+//!Pre-calculated Input (input should be: Fe / TIBC, e.g. 5/2)
 function TSAT(Fe, TIBC, gender) {
   let tsat = (Fe / TIBC) * 100;
   if (gender.toLowerCase() === "m") {
@@ -14,7 +14,7 @@ function TSAT(Fe, TIBC, gender) {
   }
 }
 
-//!Pre-calculated Input
+//!Pre-calculated Input (input should be: MCV / RBC, e.g. 5/2)
 function Mentz(MCV, RBC) {
   let mentz = MCV / RBC;
   if (mentz > 13) {
@@ -196,6 +196,9 @@ function LMP(day, month, year) {
   return `EDD = (${newDay}, ${newMonth}, ${newYear})`;
 }
 
+function GA(day, month, year) {
+  //! Comparing to today
+}
 //? Testing
 // console.log(TSAT(150, 400, "f"));
 
