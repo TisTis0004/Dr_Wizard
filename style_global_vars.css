@@ -184,10 +184,15 @@ h3 div {
   flex-direction: column;
   background-color: #3108686f;
 }
+.gender-label-male-active {
+  background-color: #aec6cf !important;
+}
+.gender-label-female-active {
+  background-color: #ffc5d3 !important;
+}
 .gender-label-male,
 .gender-label-female {
   width: 3.5em;
-
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -292,7 +297,9 @@ h3 div {
   min-height: 450px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: space-around; */
+  gap: 10em;
+  align-items: center;
   border-radius: 1em;
   margin: 0 1.5em;
 }
@@ -345,4 +352,22 @@ h3 div {
   background-size: contain;
   background-position: center;
   background-attachment: scroll;
+}
+.submit-indicator {
+  text-align: center;
+  color: white;
+  padding: 1em;
+  margin-top: 1em;
+  background-color: #64399b;
+  box-shadow: 0.1em 0.1em 0.5em black;
+  font-weight: bold;
+  border-radius: 2em;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0.5s;
+  max-width: 150px;
+}
+.submit-indicator-active {
+  opacity: 1;
+  visibility: visible;
 }

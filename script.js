@@ -36,12 +36,16 @@ const genderImage = document.querySelector(".gender-image");
 const eyes = document.querySelector(".eye");
 const radioMale = document.getElementById("male");
 const radioFemale = document.getElementById("female");
+const maleLabel = document.querySelector(".gender-label-male");
+const femaleLabel = document.querySelector(".gender-label-female");
 
 function updateGenderSymbol() {
   if (radioMale.checked) {
     gender = 1;
     genderSymbol.classList.add("male-color");
     genderSymbol.classList.remove("female-color");
+    maleLabel.classList.add("gender-label-male-active");
+    femaleLabel.classList.remove("gender-label-female-active");
     gsap.to(genderArrow, {
       y: 0,
       x: 0,
@@ -77,6 +81,8 @@ function updateGenderSymbol() {
     gender = 0;
     genderSymbol.classList.add("female-color");
     genderSymbol.classList.remove("male-color");
+    femaleLabel.classList.add("gender-label-female-active");
+    maleLabel.classList.remove("gender-label-male-active");
     gsap.to(genderArrow, {
       y: 113,
       x: -45,
@@ -124,6 +130,7 @@ radioFemale.addEventListener("change", updateGenderSymbol);
 
 const numberInputs = document.querySelectorAll(".number-input");
 const submitButton = document.querySelector(".submit-container");
+const submitIndicator = document.querySelector(".submit-indicator");
 
 function checkInputs() {
   let allFilled = true;
@@ -167,7 +174,22 @@ submitButton.addEventListener("click", function () {
     };
     console.log(globalVars);
   }
+  let vowel;
+  if (globalVars.Age == 8 || (globalVars.Age > 79 && globalVars.Age < 90)) {
+    vowel = "An";
+  } else {
+    vowel = "A";
+  }
+  let genderString;
+  if (globalVars.Gender == 1) {
+    genderString = "gentleman";
+  } else {
+    genderString = "lady";
+  }
+  submitIndicator.innerHTML = `${vowel} ${globalVars.Age} years old ${genderString}, has visited the clinic.`;
+  submitIndicator.classList.add("submit-indicator-active");
 });
+
 // PHQ-9
 const rangePHQ1 = document.getElementById("PHQ-1");
 const rangePHQ2 = document.getElementById("PHQ-2");
@@ -199,12 +221,16 @@ const PHQRanges = document.querySelectorAll(".PHQ-range");
 const orbImg = document.querySelector(".orb");
 const orbIndicator = document.querySelector(".orb-indicator");
 const orbContainer = document.querySelector(".orb-indicator-container");
+const GADTotal = document.querySelector(".GAD-total");
+const PHQTotal = document.querySelector(".PHQ-total");
+
 GADRanges.forEach((range) => {
   range.addEventListener("input", () => {
     PHQRanges.forEach((range) => {
       range.value = 0;
     });
     PHQ.classList.remove("PHQ-9-positive");
+    // PHQTotal.innerHTML = "0";
     let sum = 0;
     for (let i = 0; i < GADRanges.length; i++) {
       sum += parseInt(GADRanges[i].value);
@@ -221,6 +247,12 @@ GADRanges.forEach((range) => {
     orbIndicator.classList.remove("orb-indicator-alt");
     orbContainer.style.opacity = "1";
     orbContainer.style.visibility = "visible";
+
+    if (sum < 10 && sum != 0) {
+      GADTotal.innerHTML = "0" + sum;
+    } else {
+      GADTotal.innerHTML = sum;
+    }
   });
 });
 PHQRanges.forEach((range) => {
@@ -228,6 +260,7 @@ PHQRanges.forEach((range) => {
     GADRanges.forEach((range) => {
       range.value = 0;
     });
+    // GADTotal.innerHTML = "0";
     let sum = 0;
     for (let i = 0; i < PHQRanges.length; i++) {
       sum += parseInt(PHQRanges[i].value);
@@ -245,5 +278,11 @@ PHQRanges.forEach((range) => {
     orbContainer.classList.add(".orb-indicator-container-alt");
     orbContainer.style.opacity = "1";
     orbContainer.style.visibility = "visible";
+
+    if (sum < 10 && sum != 0) {
+      PHQTotal.innerHTML = "0" + sum;
+    } else {
+      PHQTotal.innerHTML = sum;
+    }
   });
 });

@@ -232,3 +232,15 @@
   background-position: center;
   background-attachment: scroll;
 }
+
+.copy,
+.GAD-result,
+.PHQ-result {
+  margin: 1em 2em;
+}
+.copy-result-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

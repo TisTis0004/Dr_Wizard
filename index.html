@@ -168,8 +168,9 @@
         </div>
         <div class="final-submit-container">
           <div class="submit-container">
-            <span class="submit-span">CREATE</span>
+            <span class="submit-span">CRAFT</span>
           </div>
+          <p class="submit-indicator"></p>
         </div>
       </div>
     </div>
@@ -212,7 +213,13 @@
       </div>
       <div class="tests-container">
         <div class="test GAD-container">
-          <p>GAD-7</p>
+          <div class="GAD-title-result">
+            <p>GAD-7</p>
+            <div class="copy-result-container">
+              <p class="GAD-result">Total: <span class="GAD-total">0</span></p>
+              <p class="copy">Copy</p>
+            </div>
+          </div>
           <div class="question GAD">
             <label for="GAD-1">1. Feeling nervous, anxious, or on edge?</label>
             <div class="GAD-range-container">
@@ -335,7 +342,13 @@
           </div>
         </div>
         <div class="test PHQ">
-          <p>PHQ-9</p>
+          <div class="PHQ-title-result">
+            <p>PHQ-9</p>
+            <div class="copy-result-container">
+              <p class="PHQ-result">Total: <span class="PHQ-total">0</span></p>
+              <p class="copy">Copy</p>
+            </div>
+          </div>
           <div class="question">
             <label for=""
               >1. Little interest or pleasure in doing things?</label
@@ -500,58 +513,51 @@
       </div>
     </div>
     <div class="separator-mind-reader"></div>
-    <div class="formulas-section">
-      <h1 class="formulas-heading">Spellbook Of Formulas</h1>
-      <div class="formulas-container">
-        <div class="formulas fat-container">
-          <div class="formula-sub-container">
-            <img src="Assets/images/fat.png" alt="fat" />
-            <h2>Pregnancy & Obesity</h2>
-            <div class="calculations-container">
-              <div class="calculation fat-calculation input-needed">
-                Gestational age & EDD(input needed)
-              </div>
-              <div class="calculation fat-calculation">
-                Ideal/Adjusted Body Weight(is obese?)
-              </div>
-              <div class="calculation fat-calculation">Waist to Hips Ratio</div>
-              <div class="calculation fat-calculation">BMI</div>
-            </div>
-          </div>
-        </div>
-        <div class="formulas blood-container">
-          <!-- <img src="Assets/images/blood.png" alt="blood" /> -->
-          <div class="formula-sub-container">
-            <img src="Assets/images/blood_2.png" alt="blood" />
-            <h2>Blood</h2>
-            <div class="calculations-container">
-              <div class="calculation blood-calculation input-needed">
-                ASCVD Risk(input needed)
-              </div>
-              <div class="calculation blood-calculation input-needed">
-                TSAT(input needed)
-              </div>
-              <div class="calculation blood-calculation input-needed">
-                Mentz(input needed)
+    <div class="formula-section">
+      <h1 class="formula-heading">Spellbook Of Formulas</h1>
+      <div class="formula-main-container">
+        <div class="potion-container">
+          <div class="formula-potion-heading">
+            <img src="Assets/images/fat.png" alt="" />
+            <h2 class="formula-sub-heading">Pregnancy & Obesity</h2>
+            <div class="formula-buttons-container fat">
+              <div class="formulas">
+                <div class="formula-button formula-button-1">
+                  Gestational age & EDD
+                </div>
+                <div class="formula-button formula-button-1">
+                  Ideal/Adjusted Weight
+                </div>
+                <div class="formula-button formula-button-1">
+                  Waist to Hips Ratio
+                </div>
+                <div class="formula-button formula-button-1">BMI</div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="formulas kidney-container">
-          <div class="formula-sub-container">
+          <div class="formula-potion-heading">
+            <img src="Assets/images/blood_2.png" alt="" />
+            <h2 class="formula-sub-heading">Blood</h2>
+            <div class="formulas blood">
+              <div class="formula-button formula-button-2">ASCVD Risk</div>
+              <div class="formula-button formula-button-2">TSAT</div>
+              <div class="formula-button formula-button-2">Mentz</div>
+            </div>
+          </div>
+          <div class="formula-potion-heading">
             <img src="Assets/images/renel.png" alt="" />
-            <h2>Renel & Inflammatory Markers</h2>
-            <div class="calculations-container">
-              <div class="calculation renel-calculation input-needed">
-                eGFR(input needed)
-              </div>
-              <div class="calculation renel-calculation input-needed">
-                CrCl(input needed)
-              </div>
-              <div class="calculation renel-calculation">CRP</div>
-              <div class="calculation renel-calculation">ESR</div>
+            <h2 class="formula-sub-heading">Renal & Inflammatory Markers</h2>
+            <div class="formulas">
+              <div class="formula-button formula-button-3">eGFR</div>
+              <div class="formula-button formula-button-3">CrCl</div>
+              <div class="formula-button formula-button-3">CRP</div>
+              <div class="formula-button formula-button-3">ESR</div>
             </div>
           </div>
+        </div>
+        <div class="formulas-results-inputs">
+          <div class="formula-results">results</div>
+          <div class="formula-inputs">inputs</div>
         </div>
       </div>
     </div>
