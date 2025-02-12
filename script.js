@@ -67,7 +67,7 @@ function updateGenderSymbol() {
       y: -50,
     });
     gsap.to(genderImage, {
-      background: "#64399b",
+      // background: "#64399b",
       duration: 0.01,
     });
     arrowHead.style.borderBottomColor = "#AEC6CF";
