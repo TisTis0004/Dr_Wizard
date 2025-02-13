@@ -10,7 +10,7 @@
 }
 .formula-main-container {
   min-height: 30em;
-  background-color: lightblue;
+  background-color: limegreen;
   display: flex;
   justify-content: space-around;
   user-select: none;
