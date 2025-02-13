@@ -2,13 +2,19 @@ import computeTenYearScore from "./helpers/ascvd_smol.js";
 
 //!Pre-calculated Input (input should be: Fe / TIBC, e.g. 5/2)
 function TSAT(Fe, TIBC, gender) {
-  let tsat = (Fe / TIBC) * 100;
+  let tsat = ((Fe / TIBC) * 100).toFixed(2);
   if (gender.toLowerCase() === "m") {
-    return `TSAT = ${tsat.toFixed(
-      2
-    )}, < 12%, IDA!!!!DANGER!!! ur gonna dieee!! I am watching u 👁️  👁️`;
+    if (tsat <= 20) {
+      return `TSAT: ${tsat}%, Iron Deficiency Anemia is likely due to Transferrin saturation less than 20%.`;
+    } else {
+      return `TSAT: ${tsat}%, Iron Deficiency Anemia is Unlikely.`;
+    }
   } else if (gender.toLowerCase() === "f") {
-    return `TSAT = ${tsat.toFixed(2)}, < 15%, IDA`;
+    if (tsat <= 15) {
+      return `TSAT: ${tsat}%, Iron Deficiency Anemia is likely due to Transferrin saturation less than 15%.`;
+    } else {
+      return `TSAT: ${tsat}%, Iron Deficiency Anemia is Unlikely.`;
+    }
   } else {
     return "GAYYYYYYYYYY!";
   }
@@ -16,21 +22,22 @@ function TSAT(Fe, TIBC, gender) {
 
 //!Pre-calculated Input (input should be: MCV / RBC, e.g. 5/2)
 function Mentz(MCV, RBC) {
-  let mentz = MCV / RBC;
+  let mentz = (MCV / RBC).toFixed(2);
   if (mentz > 13) {
-    return `Mentz = ${mentz.toFixed(2)}, IDA.`;
+    return `Mentz: ${mentz}, Iron Deficiency Anemia is likely due to Mentzer Index more than 13.`;
   } else if (mentz < 13) {
-    return `Mentz = ${mentz.toFixed(2)}, Beta thal.`;
+    return `Mentz: ${mentz}, Beta thalassemia is likely due to Mentzer Index less than 13.`;
   } else {
-    return `Mentz = ${mentz.toFixed(2)}, IDA + Beta thal, ur cooked!`;
+    return `Mentz: ${mentz}, A combination of Iron Deficiency Anemia and Beta thalassemia are likely due to Mentzer Index equals to 13.`;
   }
 }
 
 function ESR(age, gender) {
+  age = parseFloat(age);
   if (gender.toLowerCase() === "m") {
-    return `upper range of ESR = ${(age / 2).toFixed(2)}`;
+    return `ESR upper limit: ${Math.round(age / 2)}.`;
   } else if (gender.toLowerCase() === "f") {
-    return `upper range of ESR = ${((age + 10) / 2).toFixed(2)}`;
+    return `ESR upper limit: ${Math.round((age + 10) / 2)}.`;
   } else {
     return "GAYYYYYYYYYY!";
   }
@@ -38,9 +45,9 @@ function ESR(age, gender) {
 
 function CRP(age, gender) {
   if (gender.toLowerCase() === "m") {
-    return `upper range of CRP = ${(age / 50).toFixed(2)}`;
+    return `CRP upper limit: ${(age / 50).toFixed(2)}.`;
   } else if (gender.toLowerCase() === "f") {
-    return `upper range of CRP = ${(age / 50 + 0.6).toFixed(2)}`;
+    return `CRP upper limit: ${(age / 50 + 0.6).toFixed(2)}.`;
   } else {
     return "GAYYYYYYYYYY!";
   }
@@ -128,7 +135,7 @@ function GFR(age, creatinine, gender, cystatin = 0.0) {
     }
     gfr = 142 * Math.pow(creatinine / A, B) * Math.pow(0.9938, age);
   }
-  return `GFR = ${gfr.toFixed(2)} ml/min/1.73 m²`;
+  return `eGFR: ${gfr.toFixed(2)} ml/min/1.73 m².`;
 }
 
 function IBW(height, gender) {
@@ -136,9 +143,9 @@ function IBW(height, gender) {
   height /= 2.54;
   let ibw = 2.3 * (height - 60);
   if (gender.toLowerCase() === "f") {
-    return ibw + 45.5;
+    return Math.round(ibw + 45.5);
   } else if (gender.toLowerCase() === "m") {
-    return ibw + 50;
+    return Math.round(ibw + 50);
   } else {
     return "GAYYYYYYYYYY!";
   }
@@ -146,26 +153,57 @@ function IBW(height, gender) {
 
 function ABW(height, actualWeight, gender) {
   let ibw = IBW(height, gender);
-  return ibw + 0.4 * (actualWeight - ibw);
+  return [
+    `Ideal body weight: ${Math.round(
+      ibw
+    )} kg, Adjusted body weight: ${Math.round(
+      ibw + 0.4 * (actualWeight - ibw)
+    )} kg.`,
+    ibw,
+  ];
 }
 
 function BMI(weight, height) {
-  return `${(weight / Math.pow(height, 2)).toFixed(2)} kg/m²`;
+  let heightInMeters = height / 100;
+  let bmi = (weight / Math.pow(heightInMeters, 2)).toFixed(2);
+  return `BMI: ${bmi} kg/m².`;
 }
 
-function isObese(weight, height, gender) {
-  let ibw = IBW(height, gender);
-  return weight > ibw;
-}
+// function isObese(weight, height, gender) {
+//   let ibw = IBW(height, gender);
+//   return weight > ibw;
+// }
 
 function CrCl(creatinine, age, height, actualWeight, gender) {
   creatinine /= 88.4;
-  let abw = ABW(height, actualWeight, gender);
-  let crcl = ((140 - age) * abw) / (creatinine * 72);
+  age = age;
+  height = height;
+  actualWeight = actualWeight;
+  let abw = ABW(height, actualWeight, gender)[1];
+  let ibw = IBW(height, gender);
+  let crclActual = ((140 - age) * actualWeight) / (creatinine * 72);
+  let crclAdjusted = ((140 - age) * abw) / (creatinine * 72);
+  let crclIdeal = ((140 - age) * ibw) / (creatinine * 72);
+  let finalCrcl, whichCalc;
+
+  if (actualWeight > ibw) {
+    finalCrcl = crclAdjusted;
+    whichCalc = "adjusted weight";
+  } else if (actualWeight < ibw) {
+    finalCrcl = crclActual;
+    whichCalc = "actual weight";
+  } else {
+    finalCrcl = crclIdeal;
+    whichCalc = "ideal weight";
+  }
   if (gender.toLowerCase() === "f") {
-    return crcl * 0.85;
+    return `Creatinine clearance: ${Math.round(
+      finalCrcl * 0.85
+    )} mL/min, via (${whichCalc}).`;
   } else if (gender.toLowerCase() === "m") {
-    return crcl;
+    return `Creatinine clearance: ${Math.round(
+      finalCrcl.toFixed(1)
+    )} mL/min, via (${whichCalc}).`;
   } else {
     return "GAYYYYYYYYYY!";
   }
@@ -193,12 +231,76 @@ function LMP(day, month, year) {
       newMonth += 1;
     }
   }
-  return `EDD = (${newDay}, ${newMonth}, ${newYear})`;
+
+  return [newDay, newMonth, newYear];
 }
 
 function GA(day, month, year) {
-  //! Comparing to today
+  let lmp = LMP(day, month, year);
+  const date = new Date();
+
+  let currentDay = date.getDate();
+  let currentMonth = date.getMonth() + 1;
+  let currentYear = date.getFullYear();
+
+  const msPerWeek = 1000 * 60 * 60 * 24 * 7;
+  const endDate = new Date(currentYear, currentMonth - 1, currentDay);
+  const startDate = new Date(year, month - 1, day);
+  const diffMs = Math.abs(endDate - startDate);
+  let weekDifference = diffMs / msPerWeek;
+  let daysDifference = Math.round(
+    (weekDifference - Math.floor(weekDifference)) * 7
+  );
+
+  startDate.setDate(startDate.getDate() + 279);
+
+  const newDay = startDate.getDate();
+  const newMonth = startDate.getMonth() + 1;
+  const newYear = startDate.getFullYear();
+
+  return `EDD: ${lmp[0]}-${lmp[1]}-${lmp[2]}, Gestational age: ${Math.floor(
+    weekDifference
+  )} weeks and ${daysDifference} days.`;
 }
+
+function ASCVD(
+  isMale,
+  isBlack,
+  smoker,
+  hypertensive,
+  diabetic,
+  age,
+  systolicBloodPressure,
+  totalCholesterol,
+  hdl
+) {
+  computeTenYearScore(
+    isMale,
+    isBlack,
+    smoker,
+    hypertensive,
+    diabetic,
+    age,
+    systolicBloodPressure,
+    totalCholesterol,
+    hdl
+  );
+}
+export {
+  TSAT,
+  Mentz,
+  ESR,
+  CRP,
+  W_to_H,
+  GFR,
+  IBW,
+  ABW,
+  BMI,
+  CrCl,
+  LMP,
+  GA,
+  ASCVD,
+};
 //? Testing
 // console.log(TSAT(150, 400, "f"));
 

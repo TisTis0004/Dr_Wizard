@@ -1,3 +1,5 @@
+let globalVars = null;
+let formulas = null;
 function categorizeAge(age) {
   if (age >= 3 && age <= 12) {
     ageImg.src = "Assets/images/boy.png";
@@ -41,7 +43,7 @@ const femaleLabel = document.querySelector(".gender-label-female");
 
 function updateGenderSymbol() {
   if (radioMale.checked) {
-    gender = 1;
+    gender = "m";
     genderSymbol.classList.add("male-color");
     genderSymbol.classList.remove("female-color");
     maleLabel.classList.add("gender-label-male-active");
@@ -78,7 +80,7 @@ function updateGenderSymbol() {
     genderImage.style.visibility = "visible";
     genderImage.src = "Assets/images/magician_hat.svg";
   } else if (radioFemale.checked) {
-    gender = 0;
+    gender = "f";
     genderSymbol.classList.add("female-color");
     genderSymbol.classList.remove("male-color");
     femaleLabel.classList.add("gender-label-female-active");
@@ -174,6 +176,42 @@ submitButton.addEventListener("click", function () {
       Weight: numberInputs[3].value,
     };
     console.log(globalVars);
+    //   gestationalEDD,
+    // idealAdjusted_waistToHips_bmi,
+    // ascvd,
+    // tsat_mentz,
+    // egfr_CrCl,
+    // crp_esr,
+    formulas = {
+      "Gestational-EDD": "• " + GA(5, 5, 2024),
+      "Ideal-Adjusted-weight-waist-to-hips-BMI": `• ${
+        ABW(globalVars["Height"], globalVars["Weight"], globalVars["Gender"])[0]
+      } \n• ${W_to_H(
+        globalVars["Waist"],
+        globalVars["Hips"],
+        globalVars["Gender"]
+      )} \n• ${BMI(globalVars["Weight"], globalVars["Height"])}`,
+      // ASCVD: ASCVD,
+      "TSAT-Mentz": `• ${TSAT(7, 40, globalVars["Gender"])} \n• ${Mentz(
+        91,
+        7
+      )}`,
+      "eGFR-CrCl": `• ${GFR(
+        globalVars["Age"],
+        80,
+        globalVars["Gender"]
+      )} \n• ${CrCl(
+        80,
+        globalVars["Age"],
+        globalVars["Height"],
+        globalVars["Weight"],
+        globalVars["Gender"]
+      )}`,
+      "CRP-ESR": `• ${CRP(globalVars["Age"], globalVars["Gender"])} \n• ${ESR(
+        globalVars["Age"],
+        globalVars["Gender"]
+      )}`,
+    };
   }
   let vowel;
   if (globalVars.Age == 8 || (globalVars.Age > 79 && globalVars.Age < 90)) {
@@ -182,7 +220,7 @@ submitButton.addEventListener("click", function () {
     vowel = "A";
   }
   let genderString;
-  if (globalVars.Gender == 1) {
+  if (globalVars.Gender == "m") {
     genderString = "gentleman";
   } else {
     genderString = "lady";
@@ -289,3 +327,43 @@ PHQRanges.forEach((range) => {
     }
   });
 });
+//todo==================================Formulas======================================
+import {
+  TSAT,
+  Mentz,
+  ESR,
+  CRP,
+  W_to_H,
+  GFR,
+  IBW,
+  ABW,
+  BMI,
+  CrCl,
+  LMP,
+  GA,
+  ASCVD,
+} from "./Calcualtions/JS/calculations.js";
+const gestationalEDD = document.getElementById("Gestational-EDD");
+const idealAdjusted_waistToHips_bmi = document.getElementById(
+  "Ideal-Adjusted-weight-waist-to-hips-BMI"
+);
+const ascvd = document.getElementById("ASCVD");
+const tsat_mentz = document.getElementById("TSAT-Mentz");
+const egfr_CrCl = document.getElementById("eGFR-CrCl");
+const crp_esr = document.getElementById("CRP-ESR");
+const formulasBtns = [
+  gestationalEDD,
+  idealAdjusted_waistToHips_bmi,
+  ascvd,
+  tsat_mentz,
+  egfr_CrCl,
+  crp_esr,
+];
+formulasBtns.forEach((formula) => {
+  formula.addEventListener("click", () => {
+    formulaResult.innerText = formulas[formula.id];
+    console.log(formulaResult.textContent);
+    navigator.clipboard.writeText(formulaResult.textContent);
+  });
+});
+const formulaResult = document.querySelector(".formula-result");

@@ -40,10 +40,10 @@
   display: flex;
   flex-direction: column;
 }
-.blood {
-  margin: auto 0;
-}
+
 .formula-button {
+  width: 6em;
+  min-height: 2em;
   margin: 2em 0;
   background-color: yellowgreen;
   border-radius: 1em;
@@ -60,7 +60,6 @@
   box-shadow: 4px 4px 0 black;
 }
 .formula-button:active {
-  rotate: 1293764deg;
   box-shadow: 0 0 0 black;
 }
 .formula-button-1:active {
@@ -92,4 +91,7 @@
   height: 40%;
   text-align: center;
   padding-top: 1em;
+}
+.formula-result {
+  text-align: center;
 }

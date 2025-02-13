@@ -25,7 +25,7 @@
       src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Draggable.min.js"
       defer
     ></script>
-    <script src="script.js" defer></script>
+    <script type="module" src="script.js" defer></script>
   </head>
   <body>
     <div class="quick-links-container-background">
@@ -124,6 +124,7 @@
               max="250"
               step="0.1"
               placeholder="CM"
+              value="175"
             />
           </div>
           <div class="measure-container">
@@ -137,6 +138,7 @@
               max="200"
               step="0.1"
               placeholder="CM"
+              value="100"
             />
           </div>
           <div class="measure-container">
@@ -150,6 +152,7 @@
               max="200"
               step="0.1"
               placeholder="CM"
+              value="110"
             />
           </div>
           <div class="measure-container">
@@ -163,6 +166,7 @@
               max="300"
               step="0.1"
               placeholder="KG"
+              value="85"
             />
           </div>
         </div>
@@ -525,16 +529,22 @@
             <h2 class="formula-sub-heading">Pregnancy & Obesity</h2>
             <div class="formula-buttons-container fat">
               <div class="formulas">
-                <div class="formula-button formula-button-1">
-                  Gestational age & EDD
+                <div
+                  class="formula-button formula-button-1"
+                  id="Gestational-EDD"
+                >
+                  Gestational age + EDD
                 </div>
-                <div class="formula-button formula-button-1">
-                  Ideal/Adjusted Weight
+                <div
+                  class="formula-button formula-button-1"
+                  id="Ideal-Adjusted-weight-waist-to-hips-BMI"
+                >
+                  Ideal/Adjusted Weight + Waist to Hips Ratio + BMI
                 </div>
-                <div class="formula-button formula-button-1">
+                <!-- <div class="formula-button formula-button-1" id="waist-to-hips">
                   Waist to Hips Ratio
                 </div>
-                <div class="formula-button formula-button-1">BMI</div>
+                <div class="formula-button formula-button-1" id="BMI">BMI</div> -->
               </div>
             </div>
           </div>
@@ -542,24 +552,36 @@
             <img src="Assets/images/blood_2.png" alt="" />
             <h2 class="formula-sub-heading">Blood</h2>
             <div class="formulas blood">
-              <div class="formula-button formula-button-2">ASCVD Risk</div>
-              <div class="formula-button formula-button-2">TSAT</div>
-              <div class="formula-button formula-button-2">Mentz</div>
+              <div class="formula-button formula-button-2" id="ASCVD">
+                ASCVD Risk
+              </div>
+              <div class="formula-button formula-button-2" id="TSAT-Mentz">
+                TSAT + Mentz
+              </div>
+              <!-- <div class="formula-button formula-button-2" id="Mentz">
+                Mentz
+              </div> -->
             </div>
           </div>
           <div class="formula-potion-heading">
             <img src="Assets/images/renel.png" alt="" />
             <h2 class="formula-sub-heading">Renal & Inflammatory Markers</h2>
             <div class="formulas">
-              <div class="formula-button formula-button-3">eGFR</div>
-              <div class="formula-button formula-button-3">CrCl</div>
-              <div class="formula-button formula-button-3">CRP</div>
-              <div class="formula-button formula-button-3">ESR</div>
+              <div class="formula-button formula-button-3" id="eGFR-CrCl">
+                eGFR + CrCl
+              </div>
+              <!-- <div class="formula-button formula-button-3" id="CrCl">CrCl</div> -->
+              <div class="formula-button formula-button-3" id="CRP-ESR">
+                CRP + ESR
+              </div>
+              <!-- <div class="formula-button formula-button-3" id="ESR">ESR</div> -->
             </div>
           </div>
         </div>
         <div class="formulas-results-inputs">
-          <div class="formula-results">Results</div>
+          <div class="formula-results-container">
+            <div class="formula-result"></div>
+          </div>
           <div class="formula-inputs">Inputs</div>
         </div>
       </div>
