@@ -353,7 +353,8 @@ h3 div {
   background-position: center;
   background-attachment: scroll;
 }
-.submit-indicator {
+.submit-indicator,
+.submit-copy {
   text-align: center;
   color: white;
   padding: 1em;
@@ -364,10 +365,14 @@ h3 div {
   border-radius: 2em;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s, visibility 0.5s;
+  transition: opacity 0.5s, visibility 0.5s, background 0.2s;
   max-width: 150px;
 }
-.submit-indicator-active {
+.submit-indicator-active,
+.submit-copy-active {
   opacity: 1;
   visibility: visible;
+}
+.submit-copy:hover {
+  background-color: #4e2d7a;
 }

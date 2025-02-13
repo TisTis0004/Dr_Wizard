@@ -47,7 +47,7 @@
   margin: 2em 0;
   background-color: yellowgreen;
   border-radius: 1em;
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: box-shadow 0.2s, transform 0.2s, rotate 1s;
   padding: 0.8em 2em;
 }
 .formula-button-1 {
@@ -60,6 +60,7 @@
   box-shadow: 4px 4px 0 black;
 }
 .formula-button:active {
+  rotate: 1293764deg;
   box-shadow: 0 0 0 black;
 }
 .formula-button-1:active {
@@ -76,10 +77,19 @@
   width: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  padding: 0 1em;
 }
 .formula-sub-heading {
   font-size: 1em;
   margin-top: 2em;
+}
+.formula-results,
+.formula-inputs {
+  background-color: blueviolet;
+  width: 100%;
+  height: 40%;
+  text-align: center;
+  padding-top: 1em;
 }
