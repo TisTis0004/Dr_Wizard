@@ -17,75 +17,6 @@ scrollUpButton.addEventListener("click", function () {
     behavior: "smooth",
   });
 });
-const GADcopy = document.querySelector(".GAD-copy");
-const PHQcopy = document.querySelector(".PHQ-copy");
-const GADLabels = document.querySelectorAll(".GAD-label");
-GADcopy.addEventListener("click", () => {
-  let GADLabelTextCopy = `GAD-7 Results:\n`;
-  GADRanges.forEach((range, i) => {
-    if (range.value > 0) {
-      GADLabelTextCopy += `${GADLabels[i].innerText} ${range.value} \n`;
-    }
-  });
-  let GADCondition;
-  if (GADsum >= 0 && GADsum <= 4) {
-    GADCondition = "Happy.";
-  } else if (GADsum >= 5 && GADsum <= 9) {
-    GADCondition = "Mild anxiety.";
-  } else if (GADsum >= 10 && GADsum <= 14) {
-    GADCondition = "Moderate anxiety.";
-  } else {
-    GADCondition = "Severe anxiety.";
-  }
-  GADLabelTextCopy += `Total Score: ${GADsum} → ${GADCondition}`;
-  if (
-    GADLabelTextCopy ===
-    `PHQ-9 Results:\nTotal Score: ${GADsum} → ${GADCondition}`
-  ) {
-    GADLabelTextCopy = `PHQ-9 Results:\n`;
-    GADTemp.forEach((i) => {
-      GADLabelTextCopy += `${GADLabels[i].innerHTML.trim()} ${
-        GADTempValues[i]
-      } \n`;
-    });
-    GADLabelTextCopy += `Total Score: ${GADsum} → ${GADCondition}`;
-  }
-  navigator.clipboard.writeText(GADLabelTextCopy);
-});
-
-const PHQLabels = document.querySelectorAll(".PHQ-label");
-PHQcopy.addEventListener("click", () => {
-  let PHQLabelTextCopy = `PHQ-9 Results:\n`;
-  PHQRanges.forEach((range, i) => {
-    if (range.value > 0) {
-      PHQLabelTextCopy += `${PHQLabels[i].innerText} ${range.value} \n`;
-    }
-  });
-  let PHQCondition;
-  if (PHQsum >= 0 && PHQsum <= 4) {
-    PHQCondition = "Happy.";
-  } else if (PHQsum >= 5 && PHQsum <= 9) {
-    PHQCondition = "Mild depression.";
-  } else if (PHQsum >= 10 && PHQsum <= 14) {
-    PHQCondition = "Moderate depression.";
-  } else {
-    PHQCondition = "Severe depression.";
-  }
-  PHQLabelTextCopy += `Total Score: ${PHQsum} → ${PHQCondition}`;
-  if (
-    PHQLabelTextCopy ===
-    `PHQ-9 Results:\nTotal Score: ${PHQsum} → ${PHQCondition}`
-  ) {
-    PHQLabelTextCopy = `PHQ-9 Results:\n`;
-    PHQTemp.forEach((i) => {
-      PHQLabelTextCopy += `${PHQLabels[i].innerHTML.trim()} ${
-        PHQTempValues[i]
-      } \n`;
-    });
-    PHQLabelTextCopy += `Total Score: ${PHQsum} → ${PHQCondition}`;
-  }
-  navigator.clipboard.writeText(PHQLabelTextCopy);
-});
 
 let globalVars = null;
 let formulas = null;
@@ -348,7 +279,7 @@ const PHQTotal = document.querySelector(".PHQ-total");
 
 let GADsum;
 let PHQTemp;
-let PHQTempValues;
+let PHQTempValues = [];
 GADRanges.forEach((range) => {
   range.addEventListener("input", () => {
     GADTempValues = [];
@@ -358,7 +289,6 @@ GADRanges.forEach((range) => {
       if (range.value > 0) PHQTemp.push(i);
       range.value = 0;
     });
-    console.log(PHQTemp);
     PHQ.classList.remove("PHQ-9-positive");
     // PHQTotal.innerHTML = "0";
     GADsum = 0;
@@ -388,7 +318,7 @@ GADRanges.forEach((range) => {
 });
 let PHQsum;
 let GADTemp;
-let GADTempValues;
+let GADTempValues = [];
 PHQRanges.forEach((range) => {
   range.addEventListener("input", () => {
     PHQTempValues = [];
@@ -398,8 +328,6 @@ PHQRanges.forEach((range) => {
       if (range.value > 0) GADTemp.push(i);
       range.value = 0;
     });
-    console.log(GADTemp);
-    // GADTotal.innerHTML = "0";
     PHQsum = 0;
     for (let i = 0; i < PHQRanges.length; i++) {
       PHQsum += parseInt(PHQRanges[i].value);
@@ -425,6 +353,76 @@ PHQRanges.forEach((range) => {
     }
   });
 });
+const GADcopy = document.querySelector(".GAD-copy");
+const PHQcopy = document.querySelector(".PHQ-copy");
+const GADLabels = document.querySelectorAll(".GAD-label");
+GADcopy.addEventListener("click", () => {
+  let GADLabelTextCopy = `GAD-7 Results:\n`;
+  GADRanges.forEach((range, i) => {
+    if (range.value > 0) {
+      GADLabelTextCopy += `${GADLabels[i].innerText} ${range.value} \n`;
+    }
+  });
+  let GADCondition;
+  if (GADsum >= 0 && GADsum <= 4) {
+    GADCondition = "Happy.";
+  } else if (GADsum >= 5 && GADsum <= 9) {
+    GADCondition = "Mild anxiety.";
+  } else if (GADsum >= 10 && GADsum <= 14) {
+    GADCondition = "Moderate anxiety.";
+  } else {
+    GADCondition = "Severe anxiety.";
+  }
+  GADLabelTextCopy += `Total Score: ${GADsum} → ${GADCondition}`;
+  if (
+    GADLabelTextCopy ===
+    `GAD-7 Results:\nTotal Score: ${GADsum} → ${GADCondition}`
+  ) {
+    GADLabelTextCopy = `PHQ-9 Results:\n`;
+    GADTemp.forEach((i) => {
+      GADLabelTextCopy += `${GADLabels[i].innerHTML.trim()} ${
+        GADTempValues[i]
+      } \n`;
+    });
+    GADLabelTextCopy += `Total Score: ${GADsum} → ${GADCondition}`;
+  }
+  navigator.clipboard.writeText(GADLabelTextCopy);
+});
+
+const PHQLabels = document.querySelectorAll(".PHQ-label");
+PHQcopy.addEventListener("click", () => {
+  let PHQLabelTextCopy = `PHQ-9 Results:\n`;
+  PHQRanges.forEach((range, i) => {
+    if (range.value > 0) {
+      PHQLabelTextCopy += `${PHQLabels[i].innerText} ${range.value} \n`;
+    }
+  });
+  let PHQCondition;
+  if (PHQsum >= 0 && PHQsum <= 4) {
+    PHQCondition = "Happy.";
+  } else if (PHQsum >= 5 && PHQsum <= 9) {
+    PHQCondition = "Mild depression.";
+  } else if (PHQsum >= 10 && PHQsum <= 14) {
+    PHQCondition = "Moderate depression.";
+  } else {
+    PHQCondition = "Severe depression.";
+  }
+  PHQLabelTextCopy += `Total Score: ${PHQsum} → ${PHQCondition}`;
+  if (
+    PHQLabelTextCopy ===
+    `PHQ-9 Results:\nTotal Score: ${PHQsum} → ${PHQCondition}`
+  ) {
+    PHQLabelTextCopy = `PHQ-9 Results:\n`;
+    PHQTemp.forEach((i) => {
+      PHQLabelTextCopy += `${PHQLabels[i].innerHTML.trim()} ${
+        PHQTempValues[i]
+      } \n`;
+    });
+    PHQLabelTextCopy += `Total Score: ${PHQsum} → ${PHQCondition}`;
+  }
+  navigator.clipboard.writeText(PHQLabelTextCopy);
+});
+
 //todo==================================Formulas======================================
 import {
   TSAT,
