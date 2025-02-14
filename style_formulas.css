@@ -32,10 +32,6 @@
   flex-direction: column;
   align-items: center;
 }
-.formula-potion-heading {
-  display: flex;
-  flex-direction: column;
-}
 .formulas {
   display: flex;
   flex-direction: column;

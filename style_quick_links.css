@@ -6,6 +6,9 @@
   font-family: "SuperPixel";
   src: url("Assets/fonts/SuperPixel.ttf") format("truetype");
 }
+* {
+  scroll-behavior: smooth;
+}
 *::selection {
   background-color: #5e047a;
   color: white;
@@ -37,20 +40,10 @@ body::-webkit-scrollbar-thumb {
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
-  /* border: 2px solid red; */
 }
 body::-webkit-scrollbar-button {
   display: none;
 }
-/* body::-webkit-scrollbar-button {
-  background: #1a1122;
-  border: 1px solid #4a1f96;
-  height: 15px;
-  transition: background 0.3s;
-}
-body::-webkit-scrollbar-button:hover {
-  background: #3a0751;
-} */
 h1 {
   font-family: "Knight", sans-serif;
   letter-spacing: 0.5rem;
@@ -178,4 +171,24 @@ input {
 .quick-links-container a,
 .quick-links-container img {
   cursor: url("Assets/icons/candle.png"), auto !important;
+}
+#scrollUpButton {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: #601fd2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.5s;
+  z-index: 999;
+}
+
+#scrollUpButton:hover {
+  background-color: #4e1aa9;
 }

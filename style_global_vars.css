@@ -376,3 +376,22 @@ h3 div {
 .submit-copy:hover {
   background-color: #4e2d7a;
 }
+.copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #601fd2;
+  padding: 5px 15px;
+  border-radius: 1em;
+  transition: background 0.3s;
+}
+.copy:hover {
+  background-color: #4e1aa9;
+}
+.copy:active {
+  background-color: #32116b;
+}
+.copy img {
+  width: 1em;
+  height: 1em;
+}

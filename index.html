@@ -28,6 +28,7 @@
     <script type="module" src="script.js" defer></script>
   </head>
   <body>
+    <button id="scrollUpButton" title="Scroll to top">↑</button>
     <div class="quick-links-container-background">
       <div class="quick-links-container">
         <div class="links">
@@ -35,7 +36,11 @@
             <img src="Assets/icons/scrolls.svg" alt=""
           /></a>
 
-          <a class="book2" target="_blank" href="https://www.uptodate.com">
+          <a
+            class="book2"
+            target="_blank"
+            href="https://www.uptodate.com/login"
+          >
             <img src="Assets/icons/potion.svg" alt=""
           /></a>
 
@@ -176,7 +181,9 @@
           </div>
           <div>
             <p class="submit-indicator"></p>
-            <div class="copy submit-copy">Copy</div>
+            <div class="copy submit-copy">
+              <img src="Assets/icons/copy.svg" alt="" />
+            </div>
           </div>
         </div>
       </div>
@@ -224,11 +231,15 @@
             <p>GAD-7</p>
             <div class="copy-result-container">
               <p class="GAD-result">Total: <span class="GAD-total">0</span></p>
-              <p class="copy">Copy</p>
+              <p class="copy GAD-copy">
+                <img src="Assets/icons/copy.svg" alt="" />
+              </p>
             </div>
           </div>
           <div class="question GAD">
-            <label for="GAD-1">1. Feeling nervous, anxious, or on edge?</label>
+            <label class="GAD-label"
+              >1. Feeling nervous, anxious, or on edge?</label
+            >
             <div class="GAD-range-container">
               <span>0 </span
               ><input
@@ -238,13 +249,12 @@
                 max="3"
                 name="GAD"
                 class="GAD-range"
-                id="GAD-1"
               />
               <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
-            <label for="GAD-2"
+            <label class="GAD-label"
               >2. Not being able to stop or control worrying?</label
             >
             <div class="GAD-range-container">
@@ -256,13 +266,12 @@
                 max="3"
                 name="GAD"
                 class="GAD-range"
-                id="GAD-2"
               />
               <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
-            <label for="GAD-3"
+            <label class="GAD-label"
               >3. Worrying too much about different things?</label
             >
             <div class="GAD-range-container">
@@ -274,13 +283,12 @@
                 max="3"
                 name="GAD"
                 class="GAD-range"
-                id="GAD-3"
               />
               <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
-            <label for="GAD-4">4. Trouble relaxing?</label>
+            <label class="GAD-label">4. Trouble relaxing?</label>
             <div class="GAD-range-container">
               <span>0 </span
               ><input
@@ -290,13 +298,12 @@
                 max="3"
                 name="GAD"
                 class="GAD-range"
-                id="GAD-4"
               />
               <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
-            <label for="GAD-5"
+            <label class="GAD-label"
               >5. Being so restless that it's hard to sit still?</label
             >
             <div class="GAD-range-container">
@@ -308,13 +315,14 @@
                 max="3"
                 name="GAD"
                 class="GAD-range"
-                id="GAD-5"
               />
               <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
-            <label for="GAD-6">6. Becoming easily annoyed or irritable?</label>
+            <label class="GAD-label"
+              >6. Becoming easily annoyed or irritable?</label
+            >
             <div class="GAD-range-container">
               <span>0 </span
               ><input
@@ -324,13 +332,12 @@
                 max="3"
                 name="GAD"
                 class="GAD-range"
-                id="GAD-6"
               />
               <span> 3</span>
             </div>
           </div>
           <div class="question GAD">
-            <label for="GAD-7"
+            <label class="GAD-label"
               >7. Feeling afraid as if something awful might happen?</label
             >
             <div class="GAD-range-container">
@@ -342,7 +349,6 @@
                 max="3"
                 name="GAD"
                 class="GAD-range"
-                id="GAD-7"
               />
               <span> 3</span>
             </div>
@@ -353,11 +359,13 @@
             <p>PHQ-9</p>
             <div class="copy-result-container">
               <p class="PHQ-result">Total: <span class="PHQ-total">0</span></p>
-              <p class="copy">Copy</p>
+              <p class="copy PHQ-copy">
+                <img src="Assets/icons/copy.svg" alt="" />
+              </p>
             </div>
           </div>
           <div class="question">
-            <label for=""
+            <label class="PHQ-label"
               >1. Little interest or pleasure in doing things?</label
             >
             <div class="PHQ-range-container">
@@ -375,7 +383,9 @@
             </div>
           </div>
           <div class="question">
-            <label for="">2. Feeling down, depressed, or hopeless?</label>
+            <label class="PHQ-label"
+              >2. Feeling down, depressed, or hopeless?</label
+            >
             <div class="PHQ-range-container">
               <span>0 </span
               ><input
@@ -392,10 +402,9 @@
           </div>
           <div class="PHQ-9">
             <div class="question">
-              <label for=""
-                >3. Trouble falling or staying asleep, or sleeping too
-                much?</label
-              >
+              <label class="PHQ-label">
+                3. Trouble falling or staying asleep, or sleeping too much?
+              </label>
               <div class="PHQ-range-container">
                 <span>0 </span
                 ><input
@@ -411,7 +420,9 @@
               </div>
             </div>
             <div class="question">
-              <label for="">4. Feeling tired or having little energy?</label>
+              <label class="PHQ-label"
+                >4. Feeling tired or having little energy?</label
+              >
               <div class="PHQ-range-container">
                 <span>0 </span
                 ><input
@@ -427,7 +438,7 @@
               </div>
             </div>
             <div class="question">
-              <label for="">5. Poor appetite or overeating?</label>
+              <label class="PHQ-label">5. Poor appetite or overeating?</label>
               <div class="PHQ-range-container">
                 <span>0 </span
                 ><input
@@ -443,10 +454,9 @@
               </div>
             </div>
             <div class="question">
-              <label for=""
-                >6. Feeling guilty / useless or let yourself or others
-                down?</label
-              >
+              <label class="PHQ-label"
+                >6. Feeling guilty / useless or let yourself or others down?
+              </label>
               <div class="PHQ-range-container">
                 <span>0 </span
                 ><input
@@ -462,7 +472,9 @@
               </div>
             </div>
             <div class="question">
-              <label for="">7. Trouble concentrating on things?</label>
+              <label class="PHQ-label"
+                >7. Trouble concentrating on things?</label
+              >
               <div class="PHQ-range-container">
                 <span>0 </span
                 ><input
@@ -478,10 +490,9 @@
               </div>
             </div>
             <div class="question">
-              <label for=""
-                >8. Moving or speaking slower? Or more restless than
-                usual?</label
-              >
+              <label class="PHQ-label"
+                >8. Moving or speaking slower? Or more restless than usual?
+              </label>
               <div class="PHQ-range-container">
                 <span>0 </span
                 ><input
@@ -497,10 +508,9 @@
               </div>
             </div>
             <div class="question">
-              <label for=""
-                >9. Thoughts that you would be better off dead, or
-                self-harm?</label
-              >
+              <label class="PHQ-label">
+                9. Thoughts that you would be better off dead, or self-harm?
+              </label>
               <div class="PHQ-range-container">
                 <span>0 </span
                 ><input
