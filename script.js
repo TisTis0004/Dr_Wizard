@@ -378,7 +378,7 @@ GADcopy.addEventListener("click", () => {
     GADLabelTextCopy ===
     `GAD-7 Results:\nTotal Score: ${GADsum} → ${GADCondition}`
   ) {
-    GADLabelTextCopy = `PHQ-9 Results:\n`;
+    GADLabelTextCopy = `GAD-7 Results:\n`;
     GADTemp.forEach((i) => {
       GADLabelTextCopy += `${GADLabels[i].innerHTML.trim()} ${
         GADTempValues[i]
