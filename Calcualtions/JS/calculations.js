@@ -35,9 +35,9 @@ function Mentz(MCV, RBC) {
 function ESR(age, gender) {
   age = parseFloat(age);
   if (gender.toLowerCase() === "m") {
-    return `ESR upper limit: ${Math.round(age / 2)}.`;
+    return `ESR upper limit: ${Math.round(age / 2)}`;
   } else if (gender.toLowerCase() === "f") {
-    return `ESR upper limit: ${Math.round((age + 10) / 2)}.`;
+    return `ESR upper limit: ${Math.round((age + 10) / 2)}`;
   } else {
     return "GAYYYYYYYYYY!";
   }
@@ -45,9 +45,9 @@ function ESR(age, gender) {
 
 function CRP(age, gender) {
   if (gender.toLowerCase() === "m") {
-    return `CRP upper limit: ${(age / 50).toFixed(2)}.`;
+    return `CRP upper limit: ${(age / 50).toFixed(2)}`;
   } else if (gender.toLowerCase() === "f") {
-    return `CRP upper limit: ${(age / 50 + 0.6).toFixed(2)}.`;
+    return `CRP upper limit: ${(age / 50 + 0.6).toFixed(2)}`;
   } else {
     return "GAYYYYYYYYYY!";
   }

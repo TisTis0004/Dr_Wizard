@@ -9,11 +9,18 @@
   justify-content: center;
 }
 .formula-main-container {
-  min-height: 30em;
+  min-height: 600px;
   background-color: lightblue;
   display: flex;
   justify-content: space-around;
   user-select: none;
+  position: relative;
+}
+#book-cover {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 600px;
 }
 .potion-container {
   display: flex;
@@ -90,4 +97,14 @@
 }
 .formula-result {
   text-align: center;
+}
+.separator-formulas {
+  position: absolute;
+  width: 100%;
+  height: 2em;
+  background: url("Assets/images/stairs.png");
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+  background-attachment: scroll;
 }
