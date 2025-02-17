@@ -1,5 +1,5 @@
 const scrollUpButton = document.getElementById("scrollUpButton");
-const scrollToPosition = 100;
+const scrollToPosition = 200;
 
 window.addEventListener("scroll", function () {
   if (window.scrollY > 200) {
@@ -197,7 +197,7 @@ submitButton.addEventListener("click", function () {
     console.log(globalVars);
     formulas = {
       "Gestational-EDD": "• " + GA(5, 5, 2024),
-      "Ideal-Adjusted-weight-waist-to-hips-BMI": `• ${
+      "Ideal_weight-Adjusted_weight-waist_to_hips-BMI": `• ${
         ABW(globalVars["Height"], globalVars["Weight"], globalVars["Gender"])[0]
       } \n• ${W_to_H(
         globalVars["Waist"],
@@ -241,6 +241,7 @@ submitButton.addEventListener("click", function () {
   submitIndicator.innerHTML = `${vowel} ${globalVars.Age} years old ${genderString}, has visited the clinic.`;
   submitIndicator.classList.add("submit-indicator-active");
   navigator.clipboard.writeText(submitIndicator.innerHTML);
+  copyAlert("The patient");
 });
 
 // PHQ-9
@@ -386,6 +387,7 @@ GADcopy.addEventListener("click", () => {
     GADLabelTextCopy += `Total Score: ${GADsum} → ${GADCondition}`;
   }
   navigator.clipboard.writeText(GADLabelTextCopy);
+  copyAlert("GAD-7 results");
 });
 
 const PHQLabels = document.querySelectorAll(".PHQ-label");
@@ -420,6 +422,7 @@ PHQcopy.addEventListener("click", () => {
     PHQLabelTextCopy += `Total Score: ${PHQsum} → ${PHQCondition}`;
   }
   navigator.clipboard.writeText(PHQLabelTextCopy);
+  copyAlert("PHQ-9 results");
 });
 
 //todo==================================Formulas======================================
@@ -440,7 +443,7 @@ import {
 } from "./Calcualtions/JS/calculations.js";
 const gestationalEDD = document.getElementById("Gestational-EDD");
 const idealAdjusted_waistToHips_bmi = document.getElementById(
-  "Ideal-Adjusted-weight-waist-to-hips-BMI"
+  "Ideal_weight-Adjusted_weight-waist_to_hips-BMI"
 );
 const ascvd = document.getElementById("ASCVD");
 const tsat_mentz = document.getElementById("TSAT-Mentz");
@@ -458,6 +461,48 @@ formulasBtns.forEach((formula) => {
   formula.addEventListener("click", () => {
     formulaResult.innerText = formulas[formula.id];
     navigator.clipboard.writeText(formulaResult.textContent);
+    copyAlert(formula.id);
   });
 });
 const formulaResult = document.querySelector(".formula-result");
+function copyAlert(copiedText) {
+  copiedText = String(copiedText);
+  if (
+    !copiedText.includes("GAD") &&
+    !copiedText.includes("PHQ") &&
+    !copiedText.includes("ASCVD") &&
+    !copiedText.includes("patient")
+  ) {
+    copiedText = copiedText.replaceAll("_", " ");
+
+    copiedText = copiedText.replaceAll("-", ", ");
+    let lastIndex = copiedText.lastIndexOf(", ");
+    console.log(lastIndex);
+    copiedText =
+      copiedText.substring(0, lastIndex) +
+      " and " +
+      copiedText.substring(lastIndex + 1);
+  }
+  const copyAlertMessage = document.createElement("div");
+  let singularPlural;
+  if (copiedText.includes("and")) {
+    singularPlural = "have";
+  } else {
+    singularPlural = "has";
+  }
+  copyAlertMessage.innerHTML = `
+        <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+        </svg>
+        <span>${copiedText} ${singularPlural} been copied to clipboard!</span>
+    `;
+
+  copyAlertMessage.classList.add("copy-alert");
+  copyAlertMessage.classList.remove("copy-hide");
+  copyAlertMessage.classList.add("copy-show");
+  document.body.appendChild(copyAlertMessage);
+  setTimeout(() => {
+    copyAlertMessage.classList.remove("copy-show");
+    copyAlertMessage.classList.add("copy-hide");
+  }, 2500);
+}
