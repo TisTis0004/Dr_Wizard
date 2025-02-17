@@ -1,13 +1,14 @@
 @font-face {
-  font-family: "Knight";
-  src: url("Assets/fonts/KnightWarrior.otf") format("truetype");
+  font-family: "TypeLight";
+  src: url("Assets/fonts/TypeLight.otf") format("truetype");
 }
 @font-face {
-  font-family: "SuperPixel";
-  src: url("Assets/fonts/SuperPixel.ttf") format("truetype");
+  font-family: "Jersey";
+  src: url("Assets/fonts/Jersey_20/Jersey.ttf") format("truetype");
 }
 * {
   scroll-behavior: smooth;
+  font-family: "Jersey" !important;
 }
 *::selection {
   background-color: #5e047a;
@@ -45,12 +46,12 @@ body::-webkit-scrollbar-button {
   display: none;
 }
 h1 {
-  font-family: "Knight", sans-serif;
+  font-family: "TypeLight" !important;
   letter-spacing: 0.5rem;
   text-align: center;
   font-size: clamp(2rem, 5vw, 3rem);
   color: white;
-  text-shadow: 0 0 0.5rem black;
+  text-shadow: 0.2em 0.2em 0.5rem black;
 }
 .quick-links-container {
   position: relative;
@@ -85,7 +86,6 @@ input {
   width: 100%;
 }
 .quick-links-container a {
-  font-family: SuperPixel;
   padding: 0.75rem 0;
   display: flex;
   justify-content: center;

@@ -58,7 +58,7 @@ def compute_ten_year_score(
         mnxbRet = -29.1817
         predictRet = (
             -29.799 * lnAge
-            + 4.884 * lnAge ** 2
+            + 4.884 * lnAge**2
             + 13.54 * lnTotalChol
             + -3.114 * ageTotalChol
             + -13.578 * lnHdl
@@ -99,6 +99,7 @@ def compute_ten_year_score(
 
     pct = 1 - s010Ret ** math.exp(predictRet - mnxbRet)
     return round(pct * 100 * 10) / 10
+
 
 # Test case 1
 # result1 = compute_ten_year_score(

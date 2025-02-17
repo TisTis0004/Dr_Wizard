@@ -10,23 +10,31 @@
 }
 .formula-main-container {
   min-height: 600px;
-  background-color: lightblue;
+  background-color: #f4f0e8;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   user-select: none;
   position: relative;
 }
+.formula-heading {
+  margin: 1.2em 0 1em;
+}
 #book-cover {
   display: block;
-  position: absolute;
-  width: 100%;
+  /* position: absolute; */
+  width: 80%;
   height: 600px;
+  background-image: url("Assets/images/cream-paper.png");
 }
 .potion-container {
+  position: relative;
   display: flex;
-  justify-content: space-around;
-  width: 40%;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  /* align-items: center; */
+  width: 45%;
   text-align: center;
+  /* background-color: lightgoldenrodyellow; */
 }
 .potion-container img {
   display: block;
@@ -34,24 +42,51 @@
   height: 100px;
   margin-top: 1em;
 }
-.formula-potion-heading {
+.potions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.potions div {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.potions-headings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.potions div img {
+  display: block;
+}
+.formulas-container {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 .formulas {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
 }
-
+.blood,
+.renel {
+  justify-content: space-between;
+}
 .formula-button {
-  width: 6em;
+  max-width: 5.2em;
   min-height: 2em;
-  margin: 2em 0;
+  margin: 1em 0;
   background-color: yellowgreen;
   border-radius: 1em;
   transition: box-shadow 0.2s, transform 0.2s, rotate 1s;
-  padding: 0.8em 2em;
+  padding: 0.8em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .formula-button-1 {
   box-shadow: -4px 4px 0 black;
@@ -75,8 +110,8 @@
   transform: translate(4px, 4px);
 }
 .formulas-results-inputs {
-  background-color: lightgreen;
-  width: 40%;
+  /* background-color: lightgreen; */
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -84,12 +119,14 @@
   padding: 0 1em;
 }
 .formula-sub-heading {
-  font-size: 1em;
-  margin-top: 2em;
+  font-size: 1.6em;
+  max-width: 5em;
+  text-align: center;
+  margin-top: 0.2em;
 }
 .formula-results,
 .formula-inputs {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   width: 100%;
   height: 40%;
   text-align: center;

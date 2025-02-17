@@ -1,0 +1,51 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.T,
+.F {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  background-image: url("Assets/images/T.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 200px;
+  position: relative;
+}
+.F {
+  background-image: url("Assets/images/F.svg");
+  background-size: contain;
+}
+.TO {
+  display: block;
+  font-size: 2em;
+}
+input {
+  width: 90px;
+  height: 80px;
+  position: absolute;
+}
+.in1T {
+  left: 55px;
+  top: calc(52% - 30px);
+}
+.in2T {
+  left: 205px;
+  top: calc(52% - 30px);
+}
+.in1F {
+  width: 70px;
+  height: 60px;
+  right: 26%;
+  font-size: 1.6em;
+}
+.in2F {
+  right: 48%;
+  margin-bottom: 10px;
+}

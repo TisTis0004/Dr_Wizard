@@ -153,7 +153,6 @@ radioFemale.addEventListener("change", updateGenderSymbol);
 const numberInputs = document.querySelectorAll(".number-input");
 const submitButton = document.querySelector(".submit-container");
 const submitIndicator = document.querySelector(".submit-indicator");
-const submitCopy = document.querySelector(".submit-copy");
 
 function checkInputs() {
   let allFilled = true;
@@ -241,7 +240,7 @@ submitButton.addEventListener("click", function () {
   }
   submitIndicator.innerHTML = `${vowel} ${globalVars.Age} years old ${genderString}, has visited the clinic.`;
   submitIndicator.classList.add("submit-indicator-active");
-  submitCopy.classList.add("submit-copy-active");
+  navigator.clipboard.writeText(submitIndicator.innerHTML);
 });
 
 // PHQ-9
