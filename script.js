@@ -465,14 +465,16 @@ formulasBtns.forEach((formula) => {
   });
 });
 const formulaResult = document.querySelector(".formula-result");
+const EXCLUDED_STRINGS = new Set([
+  "GAD-7 results",
+  "PHQ-9 results",
+  "ASCVD",
+  "The patient",
+]);
 function copyAlert(copiedText) {
   copiedText = String(copiedText);
-  if (
-    !copiedText.includes("GAD") &&
-    !copiedText.includes("PHQ") &&
-    !copiedText.includes("ASCVD") &&
-    !copiedText.includes("patient")
-  ) {
+  console.log(EXCLUDED_STRINGS.has(copiedText));
+  if (!EXCLUDED_STRINGS.has(copiedText)) {
     copiedText = copiedText.replaceAll("_", " ");
 
     copiedText = copiedText.replaceAll("-", ", ");
