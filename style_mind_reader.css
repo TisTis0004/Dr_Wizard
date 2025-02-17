@@ -11,6 +11,7 @@
   background-position: center;
   background-attachment: scroll;
   margin-top: 5em;
+  padding-bottom: 3em;
 }
 .tests-container {
   width: 100%;
@@ -23,7 +24,7 @@
   width: 100%;
   height: fit-content;
   /* min-height: 100%; */
-  background-color: green;
+  background-color: #45307699;
   margin: 0.5em;
   border-radius: 1em;
   padding: 0 1em;
@@ -33,17 +34,22 @@
   font-weight: normal;
   font-size: 3em;
   margin-bottom: 0em;
+  color: #e99f29;
+  font-weight: normal;
 }
 .test p {
   font-size: 1.5em;
   margin-top: 0;
 }
 .question {
-  background-color: lightblue;
+  color: #d4d3d3;
+  /* background-color: #3e006da1; */
+  background-color: #3e006d;
   padding: 0.2em 0.5em;
   margin: 0 0 1em;
   display: flex;
   justify-content: space-between;
+  font-weight: normal;
   text-align: left;
   border-radius: 1em;
 }
@@ -70,10 +76,11 @@
   height: 1.5em;
   -webkit-appearance: none;
   appearance: none;
-  background: linear-gradient(to right, #807d7d, #000);
   border-radius: 1em;
+  background: #00000073;
   outline: none;
 }
+
 .GAD-range::-webkit-slider-thumb,
 .PHQ-range::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -82,11 +89,9 @@
   height: 1.5em;
   border-radius: 50%;
 }
-.GAD-range::-webkit-slider-thumb {
-  background-color: #b064c3;
-}
+.GAD-range::-webkit-slider-thumb,
 .PHQ-range::-webkit-slider-thumb {
-  background-color: #6a7fdf;
+  background-color: #e99f29;
 }
 .GAD-result-container,
 .PHQ-result-container {
@@ -119,10 +124,10 @@
   align-items: center;
 }
 .test-score {
-  /* display: block; */
   width: 17em;
   height: 8em;
   margin: 0.5em 0.5em;
+  user-select: none;
 }
 .mind-read-header {
   position: relative;
@@ -136,9 +141,16 @@
   position: absolute;
   top: -6em;
   right: 20em;
+  user-select: none;
 }
 #mind-read-title {
   margin: 0.6em 0 0 0;
+}
+.zero-one {
+  user-select: none;
+}
+.two-three {
+  user-select: none;
 }
 .legend {
   display: flex;
@@ -233,6 +245,8 @@
 .GAD-result,
 .PHQ-result {
   margin: 1em 2em;
+  color: #e99f29;
+  /* color: #d4d3d3; */
 }
 .copy-result-container {
   width: 100%;

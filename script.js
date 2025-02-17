@@ -74,7 +74,7 @@ function updateGenderSymbol() {
       scaleY: 15,
       rotate: 45,
       duration: 1,
-      background: "#AEC6CF",
+      background: "#295511",
       ease: "ease",
     });
     gsap.fromTo(arrowHead, { y: -50 }, { duration: 1, y: 0, ease: "ease" });
@@ -96,7 +96,7 @@ function updateGenderSymbol() {
       // background: "#64399b",
       duration: 0.01,
     });
-    arrowHead.style.borderBottomColor = "#AEC6CF";
+    arrowHead.style.borderBottomColor = "#295511";
     genderImage.style.visibility = "visible";
     genderImage.src = "Assets/images/magician_hat.svg";
   } else if (radioFemale.checked) {
@@ -111,7 +111,7 @@ function updateGenderSymbol() {
       scaleY: 15,
       rotate: 0,
       duration: 1,
-      background: "#ffc5d3",
+      background: "#863562",
       ease: "ease",
     });
     gsap.to(arrowHead, {
@@ -122,7 +122,7 @@ function updateGenderSymbol() {
       x: 65,
       duration: 1,
       rotate: 90,
-      background: "#ffc5d3",
+      background: "#863562",
       ease: "ease",
     });
     genderImage.style.visibility = "visible";
