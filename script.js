@@ -88,7 +88,7 @@ function updateGenderSymbol() {
     });
     gsap.to(genderImage, {
       scale: 0.6,
-      rotate: -25,
+      rotate: 10,
       x: -30,
       y: -50,
     });
@@ -98,7 +98,7 @@ function updateGenderSymbol() {
     });
     arrowHead.style.borderBottomColor = "#295511";
     genderImage.style.visibility = "visible";
-    genderImage.src = "Assets/images/magician_hat.svg";
+    genderImage.src = "Assets/images/wizard_hat.webp";
   } else if (radioFemale.checked) {
     gender = "f";
     genderSymbol.classList.add("female-color");
@@ -126,11 +126,11 @@ function updateGenderSymbol() {
       ease: "ease",
     });
     genderImage.style.visibility = "visible";
-    genderImage.src = "Assets/images/wizard_hat.svg";
+    genderImage.src = "Assets/images/witch_hat.webp";
     arrowHead.style.borderBottomColor = "transparent";
     gsap.to(genderImage, {
       scale: 0.6,
-      rotate: 25,
+      rotate: -10,
       x: 30,
       y: -50,
     });

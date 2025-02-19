@@ -23,7 +23,6 @@
 .test {
   width: 100%;
   height: fit-content;
-  /* min-height: 100%; */
   background-color: #45307699;
   margin: 0.5em;
   border-radius: 1em;

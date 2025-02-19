@@ -59,16 +59,12 @@ h1 {
   justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
-  background-image: url("Assets/images/heading_background.webp");
+  background-image: url("Assets/images/head_background_1.gif");
   background-size: contain;
   background-position: center;
   height: 10em;
   margin-bottom: 2em;
   z-index: 2;
-}
-.quick-links-container-background {
-  background: url("Assets/images/stars_background.png");
-  background-size: contain;
 }
 * {
   -webkit-user-drag: none;

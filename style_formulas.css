@@ -9,57 +9,37 @@
   justify-content: center;
 }
 .formula-main-container {
+  width: 90%;
   min-height: 600px;
-  background-color: #f4f0e8;
+  background: url("Assets/images/full_desk.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: space-between;
   user-select: none;
   position: relative;
+  background-color: lightblue;
+}
+.book-container {
+  position: fixed;
+  background-color: red;
+  left: 12%;
 }
 .formula-heading {
   margin: 1.2em 0 1em;
 }
-#book-cover {
-  display: block;
-  /* position: absolute; */
-  width: 80%;
-  height: 600px;
-  background-image: url("Assets/images/cream-paper.png");
-}
 .potion-container {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
-  /* align-items: center; */
-  width: 45%;
+  width: 25%;
   text-align: center;
-  /* background-color: lightgoldenrodyellow; */
-}
-.potion-container img {
-  display: block;
-  width: 70px;
-  height: 100px;
-  margin-top: 1em;
-}
-.potions {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.potions div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 }
 .potions-headings {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
-.potions div img {
-  display: block;
 }
 .formulas-container {
   display: flex;
@@ -110,7 +90,6 @@
   transform: translate(4px, 4px);
 }
 .formulas-results-inputs {
-  /* background-color: lightgreen; */
   width: 45%;
   display: flex;
   flex-direction: column;
@@ -123,17 +102,21 @@
   max-width: 5em;
   text-align: center;
   margin-top: 0.2em;
+  color: blue;
 }
 .formula-results,
 .formula-inputs {
-  /* background-color: blueviolet; */
   width: 100%;
   height: 40%;
   text-align: center;
   padding-top: 1em;
 }
-.formula-result {
+.formula-results-container {
+  position: absolute;
+  right: 28.5%;
+  top: 21.5%;
   text-align: center;
+  width: 340px;
 }
 .separator-formulas {
   position: absolute;
