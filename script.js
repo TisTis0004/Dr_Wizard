@@ -196,31 +196,28 @@ submitButton.addEventListener("click", function () {
     };
     console.log(globalVars);
     formulas = {
-      "Gestational-EDD": "• " + GA(5, 5, 2024),
-      "Ideal_weight-Adjusted_weight-waist_to_hips-BMI": `• ${
+      "Gestational-EDD": "" + GA(5, 5, 2024),
+      "Ideal_weight-Adjusted_weight-waist_to_hips-BMI": `${
         ABW(globalVars["Height"], globalVars["Weight"], globalVars["Gender"])[0]
-      } \n• ${W_to_H(
+      } \n${W_to_H(
         globalVars["Waist"],
         globalVars["Hips"],
         globalVars["Gender"]
-      )} \n• ${BMI(globalVars["Weight"], globalVars["Height"])}`,
+      )} \n${BMI(globalVars["Weight"], globalVars["Height"])}`,
       // ASCVD: ASCVD,
-      "TSAT-Mentz": `• ${TSAT(7, 40, globalVars["Gender"])} \n• ${Mentz(
-        91,
-        7
-      )}`,
-      "eGFR-CrCl": `• ${GFR(
+      "TSAT-Mentz": `${TSAT(7, 40, globalVars["Gender"])} \n${Mentz(91, 7)}`,
+      "eGFR-CrCl": `${GFR(
         globalVars["Age"],
         80,
         globalVars["Gender"]
-      )} \n• ${CrCl(
+      )} \n${CrCl(
         80,
         globalVars["Age"],
         globalVars["Height"],
         globalVars["Weight"],
         globalVars["Gender"]
       )}`,
-      "CRP-ESR": `• ${CRP(globalVars["Age"], globalVars["Gender"])} \n• ${ESR(
+      "CRP-ESR": `${CRP(globalVars["Age"], globalVars["Gender"])} \n${ESR(
         globalVars["Age"],
         globalVars["Gender"]
       )}`,

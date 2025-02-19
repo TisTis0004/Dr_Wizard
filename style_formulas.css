@@ -9,32 +9,36 @@
   justify-content: center;
 }
 .formula-main-container {
+  position: relative;
   width: 90%;
-  min-height: 600px;
-  background: url("Assets/images/full_desk.webp");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  aspect-ratio: 16 / 9;
+  background: url("Assets/images/desk_no_edges.webp") no-repeat center center;
+  background-size: contain;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   user-select: none;
   position: relative;
-  background-color: lightblue;
 }
-.book-container {
-  position: fixed;
-  background-color: red;
-  left: 12%;
+.book {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: url("Assets/images/book_border.webp") center center no-repeat;
+  background-size: contain;
+  width: 75%;
 }
+
 .formula-heading {
   margin: 1.2em 0 1em;
 }
 .potion-container {
-  position: absolute;
+  width: 40%;
+  height: 55%;
   display: flex;
   flex-direction: column;
-  width: 25%;
   text-align: center;
+  /* background-color: lightcoral; */
 }
 .potions-headings {
   display: flex;
@@ -90,12 +94,12 @@
   transform: translate(4px, 4px);
 }
 .formulas-results-inputs {
-  width: 45%;
+  width: 40%;
+  height: 55%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 0 1em;
 }
 .formula-sub-heading {
   font-size: 1.6em;
@@ -112,11 +116,18 @@
   padding-top: 1em;
 }
 .formula-results-container {
-  position: absolute;
-  right: 28.5%;
-  top: 21.5%;
+  width: 100%;
+  height: 50%;
+  background: url("Assets/images/results_border.webp") center center no-repeat;
+  background-size: contain;
   text-align: center;
-  width: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+.formula-result {
+  width: 75%;
 }
 .separator-formulas {
   position: absolute;

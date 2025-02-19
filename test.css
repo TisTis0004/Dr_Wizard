@@ -1,51 +1,27 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.T,
-.F {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: red; */
-  background-image: url("Assets/images/T.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 500px;
-  height: 200px;
+.book-container {
   position: relative;
-}
-.F {
-  background-image: url("Assets/images/F.svg");
+  width: 100%;
+  max-width: 900px; /* Adjust as needed */
+  aspect-ratio: 16 / 9; /* Adjust based on your image's aspect ratio */
+  background: url("Assets/images/full_desk.webp") no-repeat center center;
   background-size: contain;
+  margin: auto;
 }
-.TO {
-  display: block;
-  font-size: 2em;
-}
-input {
-  width: 90px;
-  height: 80px;
+
+.left-page,
+.right-page {
   position: absolute;
+  top: 16%; /* Adjust to fit within the book pages */
+  width: 30%;
+  height: 54%; /* Adjust based on the book's page */
+  background-color: rgba(255, 255, 255, 0.672); /* Slight transparency */
+  /* padding: 10px; */
 }
-.in1T {
-  left: 55px;
-  top: calc(52% - 30px);
+
+.left-page {
+  left: 13%;
 }
-.in2T {
-  left: 205px;
-  top: calc(52% - 30px);
-}
-.in1F {
-  width: 70px;
-  height: 60px;
-  right: 26%;
-  font-size: 1.6em;
-}
-.in2F {
-  right: 48%;
-  margin-bottom: 10px;
+
+.right-page {
+  right: 25%;
 }
