@@ -384,23 +384,3 @@ h3 div {
 .submit-copy:hover {
   background-color: #3e006dc5;
 }
-.copy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #3e006dc5;
-  padding: 5px 15px;
-  border-radius: 1em;
-  transition: background 0.3s;
-}
-.copy:hover {
-  background-color: transparent;
-}
-.copy:active {
-  background-color: #3e006dc5;
-}
-.copy svg {
-  width: 1em;
-  height: 1em;
-  color: #e99f29;
-}

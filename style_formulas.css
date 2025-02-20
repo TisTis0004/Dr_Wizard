@@ -27,6 +27,7 @@
   background: url("Assets/images/book_border.webp") center center no-repeat;
   background-size: contain;
   width: 75%;
+  margin-left: 1em;
 }
 
 .formula-heading {
@@ -98,7 +99,8 @@
   height: 55%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-between; */
+  gap: 3em;
   align-items: center;
 }
 .formula-sub-heading {
@@ -109,11 +111,30 @@
   color: blue;
 }
 .formula-results,
-.formula-inputs {
+.formula-inputs-container {
   width: 100%;
-  height: 40%;
   text-align: center;
   padding-top: 1em;
+}
+.formula-inputs-container label {
+  text-align: center;
+  font-size: 1.2em;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input:focus {
+  border-color: #000000;
+}
+
+input::placeholder {
+  color: #999;
+  font-size: 1em;
+}
+
+input {
+  box-shadow: 0 2px 4px #0000001a;
 }
 .formula-results-container {
   width: 100%;
@@ -128,6 +149,31 @@
 }
 .formula-result {
   width: 75%;
+}
+.formula-inputs-sub-container {
+  transition: visibility 2s, opacity 2s;
+  display: none;
+}
+.formula-inputs-container {
+  /* background-color: lightgreen; */
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 8px;
+  padding-top: 0;
+  min-height: 100px;
+}
+.formula-input {
+  width: 65%;
+  height: 1.6em;
+  /* padding: 0.2em; */
+  font-size: 1.5em;
+  border: 2px solid #ccc;
+  text-align: center;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s;
 }
 .separator-formulas {
   position: absolute;

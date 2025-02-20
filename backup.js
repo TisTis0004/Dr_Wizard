@@ -19,6 +19,7 @@ scrollUpButton.addEventListener("click", function () {
 });
 
 let globalVars = null;
+let formulas = null;
 function categorizeAge(age) {
   if (age >= 3 && age <= 12) {
     ageImg.src = "Assets/images/boy.png";
@@ -193,6 +194,36 @@ submitButton.addEventListener("click", function () {
       Hips: numberInputs[2].value,
       Weight: numberInputs[3].value,
     };
+    console.log(globalVars);
+    formulas = {
+      "Gestational-EDD": { inputs: ["LMP"], result: null }, //GA(5, 5, 2024)
+      "Ideal_weight-Adjusted_weight-waist_to_hips-BMI": `${
+        ABW(globalVars["Height"], globalVars["Weight"], globalVars["Gender"])[0]
+      } \n${W_to_H(
+        globalVars["Waist"],
+        globalVars["Hips"],
+        globalVars["Gender"]
+      )} \n${BMI(globalVars["Weight"], globalVars["Height"])}`,
+      ASCVD: null, //ASCVD,
+      "TSAT-Mentz": { inputs: ["MCV", "RBC", "Fe", "TIBC"], result: null }, //`${TSAT(7, 40, globalVars["Gender"])} \n${Mentz(91, 7)}`,
+      "eGFR-CrCl": { inputs: ["creatinine", "cystatin"], result: null },
+      // `${GFR(
+      //   globalVars["Age"],
+      //   80,
+      //   globalVars["Gender"]
+      // )} \n${CrCl(
+      //   80,
+      //   globalVars["Age"],
+      //   globalVars["Height"],
+      //   globalVars["Weight"],
+      //   globalVars["Gender"]
+      // )}`,
+      "CRP-ESR": `${CRP(globalVars["Age"], globalVars["Gender"])} \n${ESR(
+        globalVars["Age"],
+        globalVars["Gender"]
+      )}`,
+    };
+    console.log(formulas);
   }
   let vowel;
   if (globalVars.Age == 8 || (globalVars.Age > 79 && globalVars.Age < 90)) {
@@ -434,56 +465,6 @@ const TIBC = document.getElementById("TIBC");
 const Fe = document.getElementById("Fe");
 const MCV = document.getElementById("MCV");
 const RBC = document.getElementById("RBC");
-const formulasShowInputs = {
-  "Gestational age + EDD": [inputDivs[3]],
-  "ASCVD Risk": [],
-  "eGFR + CrCl": [inputDivs[4], inputDivs[5]],
-  "TSAT + Mentz": [inputDivs[6], inputDivs[7], inputDivs[8], inputDivs[9]],
-  "Ideal/Adjusted Weight + Waist to Hips Ratio + BMI": [],
-  "CRP + ESR": [],
-};
-let calculation;
-formulasBtns.forEach((formula) => {
-  formula.addEventListener("click", () => {
-    calculation = formula.innerText;
-    console.log(calculation);
-    inputDivs.forEach((box) => {
-      box.style.display = "none";
-    });
-    formulasShowInputs[formula.innerText].forEach((box) => {
-      box.style.display = "block";
-    });
-    if (calculation == "CRP + ESR") {
-      if (globalVars == null) {
-        formulaResult.innerText = "Please select a gender";
-      } else {
-        formulaResult.innerText = `${CRP(
-          globalVars["Age"],
-          globalVars["Gender"]
-        )}\n${ESR(globalVars["Age"], globalVars["Gender"])}`;
-      }
-    } else if (
-      calculation == "Ideal/Adjusted Weight + Waist to Hips Ratio + BMI"
-    ) {
-      if (globalVars == null) {
-        formulaResult.innerText = "Please select a gender";
-      } else {
-        formulaResult.innerText = `${ABW(
-          globalVars["Height"],
-          globalVars["Weight"],
-          globalVars["Gender"]
-        )}\n${W_to_H(
-          globalVars["Waist"],
-          globalVars["Hips"],
-          globalVars["Gender"]
-        )}\n${BMI(globalVars["Weight"], globalVars["Height"])}`;
-      }
-    }
-  });
-});
-//     formulaResult.innerText = formulas[formula.id];
-//     navigator.clipboard.writeText(formulaResult.textContent);
-//     copyAlert(formula.id);
 const formulasInputs = [
   hdl,
   chol,
@@ -496,70 +477,18 @@ const formulasInputs = [
   MCV,
   RBC,
 ];
-const style = `
-          background-color: #ff000086;
-          border-color:#ff0000
-        `;
-formulasInputs.forEach((input) => {
-  input.addEventListener("input", () => {
-    if (calculation == "TSAT + Mentz") {
-      if (
-        (Fe.value == "" || TIBC.value == "") &&
-        MCV.value != "" &&
-        RBC.value != ""
-      ) {
-        formulaResult.innerText = `${Mentz(
-          parseFloat(MCV.value),
-          parseFloat(RBC.value)
-        )}`;
-        formulasInputs.forEach((input) => {
-          input.style.cssText = "";
-        });
-      } else if (globalVars == null) {
-        formulaResult.innerText = "Please select a gender";
-      } else if (Fe.value == "" || TIBC == "") {
-        formulaResult.innerText = "Please fill the required fields";
-        Fe.style.cssText = style;
-        TIBC.style.cssText = style;
-      } else {
-        formulaResult.innerText = `${TSAT(
-          parseFloat(Fe.value),
-          parseFloat(TIBC.value),
-          globalVars["Gender"]
-        )} \n${Mentz(parseFloat(MCV.value), parseFloat(RBC.value))}`;
-        formulasInputs.forEach((input) => {
-          input.style.cssText = "";
-        });
-      }
-    } else if (calculation == "eGFR + CrCl") {
-      formulaResult.innerText = `${GFR(
-        globalVars["Age"],
-        parseFloat(creatinine.value),
-        globalVars["Gender"],
-        parseFloat(cystatin.value)
-      )} \n${CrCl(
-        parseFloat(creatinine.value),
-        globalVars["Age"],
-        globalVars["Height"],
-        globalVars["Weight"],
-        globalVars["Gender"]
-      )}`;
-    } else if (calculation == "Gestational age + EDD") {
-      const [year, month, day] = lmp.value.split("-");
-      formulaResult.innerText = GA(
-        parseInt(day),
-        parseInt(month),
-        parseInt(year)
-      );
-    } else if (calculation == "ASCVD") {
-      formulaResult.innerText = "BANANA";
-    }
+formulasBtns.forEach((formula) => {
+  formula.addEventListener("click", () => {
+    formulaResult.innerText = formulas[formula.id];
     navigator.clipboard.writeText(formulaResult.textContent);
     copyAlert(formula.id);
   });
 });
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+formulasInputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    console.log("koko wawa");
+  });
+});
 const formulaResult = document.querySelector(".formula-result");
 const EXCLUDED_STRINGS = new Set([
   "GAD-7 results",
@@ -574,6 +503,7 @@ function copyAlert(copiedText) {
 
     copiedText = copiedText.replaceAll("-", ", ");
     let lastIndex = copiedText.lastIndexOf(", ");
+    console.log(lastIndex);
     copiedText =
       copiedText.substring(0, lastIndex) +
       " and " +
@@ -603,10 +533,3 @@ function copyAlert(copiedText) {
   }, 2500);
 }
 //todo=========================================== Formulas Inputs ===========================================
-//! function checkGender() {
-//!   if (globalVars == null) {
-//!     formulaResult.innerText = "Please select a gender";
-//!     return false;
-//!   }
-//!   return true;
-//! }

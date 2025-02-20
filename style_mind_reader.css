@@ -240,12 +240,35 @@
   background-attachment: scroll;
 }
 
+.copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3e006dc5;
+  padding: 5px 15px;
+  border-radius: 1em;
+  transition: background 0.3s;
+}
+.copy svg {
+  width: 1em;
+  height: 1em;
+  color: #e99f29;
+  transition: color 0.3s;
+}
 .copy,
 .GAD-result,
 .PHQ-result {
   margin: 1em 2em;
   color: #e99f29;
-  /* color: #d4d3d3; */
+}
+.copy:hover {
+  background-color: #e99f29;
+}
+.copy:hover svg {
+  color: #3e006dc5;
+}
+.copy:active {
+  background-color: #9a691b;
 }
 .copy-result-container {
   width: 100%;
