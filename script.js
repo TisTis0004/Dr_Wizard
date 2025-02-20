@@ -466,11 +466,13 @@ formulasBtns.forEach((formula) => {
       if (globalVars == null) {
         alertCraftPatient();
       } else {
-        formulaResult.innerText = `${CRP(
+        let copyText = `${CRP(globalVars["Age"], globalVars["Gender"])} \n${ESR(
           globalVars["Age"],
           globalVars["Gender"]
-        )}\n${ESR(globalVars["Age"], globalVars["Gender"])}`;
-        copy(calculation);
+        )}`;
+        formulaResult.innerText = copyText;
+        navigator.clipboard.writeText(copyText);
+        copyAlert(calculation);
         formulaResult.classList.add("big");
       }
     } else if (
@@ -479,7 +481,7 @@ formulasBtns.forEach((formula) => {
       if (globalVars == null) {
         alertCraftPatient();
       } else {
-        formulaResult.innerText = `${
+        let copyText = `${
           ABW(
             globalVars["Height"],
             globalVars["Weight"],
@@ -490,7 +492,9 @@ formulasBtns.forEach((formula) => {
           globalVars["Hips"],
           globalVars["Gender"]
         )}\n${BMI(globalVars["Weight"], globalVars["Height"])}`;
-        copy(calculation);
+        formulaResult.innerText = copyText;
+        navigator.clipboard.writeText(copyText);
+        copyAlert(calculation);
         formulaResult.classList.add("small");
       }
     }
@@ -529,10 +533,6 @@ function fillRequiredFields(inputs) {
   inputs.forEach((input) => {
     if (input.value == "") input.style.cssText = style;
   });
-}
-function copy(text) {
-  navigator.clipboard.writeText(formulaResult.textContent);
-  copyAlert(text);
 }
 function alertCraftPatient() {
   formulaResult.innerText = "Please craft your patient";
@@ -583,12 +583,11 @@ function calculateFormula() {
       MCV.value != "" &&
       RBC.value != ""
     ) {
-      formulaResult.innerText = `${Mentz(
-        parseFloat(MCV.value),
-        parseFloat(RBC.value)
-      )}`;
+      let copyText = `${Mentz(parseFloat(MCV.value), parseFloat(RBC.value))}`;
       clearInputStyle();
-      copy(calculation);
+      navigator.clipboard.writeText(copyText);
+      copyAlert(calculation);
+
       formulaResult.classList.add("medium");
     } else if (globalVars == null) {
       alertCraftPatient();
@@ -603,13 +602,12 @@ function calculateFormula() {
       Fe.value != "" &&
       TIBC.value != ""
     ) {
-      formulaResult.innerText = `${TSAT(
-        Fe.value,
-        TIBC.value,
-        globalVars["Gender"]
-      )}`;
+      let copyText = `${TSAT(Fe.value, TIBC.value, globalVars["Gender"])}`;
       clearInputStyle();
-      copy(calculation);
+      formulaResult.innerText = copyText;
+      navigator.clipboard.writeText(copyText);
+      copyAlert(calculation);
+
       formulaResult.classList.add("medium");
     } else if (
       (TIBC.value != "" &&
@@ -628,13 +626,16 @@ function calculateFormula() {
     ) {
       fillRequiredFields([Fe, MCV, RBC, TIBC]);
     } else {
-      formulaResult.innerText = `${TSAT(
+      let copyText = `${TSAT(
         parseFloat(Fe.value),
         parseFloat(TIBC.value),
         globalVars["Gender"]
       )} \n${Mentz(parseFloat(MCV.value), parseFloat(RBC.value))}`;
       clearInputStyle();
-      copy(calculation);
+      formulaResult.innerText = copyText;
+      navigator.clipboard.writeText(copyText);
+      copyAlert(calculation);
+
       formulaResult.classList.add("medium");
     }
   } else if (calculation == "eGFR + CrCl") {
@@ -646,7 +647,7 @@ function calculateFormula() {
     } else if (creatinine.value == "" && creatinine.value == "") {
       fillRequiredFields([creatinine, cystatin]);
     } else {
-      formulaResult.innerText = `${GFR(
+      let copyText = `${GFR(
         globalVars["Age"],
         parseFloat(creatinine.value),
         globalVars["Gender"],
@@ -659,17 +660,19 @@ function calculateFormula() {
         globalVars["Gender"]
       )}`;
       clearInputStyle();
-      copy(calculation);
+      formulaResult.innerText = copyText;
+      navigator.clipboard.writeText(copyText);
+      copyAlert(calculation);
+
       formulaResult.classList.add("medium");
     }
   } else if (calculation == "Gestational age + EDD") {
     const [year, month, day] = lmp.value.split("-");
-    formulaResult.innerText = GA(
-      parseInt(day),
-      parseInt(month),
-      parseInt(year)
-    );
-    copy(calculation);
+    let copyText = GA(parseInt(day), parseInt(month), parseInt(year));
+    formulaResult.innerText = copyText;
+    navigator.clipboard.writeText(copyText);
+    copyAlert(calculation);
+
     formulaResult.classList.add("big");
   } else if (calculation == "ASCVD Risk") {
     let tempInputs = [hdl.value == "", chol.value == "", bp.value == ""];
@@ -701,7 +704,7 @@ function calculateFormula() {
         parseFloat(chol.value),
         parseFloat(hdl.value)
       );
-      formulaResult.innerText = ASCVD(
+      let copyText = ASCVD(
         isMale,
         black.checked,
         smoker.checked,
@@ -712,7 +715,9 @@ function calculateFormula() {
         parseFloat(chol.value),
         parseFloat(hdl.value)
       );
-      copy(calculation);
+      formulaResult.innerText = copyText;
+      navigator.clipboard.writeText(copyText);
+      copyAlert(calculation);
       formulaResult.classList.add("big");
     }
   }
