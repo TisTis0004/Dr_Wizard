@@ -193,6 +193,7 @@ submitButton.addEventListener("click", function () {
       Hips: numberInputs[2].value,
       Weight: numberInputs[3].value,
     };
+    calculateFormula();
   }
   let vowel;
   if (globalVars.Age == 8 || (globalVars.Age > 79 && globalVars.Age < 90)) {
@@ -434,9 +435,13 @@ const TIBC = document.getElementById("TIBC");
 const Fe = document.getElementById("Fe");
 const MCV = document.getElementById("MCV");
 const RBC = document.getElementById("RBC");
+const black = document.getElementById("black");
+const smoker = document.getElementById("smoker");
+const hypertensive = document.getElementById("hypertensive");
+const diabetic = document.getElementById("diabetic");
 const formulasShowInputs = {
   "Gestational age + EDD": [inputDivs[3]],
-  "ASCVD Risk": [],
+  "ASCVD Risk": [inputDivs[0], inputDivs[1], inputDivs[2], inputDivs[10]],
   "eGFR + CrCl": [inputDivs[4], inputDivs[5]],
   "TSAT + Mentz": [inputDivs[6], inputDivs[7], inputDivs[8], inputDivs[9]],
   "Ideal/Adjusted Weight + Waist to Hips Ratio + BMI": [],
@@ -445,6 +450,10 @@ const formulasShowInputs = {
 let calculation;
 formulasBtns.forEach((formula) => {
   formula.addEventListener("click", () => {
+    formulaResult.classList.remove("big");
+    formulaResult.classList.remove("medium");
+    formulaResult.classList.remove("small");
+    fillRequiredFields(formulasShowInputs[formula.innerText]);
     calculation = formula.innerText;
     console.log(calculation);
     inputDivs.forEach((box) => {
@@ -455,28 +464,34 @@ formulasBtns.forEach((formula) => {
     });
     if (calculation == "CRP + ESR") {
       if (globalVars == null) {
-        formulaResult.innerText = "Please select a gender";
+        alertCraftPatient();
       } else {
         formulaResult.innerText = `${CRP(
           globalVars["Age"],
           globalVars["Gender"]
         )}\n${ESR(globalVars["Age"], globalVars["Gender"])}`;
+        copy(calculation);
+        formulaResult.classList.add("big");
       }
     } else if (
       calculation == "Ideal/Adjusted Weight + Waist to Hips Ratio + BMI"
     ) {
       if (globalVars == null) {
-        formulaResult.innerText = "Please select a gender";
+        alertCraftPatient();
       } else {
-        formulaResult.innerText = `${ABW(
-          globalVars["Height"],
-          globalVars["Weight"],
-          globalVars["Gender"]
-        )}\n${W_to_H(
+        formulaResult.innerText = `${
+          ABW(
+            globalVars["Height"],
+            globalVars["Weight"],
+            globalVars["Gender"]
+          )[0]
+        }\n${W_to_H(
           globalVars["Waist"],
           globalVars["Hips"],
           globalVars["Gender"]
         )}\n${BMI(globalVars["Weight"], globalVars["Height"])}`;
+        copy(calculation);
+        formulaResult.classList.add("small");
       }
     }
   });
@@ -495,48 +510,147 @@ const formulasInputs = [
   Fe,
   MCV,
   RBC,
+  black,
+  smoker,
+  hypertensive,
+  diabetic,
 ];
 const style = `
           background-color: #ff000086;
           border-color:#ff0000
         `;
+function clearInputStyle() {
+  formulasInputs.forEach((input) => {
+    input.style.cssText = "";
+  });
+}
+function fillRequiredFields(inputs) {
+  formulaResult.innerText = "Please fill the required fields";
+  inputs.forEach((input) => {
+    if (input.value == "") input.style.cssText = style;
+  });
+}
+function copy(text) {
+  navigator.clipboard.writeText(formulaResult.textContent);
+  copyAlert(text);
+}
+function alertCraftPatient() {
+  formulaResult.innerText = "Please craft your patient";
+  gsap.fromTo(
+    scrollUpButton,
+    {
+      scale: 1.5,
+      duration: 1.5,
+      boxShadow: "1px 1px 30px #ff6600",
+      ease: "ease",
+    },
+    {
+      scale: 1,
+      duration: 1.5,
+      boxShadow: "1px 1px 0px #000",
+      scale: 1,
+      ease: "ease",
+    }
+  );
+}
+// formulasInputs.forEach((input) => {
+//   input.addEventListener("change", () => {
+//     calculateFormula();
+//   });
+// });
 formulasInputs.forEach((input) => {
   input.addEventListener("input", () => {
-    if (calculation == "TSAT + Mentz") {
-      if (
-        (Fe.value == "" || TIBC.value == "") &&
+    calculateFormula();
+  });
+});
+function calculateFormula() {
+  if (calculation == "TSAT + Mentz") {
+    if (
+      MCV.value == "" &&
+      RBC.value == "" &&
+      Fe.value == "" &&
+      TIBC.value == ""
+    ) {
+      clearInputStyle();
+    } else if (
+      (MCV.value == "" || RBC.value == "") &&
+      Fe.value == "" &&
+      TIBC.value == ""
+    ) {
+      fillRequiredFields([MCV, RBC]);
+    } else if (
+      (Fe.value == "" || TIBC.value == "") &&
+      MCV.value != "" &&
+      RBC.value != ""
+    ) {
+      formulaResult.innerText = `${Mentz(
+        parseFloat(MCV.value),
+        parseFloat(RBC.value)
+      )}`;
+      clearInputStyle();
+      copy(calculation);
+      formulaResult.classList.add("medium");
+    } else if (globalVars == null) {
+      alertCraftPatient();
+    } else if (
+      (Fe.value == "" || TIBC.value == "") &&
+      MCV.value == "" &&
+      RBC.value == ""
+    ) {
+      fillRequiredFields([Fe, TIBC]);
+    } else if (
+      (MCV.value == "" || RBC.value == "") &&
+      Fe.value != "" &&
+      TIBC.value != ""
+    ) {
+      formulaResult.innerText = `${TSAT(
+        Fe.value,
+        TIBC.value,
+        globalVars["Gender"]
+      )}`;
+      clearInputStyle();
+      copy(calculation);
+      formulaResult.classList.add("medium");
+    } else if (
+      (TIBC.value != "" &&
         MCV.value != "" &&
-        RBC.value != ""
-      ) {
-        formulaResult.innerText = `${Mentz(
-          parseFloat(MCV.value),
-          parseFloat(RBC.value)
-        )}`;
-        formulasInputs.forEach((input) => {
-          input.style.cssText = "";
-        });
-      } else if (globalVars == null) {
-        formulaResult.innerText = "Please select a gender";
-      } else if (Fe.value == "" || TIBC == "") {
-        formulaResult.innerText = "Please fill the required fields";
-        Fe.style.cssText = style;
-        TIBC.style.cssText = style;
-      } else {
-        formulaResult.innerText = `${TSAT(
-          parseFloat(Fe.value),
-          parseFloat(TIBC.value),
-          globalVars["Gender"]
-        )} \n${Mentz(parseFloat(MCV.value), parseFloat(RBC.value))}`;
-        formulasInputs.forEach((input) => {
-          input.style.cssText = "";
-        });
-      }
-    } else if (calculation == "eGFR + CrCl") {
+        RBC.value == "" &&
+        Fe.value == "") ||
+      (Fe.value != "" &&
+        MCV.value != "" &&
+        RBC.value == "" &&
+        TIBC.value == "") ||
+      (Fe.value != "" &&
+        RBC.value != "" &&
+        TIBC.value == "" &&
+        MCV.value == "") ||
+      (RBC.value != "" && TIBC.value != "" && Fe.value == "" && MCV.value == "")
+    ) {
+      fillRequiredFields([Fe, MCV, RBC, TIBC]);
+    } else {
+      formulaResult.innerText = `${TSAT(
+        parseFloat(Fe.value),
+        parseFloat(TIBC.value),
+        globalVars["Gender"]
+      )} \n${Mentz(parseFloat(MCV.value), parseFloat(RBC.value))}`;
+      clearInputStyle();
+      copy(calculation);
+      formulaResult.classList.add("medium");
+    }
+  } else if (calculation == "eGFR + CrCl") {
+    if (globalVars == null) {
+      alertCraftPatient();
+    } else if (cystatin.value != "" && creatinine.value == "") {
+      clearInputStyle();
+      fillRequiredFields([creatinine]);
+    } else if (creatinine.value == "" && creatinine.value == "") {
+      fillRequiredFields([creatinine, cystatin]);
+    } else {
       formulaResult.innerText = `${GFR(
         globalVars["Age"],
         parseFloat(creatinine.value),
         globalVars["Gender"],
-        parseFloat(cystatin.value)
+        isNaN(parseFloat(cystatin.value)) ? 0 : parseFloat(cystatin.value)
       )} \n${CrCl(
         parseFloat(creatinine.value),
         globalVars["Age"],
@@ -544,27 +658,70 @@ formulasInputs.forEach((input) => {
         globalVars["Weight"],
         globalVars["Gender"]
       )}`;
-    } else if (calculation == "Gestational age + EDD") {
-      const [year, month, day] = lmp.value.split("-");
-      formulaResult.innerText = GA(
-        parseInt(day),
-        parseInt(month),
-        parseInt(year)
-      );
-    } else if (calculation == "ASCVD") {
-      formulaResult.innerText = "BANANA";
+      clearInputStyle();
+      copy(calculation);
+      formulaResult.classList.add("medium");
     }
-    navigator.clipboard.writeText(formulaResult.textContent);
-    copyAlert(formula.id);
-  });
-});
-
+  } else if (calculation == "Gestational age + EDD") {
+    const [year, month, day] = lmp.value.split("-");
+    formulaResult.innerText = GA(
+      parseInt(day),
+      parseInt(month),
+      parseInt(year)
+    );
+    copy(calculation);
+    formulaResult.classList.add("big");
+  } else if (calculation == "ASCVD Risk") {
+    let tempInputs = [hdl.value == "", chol.value == "", bp.value == ""];
+    console.log(tempInputs);
+    if (
+      !black.checked &&
+      !smoker.checked &&
+      !hypertensive.checked &&
+      !diabetic.checked &&
+      hdl.value == "" &&
+      chol.value == "" &&
+      bp.value == ""
+    ) {
+      clearInputStyle();
+    } else if (globalVars == null) {
+      alertCraftPatient();
+    } else if (tempInputs.includes(true)) {
+      formulaResult.innerText = "Please fill the required fields";
+    } else {
+      let isMale = globalVars["Gender"] == "m" ? true : false;
+      console.log(
+        isMale,
+        black.checked,
+        smoker.checked,
+        hypertensive.checked,
+        diabetic.checked,
+        parseInt(globalVars["Age"]),
+        parseFloat(bp.value),
+        parseFloat(chol.value),
+        parseFloat(hdl.value)
+      );
+      formulaResult.innerText = ASCVD(
+        isMale,
+        black.checked,
+        smoker.checked,
+        hypertensive.checked,
+        diabetic.checked,
+        parseInt(globalVars["Age"]),
+        parseFloat(bp.value),
+        parseFloat(chol.value),
+        parseFloat(hdl.value)
+      );
+      copy(calculation);
+      formulaResult.classList.add("big");
+    }
+  }
+}
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 const formulaResult = document.querySelector(".formula-result");
 const EXCLUDED_STRINGS = new Set([
   "GAD-7 results",
   "PHQ-9 results",
-  "ASCVD",
   "The patient",
 ]);
 function copyAlert(copiedText) {
@@ -573,18 +730,13 @@ function copyAlert(copiedText) {
     copiedText = copiedText.replaceAll("_", " ");
 
     copiedText = copiedText.replaceAll("-", ", ");
-    let lastIndex = copiedText.lastIndexOf(", ");
-    copiedText =
-      copiedText.substring(0, lastIndex) +
-      " and " +
-      copiedText.substring(lastIndex + 1);
   }
   const copyAlertMessage = document.createElement("div");
   let singularPlural;
-  if (copiedText.includes("and")) {
-    singularPlural = "have";
-  } else {
+  if (copiedText.includes("patient") || copiedText.includes("ASCVD")) {
     singularPlural = "has";
+  } else {
+    singularPlural = "have";
   }
   copyAlertMessage.innerHTML = `
         <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24">
@@ -603,10 +755,3 @@ function copyAlert(copiedText) {
   }, 2500);
 }
 //todo=========================================== Formulas Inputs ===========================================
-//! function checkGender() {
-//!   if (globalVars == null) {
-//!     formulaResult.innerText = "Please select a gender";
-//!     return false;
-//!   }
-//!   return true;
-//! }

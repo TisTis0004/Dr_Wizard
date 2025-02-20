@@ -65,7 +65,7 @@
   max-width: 5.2em;
   min-height: 2em;
   margin: 1em 0;
-  background-color: yellowgreen;
+  background-color: #916300;
   border-radius: 1em;
   transition: box-shadow 0.2s, transform 0.2s, rotate 1s;
   padding: 0.8em 1em;
@@ -108,7 +108,7 @@
   max-width: 5em;
   text-align: center;
   margin-top: 0.2em;
-  color: blue;
+  color: #4f2e1a;
 }
 .formula-results,
 .formula-inputs-container {
@@ -119,6 +119,7 @@
 .formula-inputs-container label {
   text-align: center;
   font-size: 1.2em;
+  color: #4f2e1a;
 }
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
@@ -149,6 +150,8 @@ input {
 }
 .formula-result {
   width: 75%;
+  font-size: 1.8em;
+  color: #4f2e1a;
 }
 .formula-inputs-sub-container {
   transition: visibility 2s, opacity 2s;
@@ -165,15 +168,31 @@ input {
   min-height: 100px;
 }
 .formula-input {
-  width: 65%;
+  width: 100%;
   height: 1.6em;
   /* padding: 0.2em; */
-  font-size: 1.5em;
+  font-size: 1em;
   border: 2px solid #ccc;
   text-align: center;
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s ease, background 0.3s;
+  box-shadow: 0px 0px 0px;
+}
+.hdl,
+.lmp {
+  grid-column: span 2;
+}
+.booleans label {
+  display: block;
+}
+.booleans > div {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+.booleans {
+  width: 100%;
+  grid-column: span 2;
 }
 .separator-formulas {
   position: absolute;
@@ -184,4 +203,13 @@ input {
   background-size: contain;
   background-position: center;
   background-attachment: scroll;
+}
+.big {
+  font-size: 2em;
+}
+.medium {
+  font-size: 1.5em;
+}
+.small {
+  font-size: 1.3em;
 }

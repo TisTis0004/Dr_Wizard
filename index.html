@@ -640,23 +640,42 @@
             <div class="formula-inputs-container">
               <div class="formula-inputs-sub-container hide">
                 <label for="bp">Systolic Blood Pressure</label>
-                <input class="formula-input" type="number" name="" id="bp" />
+                <input
+                  placeholder="mmHg"
+                  class="formula-input"
+                  type="number"
+                  name=""
+                  id="bp"
+                />
               </div>
               <div class="formula-inputs-sub-container hide">
                 <label for="chol">Total Cholesterol</label>
-                <input class="formula-input" type="number" name="" id="chol" />
+                <input
+                  placeholder="mmol/L Norm:(<= 5.2)"
+                  class="formula-input"
+                  type="number"
+                  name=""
+                  id="chol"
+                />
               </div>
-              <div class="formula-inputs-sub-container hide">
+              <div class="formula-inputs-sub-container hdl hide">
                 <label for="hdl">High-Density Lipoprotein</label>
-                <input class="formula-input" type="number" name="" id="hdl" />
+                <input
+                  placeholder="mmol/L Norm:(>= 1.68)"
+                  class="formula-input"
+                  type="number"
+                  name=""
+                  id="hdl"
+                />
               </div>
-              <div class="formula-inputs-sub-container hide">
+              <div class="formula-inputs-sub-container lmp hide">
                 <label for="lmp">Last Measured Period</label>
                 <input class="formula-input" type="date" name="" id="lmp" />
               </div>
               <div class="formula-inputs-sub-container hide">
                 <label for="creatinine">Creatinine</label>
                 <input
+                  placeholder="µmol/L Norm:(45-84)"
                   class="formula-input"
                   type="number"
                   name=""
@@ -666,6 +685,7 @@
               <div class="formula-inputs-sub-container hide">
                 <label for="cystatin">Cystatin</label>
                 <input
+                  placeholder="(0 if unavailable)"
                   class="formula-input"
                   type="number"
                   name=""
@@ -674,19 +694,81 @@
               </div>
               <div class="formula-inputs-sub-container hide">
                 <label for="TIBC">TIBC</label><br />
-                <input class="formula-input" type="number" name="" id="TIBC" />
+                <input
+                  placeholder="µg/dL"
+                  class="formula-input"
+                  type="number"
+                  name=""
+                  id="TIBC"
+                />
               </div>
               <div class="formula-inputs-sub-container hide">
                 <label for="Fe">Fe</label><br />
-                <input class="formula-input" type="number" name="" id="Fe" />
+                <input
+                  placeholder="µg/dL"
+                  class="formula-input"
+                  type="number"
+                  name=""
+                  id="Fe"
+                />
               </div>
               <div class="formula-inputs-sub-container hide">
                 <label for="MCV">MCV</label><br />
-                <input class="formula-input" type="number" name="" id="MCV" />
+                <input
+                  placeholder="fL Norm:(80-94)"
+                  class="formula-input"
+                  type="number"
+                  name=""
+                  id="MCV"
+                />
               </div>
               <div class="formula-inputs-sub-container hide">
                 <label for="RBC">RBC</label><br />
-                <input class="formula-input" type="number" name="" id="RBC" />
+                <input
+                  placeholder="× 10¹² cells/L Norm:(4.2-5.5)"
+                  class="formula-input"
+                  type="number"
+                  name=""
+                  id="RBC"
+                />
+              </div>
+              <div class="formula-inputs-sub-container booleans hide">
+                <div>
+                  <label for="black">Black</label>
+                  <input
+                    class="formula-input"
+                    type="checkbox"
+                    name=""
+                    id="black"
+                  />
+                </div>
+                <div>
+                  <label for="smoker">Smoker</label>
+                  <input
+                    class="formula-input"
+                    type="checkbox"
+                    name=""
+                    id="smoker"
+                  />
+                </div>
+                <div>
+                  <label for="hypertensive">HTN</label>
+                  <input
+                    class="formula-input"
+                    type="checkbox"
+                    name=""
+                    id="hypertensive"
+                  />
+                </div>
+                <div>
+                  <label for="diabetic">Diabetic</label>
+                  <input
+                    class="formula-input"
+                    type="checkbox"
+                    name=""
+                    id="diabetic"
+                  />
+                </div>
               </div>
             </div>
           </div>

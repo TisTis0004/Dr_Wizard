@@ -10,7 +10,7 @@ function computeTenYearScore(
   hdl
 ) {
   if (age < 40 || age > 79) {
-    return null;
+    return "Age determined is not applicable.";
   }
 
   totalCholesterol *= 38.67;
@@ -85,7 +85,9 @@ function computeTenYearScore(
   }
 
   const pct = 1 - Math.pow(s010Ret, Math.exp(predictRet - mnxbRet));
-  return Math.round(pct * 1000) / 10; // Round to one decimal place
+  return `The risk of ASCVD in the upcoming 10-years is: ${
+    Math.round(pct * 1000) / 10
+  }%`; // Round to one decimal place
 }
 
 export default computeTenYearScore;

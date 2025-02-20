@@ -5,15 +5,15 @@ function TSAT(Fe, TIBC, gender) {
   let tsat = ((Fe / TIBC) * 100).toFixed(2);
   if (gender.toLowerCase() === "m") {
     if (tsat <= 20) {
-      return `TSAT: ${tsat}%, Iron Deficiency Anemia is likely due to Transferrin saturation less than 20%.`;
+      return `TSAT: ${tsat}%, IDA is likely due to Transferrin saturation less than 20%.`;
     } else {
-      return `TSAT: ${tsat}%, Iron Deficiency Anemia is Unlikely.`;
+      return `TSAT: ${tsat}%, IDA is Unlikely.`;
     }
   } else if (gender.toLowerCase() === "f") {
     if (tsat <= 15) {
-      return `TSAT: ${tsat}%, Iron Deficiency Anemia is likely due to Transferrin saturation less than 15%.`;
+      return `TSAT: ${tsat}%, IDA is likely due to Transferrin saturation less than 15%.`;
     } else {
-      return `TSAT: ${tsat}%, Iron Deficiency Anemia is Unlikely.`;
+      return `TSAT: ${tsat}%, IDA is Unlikely.`;
     }
   } else {
     return "GAYYYYYYYYYY!";
@@ -24,11 +24,11 @@ function TSAT(Fe, TIBC, gender) {
 function Mentz(MCV, RBC) {
   let mentz = (MCV / RBC).toFixed(2);
   if (mentz > 13) {
-    return `Mentz: ${mentz}, Iron Deficiency Anemia is likely due to Mentzer Index more than 13.`;
+    return `Mentz: ${mentz}, IDA is likely due to Index more than 13.`;
   } else if (mentz < 13) {
-    return `Mentz: ${mentz}, Beta thalassemia is likely due to Mentzer Index less than 13.`;
+    return `Mentz: ${mentz}, β-thalassemia is likely due to Index less than 13.`;
   } else {
-    return `Mentz: ${mentz}, A combination of Iron Deficiency Anemia and Beta thalassemia are likely due to Mentzer Index equals to 13.`;
+    return `Mentz: ${mentz}, A combination of IDA and β-thalassemia are likely due to Index equals to 13.`;
   }
 }
 
@@ -67,6 +67,41 @@ function W_to_H(w, h, gender) {
     } else {
       return `W:H = ${ratio.toFixed(2)}, Optimal ^_^.`;
     }
+  } else {
+    return "GAYYYYYYYYYY!";
+  }
+}
+
+function CrCl(creatinine, age, height, actualWeight, gender) {
+  creatinine /= 88.4;
+  age = age;
+  height = height;
+  actualWeight = actualWeight;
+  let abw = ABW(height, actualWeight, gender)[1];
+  let ibw = IBW(height, gender);
+  let crclActual = ((140 - age) * actualWeight) / (creatinine * 72);
+  let crclAdjusted = ((140 - age) * abw) / (creatinine * 72);
+  let crclIdeal = ((140 - age) * ibw) / (creatinine * 72);
+  let finalCrcl, whichCalc;
+
+  if (actualWeight > ibw) {
+    finalCrcl = crclAdjusted;
+    whichCalc = "adjusted weight";
+  } else if (actualWeight < ibw) {
+    finalCrcl = crclActual;
+    whichCalc = "actual weight";
+  } else {
+    finalCrcl = crclIdeal;
+    whichCalc = "ideal weight";
+  }
+  if (gender.toLowerCase() === "f") {
+    return `Creatinine clearance: ${Math.round(
+      finalCrcl * 0.85
+    )} mL/min, via (${whichCalc}).`;
+  } else if (gender.toLowerCase() === "m") {
+    return `Creatinine clearance: ${Math.round(
+      finalCrcl.toFixed(1)
+    )} mL/min, via (${whichCalc}).`;
   } else {
     return "GAYYYYYYYYYY!";
   }
@@ -158,7 +193,7 @@ function ABW(height, actualWeight, gender) {
       ibw
     )} kg, Adjusted body weight: ${Math.round(
       ibw + 0.4 * (actualWeight - ibw)
-    )} kg.`,
+    )} kg`,
     ibw,
   ];
 }
@@ -166,48 +201,13 @@ function ABW(height, actualWeight, gender) {
 function BMI(weight, height) {
   let heightInMeters = height / 100;
   let bmi = (weight / Math.pow(heightInMeters, 2)).toFixed(2);
-  return `BMI: ${bmi} kg/m².`;
+  return `BMI: ${bmi} kg/m²`;
 }
 
 // function isObese(weight, height, gender) {
 //   let ibw = IBW(height, gender);
 //   return weight > ibw;
 // }
-
-function CrCl(creatinine, age, height, actualWeight, gender) {
-  creatinine /= 88.4;
-  age = age;
-  height = height;
-  actualWeight = actualWeight;
-  let abw = ABW(height, actualWeight, gender)[1];
-  let ibw = IBW(height, gender);
-  let crclActual = ((140 - age) * actualWeight) / (creatinine * 72);
-  let crclAdjusted = ((140 - age) * abw) / (creatinine * 72);
-  let crclIdeal = ((140 - age) * ibw) / (creatinine * 72);
-  let finalCrcl, whichCalc;
-
-  if (actualWeight > ibw) {
-    finalCrcl = crclAdjusted;
-    whichCalc = "adjusted weight";
-  } else if (actualWeight < ibw) {
-    finalCrcl = crclActual;
-    whichCalc = "actual weight";
-  } else {
-    finalCrcl = crclIdeal;
-    whichCalc = "ideal weight";
-  }
-  if (gender.toLowerCase() === "f") {
-    return `Creatinine clearance: ${Math.round(
-      finalCrcl * 0.85
-    )} mL/min, via (${whichCalc}).`;
-  } else if (gender.toLowerCase() === "m") {
-    return `Creatinine clearance: ${Math.round(
-      finalCrcl.toFixed(1)
-    )} mL/min, via (${whichCalc}).`;
-  } else {
-    return "GAYYYYYYYYYY!";
-  }
-}
 
 // LMP calculation
 function LMP(day, month, year) {
@@ -274,7 +274,7 @@ function ASCVD(
   totalCholesterol,
   hdl
 ) {
-  computeTenYearScore(
+  return computeTenYearScore(
     isMale,
     isBlack,
     smoker,
