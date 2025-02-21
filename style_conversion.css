@@ -4,16 +4,144 @@
   background-repeat: repeat;
   background-position: center;
   background-attachment: scroll;
+  min-height: 600px;
+  cursor: url("Assets/images/Key-Fragments-LoL.png") -3 -3, auto !important;
+}
+.conversion-section * {
+  cursor: url("Assets/images/Key-Fragments-LoL.png") -3 -3, auto !important;
 }
 .conversion-heading {
   padding-top: 1.2em;
   margin-top: 0;
 }
-.conversion-section p {
+.conversion-main-container {
+  background-color: lightblue;
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  margin: 0 1.8em;
+}
+.conversion-left-part {
+  background-color: lightcoral;
+  grid-column: span 6;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: 1fr;
+}
+.conversion-right-part {
+  background-color: lightgreen;
+  grid-column: span 4;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  grid-template-columns: 1fr;
+}
+.conversion-sub-heading-1 {
+  grid-column: span 1;
+}
+.conversion-sub-heading {
+  font-size: 3em;
+  color: #3c3a3b;
+  margin: 0;
+}
+.conversion-sub-container {
+  background: url("Assets/images/T_F.webp") center center no-repeat;
+  background-size: contain;
+  grid-row: 2/10;
+  position: relative;
+  top: -4.5em;
+}
+.conversion-box {
+  display: block;
+  position: absolute;
+  outline: none;
+  border: none;
+  font-size: 4em;
+  border-radius: 0.1em;
+  padding: 0.1em;
+}
+#conversion-input-1 {
+  width: 17.5%;
+  top: 38%;
+  max-height: 5em;
+  left: 10%;
+}
+#conversion-input-2 {
+  width: 17.5%;
+  bottom: 40%;
+  max-height: 5em;
+  right: 15.5%;
+}
+.conversion-result {
+  background-color: lightseagreen;
+  color: #fff;
+  user-select: none;
+  font-size: 3em;
+}
+#conversion-result-1 {
+  top: 38%;
+  left: 36%;
+}
+#conversion-result-2 {
+  bottom: 40%;
+  right: 43%;
+}
+.drop-down-box {
+  background: url("Assets/images/drop_down_list_background.png") center center
+    no-repeat;
+  background-size: contain;
+  grid-row: span 9;
+  position: relative;
+  top: -4.5em;
+}
+.dropbtn {
+  background-color: #d2967a;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20em;
-  text-align: center;
-  rotate: -90deg;
-  transform: rotateX(180deg);
+  padding: 0.5em;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+  border: 3px solid black;
+  border-radius: 1em;
+}
+
+.dropdown {
+  position: absolute;
+  top: 34%;
+  left: 20%;
+  width: 65%;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px #00000033;
+  z-index: 1;
+  border-radius: 1em;
+}
+
+.dropdown-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content div:first-child {
+  border-radius: 1em 1em 0 0;
+}
+.dropdown-content div:last-child {
+  border-radius: 0 0 1em 1em;
+}
+.dropdown-content div:hover {
+  background-color: #e7b373;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #c28b71;
 }
