@@ -800,14 +800,38 @@
               class="conversion-result conversion-box"
               id="conversion-result-1"
             >
-              mmol
+              mg
             </div>
             <div
               class="conversion-result conversion-box"
               id="conversion-result-2"
             >
-              mg
+              mmol
             </div>
+            <input
+              placeholder="DD"
+              class="conversion-box"
+              id="conversion-input-day"
+              type="number"
+            />
+            <input
+              placeholder="MM"
+              class="conversion-box"
+              id="conversion-input-month"
+              type="number"
+            />
+            <input
+              placeholder="YYYY"
+              class="conversion-box"
+              id="conversion-input-year"
+              type="number"
+            />
+            <input
+              class="conversion-box"
+              id="conversion-input-date-result"
+              type="text"
+              disabled
+            />
           </div>
         </div>
         <div class="conversion-right-part">
@@ -817,29 +841,31 @@
           <div class="drop-down-box">
             <div class="dropdown">
               <button class="dropbtn">
-                Path of Convergence
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="9"
-                  viewBox="0 0 16 9"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M1.00008 2.41429C0.609551 2.02376 0.609551 1.3906 1.00008 1.00008C1.3906 0.609551 2.02376 0.609551 2.41429 1.00007L8.00008 6.58586L13.5859 1.00008C13.9764 0.609551 14.6096 0.609551 15.0001 1.00008C15.3906 1.3906 15.3906 2.02376 15.0001 2.41429L8.8486 8.56576C8.37997 9.03439 7.62018 9.03439 7.15155 8.56576L1.00008 2.41429Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
+                <span class="button-content">
+                  <span id="button-text">Path of Convergence</span>&nbsp;
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="9"
+                    viewBox="0 0 16 9"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.00008 2.41429C0.609551 2.02376 0.609551 1.3906 1.00008 1.00008C1.3906 0.609551 2.02376 0.609551 2.41429 1.00007L8.00008 6.58586L13.5859 1.00008C13.9764 0.609551 14.6096 0.609551 15.0001 1.00008C15.3906 1.3906 15.3906 2.02376 15.0001 2.41429L8.8486 8.56576C8.37997 9.03439 7.62018 9.03439 7.15155 8.56576L1.00008 2.41429Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </span>
               </button>
               <div class="dropdown-content">
-                <div>Glucose (mg ↔ mmol)</div>
-                <div>Triglyceride (mg ↔ mmol)</div>
-                <div>Cholesterol (mg ↔ mmol)</div>
-                <div>Calcium (mg ↔ mmol)</div>
-                <div>Hgb1Ac (% → mg/dL)</div>
-                <div>To gregorian (🌙 → ☀️)</div>
+                <div class="option">Glucose (mg ↔ mmol)</div>
+                <div class="option">Triglyceride (mg ↔ mmol)</div>
+                <div class="option">Cholesterol (mg ↔ mmol)</div>
+                <div class="option">Calcium (mg ↔ mmol)</div>
+                <div class="option">Hgb1Ac (% → mg/dL)</div>
+                <div class="option">To gregorian (🌙 → ☀️)</div>
               </div>
             </div>
           </div>

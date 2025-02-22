@@ -28,7 +28,7 @@ function categorizeAge(age) {
     ageImg.src = "Assets/images/adult.png";
   } else if (age >= 40 && age <= 59) {
     ageImg.src = "Assets/images/middle_aged.png";
-  } else if (age >= 60 && age <= 99) {
+  } else if (age >= 60 && age <= 100) {
     ageImg.src = "Assets/images/old.png";
   }
 }
@@ -759,4 +759,170 @@ function copyAlert(copiedText) {
     copyAlertMessage.classList.add("copy-hide");
   }, 2500);
 }
-//todo=========================================== Formulas Inputs ===========================================
+//todo=========================================== Conversion ===========================================
+import {
+  Glucose_mg_to_mmol,
+  Glucose_mmol_to_mg,
+  Triglyceride_mg_to_mmol,
+  Triglyceride_mmol_to_mg,
+  Cholesterol_mg_to_mmol,
+  Cholesterol_mmol_to_mg,
+  Calcium_mg_to_mmol,
+  Calcium_mmol_to_mg,
+  Hgb1ac_percent_to_unit,
+  hijri_to_gregorian,
+} from "./Calcualtions/JS/conversions.js";
+const options = document.querySelectorAll(".option");
+const dropBtnText = document.getElementById("button-text");
+const convHead1 = document.querySelector(".conversion-sub-heading-1");
+const conversionsMmolMg = {
+  Glucose: [Glucose_mg_to_mmol, Glucose_mmol_to_mg],
+  Triglyceride: [Triglyceride_mg_to_mmol, Triglyceride_mmol_to_mg],
+  Cholesterol: [Cholesterol_mg_to_mmol, Cholesterol_mmol_to_mg],
+  Calcium: [Calcium_mg_to_mmol, Calcium_mmol_to_mg],
+};
+const otherConversions = {
+  Hgb1Ac: Hgb1ac_percent_to_unit,
+  gregorian: hijri_to_gregorian,
+};
+function showGregorian(show) {
+  if (show) {
+    conversionBox1.style.display = "none";
+    conversionBox2.style.display = "none";
+    conversionBoxResult[0].style.display = "none";
+    conversionBoxResult[1].style.display = "none";
+    conversionBoxDay.style.display = "block";
+    conversionBoxMonth.style.display = "block";
+    conversionBoxYear.style.display = "block";
+    conversionBoxDateResult.style.display = "block";
+  } else {
+    conversionBox1.style.display = "block";
+    conversionBox2.style.display = "block";
+    conversionBoxResult[0].style.display = "block";
+    conversionBoxResult[1].style.display = "block";
+    conversionBoxDay.style.display = "none";
+    conversionBoxMonth.style.display = "none";
+    conversionBoxYear.style.display = "none";
+    conversionBoxDateResult.style.display = "none";
+  }
+}
+let currentConversion;
+options.forEach((option) => {
+  option.addEventListener("click", () => {
+    dropBtnText.innerText = option.innerText;
+    currentConversion = option.innerText;
+    convHead1.innerText = option.innerText + " conversion";
+    conversionBox1.value = "";
+    conversionBox2.value = "";
+    if (currentConversion.includes("Hgb1Ac")) {
+      showGregorian(false);
+      conversionBoxResult[0].innerText = "%";
+      conversionBoxResult[1].innerText = "mg/dL";
+    } else if (currentConversion.includes("gregorian")) {
+      showGregorian(true);
+    } else {
+      showGregorian(false);
+      conversionBoxResult[0].innerText = "mg";
+      conversionBoxResult[1].innerText = "mmol";
+    }
+  });
+});
+const conversionBoxResult = document.querySelectorAll(".conversion-result");
+const conversionBox1 = document.getElementById("conversion-input-1");
+const conversionBox2 = document.getElementById("conversion-input-2");
+const conversionBoxDay = document.getElementById("conversion-input-day");
+const conversionBoxMonth = document.getElementById("conversion-input-month");
+const conversionBoxYear = document.getElementById("conversion-input-year");
+const conversionBoxDateResult = document.getElementById(
+  "conversion-input-date-result"
+);
+
+mmolMgConversions(conversionBox1, conversionBox2, true);
+mmolMgConversions(conversionBox2, conversionBox1, false);
+
+function mmolMgConversionCopy(input, output, toMmol) {
+  let first, second;
+  if (toMmol) {
+    first = "mg";
+    second = "mmol";
+  } else {
+    first = "mmol";
+    second = "mg";
+  }
+  let copyText = currentConversion.split(" ")[0];
+  let s = `${input.value} ${first} of ${copyText} is equivalent to ${output.value} ${second}`;
+  navigator.clipboard.writeText(s);
+  copyAlert(copyText);
+}
+function mmolMgConversions(input, output, toMmol) {
+  let index = toMmol ? 0 : 1;
+  input.addEventListener("input", () => {
+    if (currentConversion == undefined) {
+      convHead1.innerText = "Please select a conversion";
+      gsap.fromTo(
+        convHead1,
+        {
+          duration: 0.8,
+          scale: 1.1,
+          color: "#F00",
+          ease: "ease",
+        },
+        {
+          scale: 1,
+          duration: 0.8,
+          color: "#C8C8C8",
+          ease: "ease",
+        }
+      );
+    } else if (currentConversion.includes("Glucose")) {
+      output.value = conversionsMmolMg["Glucose"][index](input.value);
+      mmolMgConversionCopy(input, output, toMmol);
+    } else if (currentConversion.includes("Triglyceride")) {
+      output.value = conversionsMmolMg["Triglyceride"][index](input.value);
+      mmolMgConversionCopy(input, output, toMmol);
+    } else if (currentConversion.includes("Cholesterol")) {
+      output.value = conversionsMmolMg["Cholesterol"][index](input.value);
+      mmolMgConversionCopy(input, output, toMmol);
+    } else if (currentConversion.includes("Calcium")) {
+      output.value = conversionsMmolMg["Calcium"][index](input.value);
+      mmolMgConversionCopy(input, output, toMmol);
+    } else if (currentConversion.includes("Hgb1Ac")) {
+      if (conversionBox1.value == "") {
+        conversionBox2.value = "";
+      } else {
+        conversionBox2.style.caretColor = "#fff";
+        conversionBox2.value = Hgb1ac_percent_to_unit(
+          parseFloat(conversionBox1.value)
+        );
+        let copyText = currentConversion.split(" ")[0];
+        let s = `${conversionBox1.value}% of Hgb1Ac is equivalent to ${conversionBox2.value} mg/dL`;
+        navigator.clipboard.writeText(s);
+        copyAlert(copyText);
+      }
+    }
+  });
+}
+let dateboxes = [conversionBoxDay, conversionBoxMonth, conversionBoxYear];
+
+dateboxes.forEach((box) => {
+  box.addEventListener("input", () => {
+    if (
+      conversionBoxDay.value == "" ||
+      conversionBoxMonth.value == "" ||
+      conversionBoxYear.value == ""
+    ) {
+      conversionBoxDateResult.value = "";
+    } else {
+      conversionBoxDateResult.value = hijri_to_gregorian(
+        parseInt(conversionBoxYear.value),
+        parseInt(conversionBoxMonth.value),
+        parseInt(conversionBoxDay.value)
+      );
+      let copyText = currentConversion.split(" ")[1];
+      copyText = copyText[0].toUpperCase() + copyText.slice(1, copyText.length);
+      let s = `The estimated Gregorian date from Hijri is: ${conversionBoxDateResult.value}`;
+      navigator.clipboard.writeText(s);
+      copyAlert(copyText);
+    }
+  });
+});

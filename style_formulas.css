@@ -213,3 +213,9 @@ input {
 .small {
   font-size: 1.3em;
 }
+input[type="checkbox"] {
+  accent-color: #cf8d00;
+}
+input[type="checkbox"]:hover {
+  background-color: #ffffff;
+}

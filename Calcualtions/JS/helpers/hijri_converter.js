@@ -33,6 +33,6 @@ export function hijriToGregorian(hYear, hMonth, hDay) {
     var m = j + 2 - 12 * i;
     var y = 4 * k + n + i - 4716;
   }
-
-  return new Date(y, m - 1, d);
+  let date = new Date(y, m - 1, d);
+  return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
 }

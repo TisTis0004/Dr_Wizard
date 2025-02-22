@@ -15,21 +15,21 @@
   margin-top: 0;
 }
 .conversion-main-container {
-  background-color: lightblue;
+  /* background-color: lightblue; */
   min-height: 600px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   margin: 0 1.8em;
 }
 .conversion-left-part {
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
   grid-column: span 6;
   display: grid;
   grid-template-rows: repeat(8, 1fr);
   grid-template-columns: 1fr;
 }
 .conversion-right-part {
-  background-color: lightgreen;
+  /* background-color: lightgreen; */
   grid-column: span 4;
   display: grid;
   grid-template-rows: repeat(8, 1fr);
@@ -40,8 +40,10 @@
 }
 .conversion-sub-heading {
   font-size: 3em;
-  color: #3c3a3b;
+  color: #c8c8c8;
   margin: 0;
+  position: relative;
+  z-index: 1;
 }
 .conversion-sub-container {
   background: url("Assets/images/T_F.webp") center center no-repeat;
@@ -51,28 +53,59 @@
   top: -4.5em;
 }
 .conversion-box {
-  display: block;
+  width: 17%;
+  display: none;
   position: absolute;
   outline: none;
   border: none;
-  font-size: 4em;
+  font-size: 3em;
   border-radius: 0.1em;
   padding: 0.1em;
 }
 #conversion-input-1 {
+  display: block;
   width: 17.5%;
   top: 38%;
   max-height: 5em;
   left: 10%;
 }
-#conversion-input-2 {
+#conversion-input-2,
+#conversion-input-date-result {
+  display: block;
   width: 17.5%;
   bottom: 40%;
   max-height: 5em;
   right: 15.5%;
 }
+#conversion-input-date-result {
+  display: none;
+  font-size: 2em;
+  text-align: center;
+}
+#conversion-input-date-result:disabled {
+  color: aqua;
+  background-color: red;
+}
+#conversion-input-day,
+#conversion-input-month,
+#conversion-input-year {
+  top: 38%;
+  text-align: center;
+}
+#conversion-input-day {
+  width: 1em;
+  left: 12%;
+}
+#conversion-input-month {
+  width: 1.3em;
+  left: 20%;
+}
+#conversion-input-year {
+  width: 2em;
+  left: 36.5%;
+}
 .conversion-result {
-  background-color: lightseagreen;
+  display: block;
   color: #fff;
   user-select: none;
   font-size: 3em;
@@ -84,6 +117,7 @@
 #conversion-result-2 {
   bottom: 40%;
   right: 43%;
+  text-align: right;
 }
 .drop-down-box {
   background: url("Assets/images/drop_down_list_background.png") center center
@@ -92,6 +126,7 @@
   grid-row: span 9;
   position: relative;
   top: -4.5em;
+  user-select: none;
 }
 .dropbtn {
   background-color: #d2967a;
@@ -100,8 +135,18 @@
   font-size: 16px;
   border: none;
   width: 100%;
+  height: 2.2em;
   border: 3px solid black;
   border-radius: 1em;
+  display: flex;
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Space between text and SVG */
+}
+.button-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 0.5em;  */
 }
 
 .dropdown {
@@ -137,7 +182,9 @@
 .dropdown-content div:hover {
   background-color: #e7b373;
 }
-
+.dropdown-content div:active {
+  background-color: #c69963;
+}
 .dropdown:hover .dropdown-content {
   display: block;
 }
