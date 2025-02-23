@@ -75,16 +75,16 @@
   width: 17.5%;
   bottom: 40%;
   max-height: 5em;
-  right: 15.5%;
+  right: 16%;
 }
 #conversion-input-date-result {
   display: none;
-  font-size: 2em;
+  font-size: 1.8em;
   text-align: center;
 }
 #conversion-input-date-result:disabled {
-  color: aqua;
-  background-color: red;
+  background-color: #2d2d26;
+  color: #fff;
 }
 #conversion-input-day,
 #conversion-input-month,

@@ -913,16 +913,36 @@ dateboxes.forEach((box) => {
     ) {
       conversionBoxDateResult.value = "";
     } else {
-      conversionBoxDateResult.value = hijri_to_gregorian(
-        parseInt(conversionBoxYear.value),
-        parseInt(conversionBoxMonth.value),
-        parseInt(conversionBoxDay.value)
-      );
-      let copyText = currentConversion.split(" ")[1];
-      copyText = copyText[0].toUpperCase() + copyText.slice(1, copyText.length);
-      let s = `The estimated Gregorian date from Hijri is: ${conversionBoxDateResult.value}`;
-      navigator.clipboard.writeText(s);
-      copyAlert(copyText);
+      if (
+        parseInt(conversionBoxYear.value) < 0 ||
+        parseInt(conversionBoxYear.value) > 9999
+      ) {
+        conversionBoxDateResult.value = "Invalid Year";
+        parseInt(conversionBoxMonth.value);
+        parseInt(conversionBoxDay.value);
+      } else if (
+        parseInt(conversionBoxDay.value) < 0 ||
+        parseInt(conversionBoxDay.value) > 31
+      ) {
+        conversionBoxDateResult.value = "Invalid Day";
+      } else if (
+        parseInt(conversionBoxMonth.value) < 0 ||
+        parseInt(conversionBoxMonth.value) > 12
+      ) {
+        conversionBoxDateResult.value = "Invalid Month";
+      } else {
+        conversionBoxDateResult.value = hijri_to_gregorian(
+          parseInt(conversionBoxYear.value),
+          parseInt(conversionBoxMonth.value),
+          parseInt(conversionBoxDay.value)
+        );
+        let copyText = currentConversion.split(" ")[1];
+        copyText =
+          copyText[0].toUpperCase() + copyText.slice(1, copyText.length);
+        let s = `The estimated Gregorian date from Hijri is: ${conversionBoxDateResult.value}`;
+        navigator.clipboard.writeText(s);
+        copyAlert(copyText);
+      }
     }
   });
 });
