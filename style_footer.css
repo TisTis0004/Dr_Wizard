@@ -9,14 +9,60 @@
   background-attachment: scroll;
 }
 footer {
-  height: 150px;
+  min-height: 150px;
   background: url("Assets/images/ghosts.png");
   background-size: 100px 100px;
   padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .random-press {
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 2em;
+}
+.disclaimer {
+  color: #fff;
+  font-size: 1.5em;
+  text-align: center;
+  /* max-width: 600px; */
+}
+.disclaimer-text {
+  text-shadow: 5px 5px 8px #000000;
+  margin-bottom: 0;
+}
+.press-alert-hide {
+  opacity: 0;
+  visibility: hidden;
+  color: #00ce15;
+}
+.press-alert {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  padding: 0.3em;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+  font-size: 2em;
+}
+.press-alert-show {
+  opacity: 1;
+  visibility: visible;
+  min-width: 200px;
+  justify-content: center;
+  padding: 0.3em;
 }

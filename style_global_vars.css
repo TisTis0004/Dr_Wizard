@@ -106,7 +106,7 @@ h3 div {
 .measures-container {
   background-image: url(Assets/images/flex_boy_new.webp);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 100% 100%;
   background-position: center;
   height: 450px;
   width: 250px;

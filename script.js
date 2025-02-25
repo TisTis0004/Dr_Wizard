@@ -541,7 +541,7 @@ function alertCraftPatient() {
     {
       scale: 1.5,
       duration: 1.5,
-      boxShadow: "1px 1px 30px #ff6600",
+      boxShadow: "1px 1px 30px #f00",
       ease: "ease",
     },
     {
@@ -874,6 +874,11 @@ function mmolMgConversions(input, output, toMmol) {
           ease: "ease",
         }
       );
+    } else if (
+      conversionBox1.value.includes("-") ||
+      conversionBox2.value.includes("-")
+    ) {
+      output.value = "0.00";
     } else if (currentConversion.includes("Glucose")) {
       output.value = conversionsMmolMg["Glucose"][index](input.value);
       mmolMgConversionCopy(input, output, toMmol);
@@ -921,12 +926,12 @@ dateboxes.forEach((box) => {
         parseInt(conversionBoxMonth.value);
         parseInt(conversionBoxDay.value);
       } else if (
-        parseInt(conversionBoxDay.value) < 0 ||
+        parseInt(conversionBoxDay.value) <= 0 ||
         parseInt(conversionBoxDay.value) > 31
       ) {
         conversionBoxDateResult.value = "Invalid Day";
       } else if (
-        parseInt(conversionBoxMonth.value) < 0 ||
+        parseInt(conversionBoxMonth.value) <= 0 ||
         parseInt(conversionBoxMonth.value) > 12
       ) {
         conversionBoxDateResult.value = "Invalid Month";
@@ -966,11 +971,15 @@ const allSentences = {
   ],
 };
 let randomSentenceIndex;
-setInterval(() => {
+function generateRandomSentence() {
   randomSentenceIndex = Math.floor(Math.random() * 4);
   randomPress.innerHTML = `<span>${
     allSentences[Object.keys(allSentences)[randomSentenceIndex]][0]
   }</span>`;
+}
+generateRandomSentence();
+setInterval(() => {
+  generateRandomSentence();
 }, 6000);
 function pressAlert(text) {
   const pressAlertMessage = document.createElement("div");
@@ -978,13 +987,13 @@ function pressAlert(text) {
         <span>${text}</span>
     `;
 
-  pressAlertMessage.classList.add("copy-alert");
-  pressAlertMessage.classList.remove("copy-hide");
-  pressAlertMessage.classList.add("copy-show");
+  pressAlertMessage.classList.add("press-alert");
+  pressAlertMessage.classList.remove("press-alert-hide");
+  pressAlertMessage.classList.add("press-alert-show");
   document.body.appendChild(pressAlertMessage);
   setTimeout(() => {
-    pressAlertMessage.classList.remove("copy-show");
-    pressAlertMessage.classList.add("copy-hide");
+    pressAlertMessage.classList.remove("press-alert-show");
+    pressAlertMessage.classList.add("press-alert-hide");
   }, 2500);
 }
 document.addEventListener("keydown", (key) => {
