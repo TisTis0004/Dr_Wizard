@@ -747,7 +747,7 @@ function copyAlert(copiedText) {
         <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24">
             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
         </svg>
-        <span>${copiedText} ${singularPlural} been copied to clipboard!</span>
+        <span>${copiedText} ${singularPlural} been copied to clipboard!s</span>
     `;
 
   copyAlertMessage.classList.add("copy-alert");
@@ -945,4 +945,51 @@ dateboxes.forEach((box) => {
       }
     }
   });
+});
+const randomPress = document.querySelector(".random-press");
+const allSentences = {
+  x: [
+    "🔥 Press [X] to cast Health Spell.",
+    "⚔️ Slaying confusion with pixelated precision!  ",
+  ],
+  h: [
+    "🌞 Press [H] to harvest wisdom.",
+    "📟 Calculating your health, one pixel at a time!",
+  ],
+  " ": [
+    "🌌 Press [SPACE] to continue your journey.",
+    "📺 Now loading... 8-bit health wisdom.",
+  ],
+  Escape: [
+    "⌨️ Press [ESC] to exit reality.",
+    "🕹️ Player 1: Ready! Player 2: Your patient.",
+  ],
+};
+let randomSentenceIndex;
+setInterval(() => {
+  randomSentenceIndex = Math.floor(Math.random() * 4);
+  randomPress.innerHTML = `<span>${
+    allSentences[Object.keys(allSentences)[randomSentenceIndex]][0]
+  }</span>`;
+}, 6000);
+function pressAlert(text) {
+  const pressAlertMessage = document.createElement("div");
+  pressAlertMessage.innerHTML = `
+        <span>${text}</span>
+    `;
+
+  pressAlertMessage.classList.add("copy-alert");
+  pressAlertMessage.classList.remove("copy-hide");
+  pressAlertMessage.classList.add("copy-show");
+  document.body.appendChild(pressAlertMessage);
+  setTimeout(() => {
+    pressAlertMessage.classList.remove("copy-show");
+    pressAlertMessage.classList.add("copy-hide");
+  }, 2500);
+}
+document.addEventListener("keydown", (key) => {
+  console.log(randomSentenceIndex);
+  if (key.key == Object.keys(allSentences)[randomSentenceIndex]) {
+    pressAlert(allSentences[key.key][1]);
+  }
 });
