@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="Assets_2/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="surprise_style.css" />
+    <script src="surprise_script.js" defer></script>
+  </head>
+  <body>
+    <div class="modal active" id="modal">
+      <!--! add active-->
+      <div class="modal-body">
+        <marquee
+          id="marquee"
+          behavior="scroll"
+          direction="up"
+          scrollamount="1.5"
+        >
+          <pre class="letter">
+For Nujud, on your special day,
+The skies shine bright in every way.
+Your laughter rings, a joyful sound,
+In friendship’s bond, we all are bound.
+May happiness forever stay,
+Happy Birthday, Nujud, hip hooray!
+
+We don’t get to choose our families
+but we do get to choose our friends
+and I’m so grateful to have chosen you.
+You’ve been close as family to me.
+I couldn’t be happier to celebrate you
+on this very special day.
+Happy 26th birthday!
+Another year older, wiser
+and most importantly more of … <strong>You</strong>
+Before you know it
+You’ll be 30, then 35, then 40…
+Shining and glorying
+in every single one of them.
+Along the way
+I hope you achieve every dream
+you set your heart on.
+May Allah bless you with
+happiness, success, love
+and everything you deserve
+to achieve all your goals, whether it's:
+Becoming the best doctor
+the humanity has ever seen
+(which is almost done tbh) 
+Starting a family and
+raise cutie patootie Laila
+under your wings (shoulders).
+Wishing you nothing but joy
+today and forever inshallah.
+Happy birthday, Nujud! 🎉🎂
+
+
+
+        </pre
+          >
+        </marquee>
+      </div>
+      <div class="modal-header">
+        <h2 class="title">Happy Birthday!</h2>
+      </div>
+    </div>
+    <div id="overlay" class="active"></div>
+    <!--! add active-->
+    <div class="timer">
+      <p id="timeSince"></p>
+      <h1 id="heading-since">Since You Acquired Your Last Thunderstone</h1>
+      <div class="separator"></div>
+      <p id="timeLeft"></p>
+      <h1 id="heading-left">XP Needed for Your Next Level</h1>
+    </div>
+    <div class="separator"></div>
+    <div class="jokes-generator">
+      <h1 class="jokes-title">Jokes ShoP</h1>
+      <h2>Buy a Laugh:</h2>
+      <div class="joke-container">
+        <div class="jokes-buttons">
+          <div>
+            <button id="generate-pun-button">Pun</button>
+            <button id="generate-dad-button">Normal</button>
+          </div>
+          <button id="reveal-punch-button" class="hide-reveal">
+            Reveal Punchline
+          </button>
+          <div class="joke-result"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

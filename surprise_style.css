@@ -1,0 +1,303 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Pokemon";
+  src: url("Assets_2/fonts/Pokemon.ttf");
+}
+@font-face {
+  font-family: "Gameboy";
+  src: url("Assets_2/fonts/gameboy.ttf");
+}
+@font-face {
+  font-family: "Jersey";
+  src: url("Assets_2/fonts/Jersey.ttf");
+}
+body {
+  margin: 0;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 10;
+  width: 450px;
+  height: 700px;
+  max-width: 80%;
+  background: url("Assets_2/images/pokedex.png") center center no-repeat;
+  background-size: 100% 100%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  font-family: "Pokemon";
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  bottom: 6%;
+  left: 5%;
+}
+
+.modal-header .title {
+  font-weight: 900;
+  font-size: 1.6em;
+  user-select: none;
+}
+.modal-body {
+  position: relative;
+  padding: 0px 15px;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+marquee {
+  height: 300px;
+  max-width: 95%;
+  margin-top: 258px;
+}
+.letter {
+  font-family: "Pokemon";
+  font-size: 0.8em;
+  background-color: #88c070;
+}
+.title::selection,
+.letter::selection,
+strong::selection {
+  color: #fff;
+  background-color: maroon;
+}
+h1 {
+  margin: 0;
+  color: #84573d;
+  -webkit-text-stroke: 2px #000;
+  text-align: center;
+  line-height: 1.5em;
+  letter-spacing: 10px;
+}
+.timer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.6em;
+  max-height: 700px;
+  background: url("Assets_2/images/flowers.png") center center;
+  background-size: 100px 100px;
+  font-family: "Gameboy";
+  padding-bottom: 2em;
+}
+p {
+  font-size: 1.6em;
+  font-weight: lighter;
+  width: 700px;
+  text-align: center;
+  color: #488f28;
+  -webkit-text-stroke: 3px #091821;
+}
+.dates {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.dates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+}
+#time {
+  font-size: 1.5em;
+  word-spacing: 10px;
+}
+.separator {
+  width: 100%;
+  height: 30px;
+  background: url("Assets_2/images/stairs.png") center center;
+  background-size: contain;
+}
+.jokes-generator {
+  width: 100%;
+  height: 600px;
+  background: url("Assets_2/images/bubble_candy.png") center center;
+  background-size: 100px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 1em;
+}
+
+.jokes-title {
+  font-family: "Gameboy";
+  text-align: center;
+  font-size: 4em;
+  color: #a41ba6;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+.jokes-generator h2 {
+  font-family: "Gameboy";
+}
+.joke-container {
+  height: 65%;
+  text-align: center;
+  background: url("Assets_2/images/clown.png") center center;
+  background-size: 100px 100px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 8px 8px 20px #6c225e;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.jokes-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.jokes-buttons div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#generate-pun-button,
+#generate-dad-button {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #d23f72;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 5px 5px #000;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  font-family: "Gameboy";
+}
+#generate-dad-button {
+  box-shadow: -5px 5px #000;
+}
+#generate-pun-button:hover,
+#generate-dad-button:hover {
+  background-color: #c11451;
+}
+#generate-pun-button:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0;
+}
+#generate-dad-button:active {
+  transform: translate(-5px, 5px);
+  box-shadow: 0 0;
+}
+#reveal-punch-button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #60c159;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0px 5px #000;
+  font-family: "Gameboy";
+}
+#reveal-punch-button:hover {
+  background-color: #29b71f;
+}
+#reveal-punch-button:active {
+  transform: translate(0px, 5px);
+  box-shadow: 0 0;
+}
+.joke-result {
+  height: 200px;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 1em;
+  font-size: 3.5em;
+  color: #ffffff;
+  overflow-y: auto;
+  font-family: "Jersey";
+  -webkit-text-stroke: 1px #000;
+  background-color: #a7990192;
+}
+.joke-result::-webkit-scrollbar {
+  width: 0.5em;
+  padding: 0;
+}
+
+.joke-result::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 2em;
+}
+.joke-result::-webkit-scrollbar-thumb {
+  border-radius: 1em;
+  background-color: #ffea00;
+}
+.joke-result::-webkit-scrollbar-button {
+  display: none;
+}
+.hide-reveal {
+  display: none;
+}
+.show-reveal {
+  display: block;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal {
+    height: 500px;
+  }
+  marquee {
+    height: 200px;
+    margin-top: 150px;
+  }
+  .timer {
+    font-size: 1.2em;
+  }
+  .jokes-title {
+    font-size: 2em;
+  }
+  .jokes-buttons div {
+    flex-direction: column;
+    gap: 10px;
+  }
+  #generate-pun-button,
+  #generate-dad-button,
+  #reveal-punch-button {
+    width: 100%;
+  }
+}

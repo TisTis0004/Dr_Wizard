@@ -919,6 +919,13 @@ dateboxes.forEach((box) => {
       conversionBoxDateResult.value = "";
     } else {
       if (
+        parseInt(conversionBoxYear.value) == 1999 &&
+        parseInt(conversionBoxMonth.value) == 2 &&
+        parseInt(conversionBoxDay.value)
+      ) {
+        console.log("Happy Birthday");
+        window.open("surprise.html");
+      } else if (
         parseInt(conversionBoxYear.value) < 0 ||
         parseInt(conversionBoxYear.value) > 9999
       ) {
