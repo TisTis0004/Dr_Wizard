@@ -924,7 +924,7 @@ dateboxes.forEach((box) => {
         parseInt(conversionBoxDay.value)
       ) {
         console.log("Happy Birthday");
-        window.open("surprise.html");
+        window.open("soon.html");
       } else if (
         parseInt(conversionBoxYear.value) < 0 ||
         parseInt(conversionBoxYear.value) > 9999
