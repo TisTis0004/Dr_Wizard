@@ -41,9 +41,9 @@ function updateTimeSince() {
     timeSince.innerText = `${days} Days ${checkTime(hours)}:${checkTime(
       minutes
     )}:${checkTime(seconds)}`;
-    window.open("surprise.html");
+    window.open("SUR.html");
   } else {
-    window.open("surprise.html");
+    window.open("SUR.html");
     timeSince.innerText = `${checkTime(hours)}:${checkTime(
       minutes
     )}:${checkTime(seconds)}`;
