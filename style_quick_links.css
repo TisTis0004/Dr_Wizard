@@ -27,18 +27,23 @@ body {
   overflow-x: hidden;
 }
 body::-webkit-scrollbar {
-  width: 1.1em;
+  width: 1.4em;
 }
 
 body::-webkit-scrollbar-track {
-  background: linear-gradient(#18023f, #601fd2);
+  background-image: url("Assets/images/stars_background.png");
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: 30px 30px;
 }
 body::-webkit-scrollbar-thumb {
   background: transparent;
   background-image: url("Assets/images/bone.png");
-  background-position: center; /* Centers the image vertically */
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: 100% 100%; /* Image height matches thumb height, width scales proportionally */
+  background-size: 100% 100%;
+  /* border: 1px solid red; */
+  /* height: 4cm; */
 }
 body::-webkit-scrollbar-button {
   display: none;
