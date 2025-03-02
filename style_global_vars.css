@@ -329,6 +329,7 @@ h3 div {
   border-radius: 50%;
   filter: brightness(1) grayscale(1);
   cursor: not-allowed;
+  position: relative;
 }
 .submit-container-active {
   transition: filter 0.5s;

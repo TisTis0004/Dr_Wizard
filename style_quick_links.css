@@ -34,14 +34,11 @@ body::-webkit-scrollbar-track {
   background: linear-gradient(#18023f, #601fd2);
 }
 body::-webkit-scrollbar-thumb {
-  min-height: 0;
-  height: 140px !important;
   background: transparent;
   background-image: url("Assets/images/bone.png");
-  background-position: center;
+  background-position: center; /* Centers the image vertically */
   background-repeat: no-repeat;
-  background-size: 130% 100%;
-  /* border: 2px solid red; */
+  background-size: 100% 100%; /* Image height matches thumb height, width scales proportionally */
 }
 body::-webkit-scrollbar-button {
   display: none;
