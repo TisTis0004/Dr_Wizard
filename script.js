@@ -455,7 +455,6 @@ formulasBtns.forEach((formula) => {
     formulaResult.classList.remove("small");
     fillRequiredFields(formulasShowInputs[formula.innerText]);
     calculation = formula.innerText;
-    console.log(calculation);
     inputDivs.forEach((box) => {
       box.style.display = "none";
     });
@@ -676,7 +675,6 @@ function calculateFormula() {
     formulaResult.classList.add("big");
   } else if (calculation == "ASCVD Risk") {
     let tempInputs = [hdl.value == "", chol.value == "", bp.value == ""];
-    console.log(tempInputs);
     if (
       !black.checked &&
       !smoker.checked &&
@@ -693,17 +691,6 @@ function calculateFormula() {
       formulaResult.innerText = "Please fill the required fields";
     } else {
       let isMale = globalVars["Gender"] == "m" ? true : false;
-      console.log(
-        isMale,
-        black.checked,
-        smoker.checked,
-        hypertensive.checked,
-        diabetic.checked,
-        parseInt(globalVars["Age"]),
-        parseFloat(bp.value),
-        parseFloat(chol.value),
-        parseFloat(hdl.value)
-      );
       let copyText = ASCVD(
         isMale,
         black.checked,
@@ -723,6 +710,12 @@ function calculateFormula() {
   }
 }
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+function removeCopyBoxes() {
+  const boxes = document.querySelectorAll(".copy-hide");
+  boxes.forEach((box) => {
+    box.remove();
+  });
+}
 const formulaResult = document.querySelector(".formula-result");
 const EXCLUDED_STRINGS = new Set([
   "GAD-7 results",
@@ -747,7 +740,7 @@ function copyAlert(copiedText) {
         <svg style="width: 18px; height: 18px; fill: currentColor;" viewBox="0 0 24 24">
             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
         </svg>
-        <span>${copiedText} ${singularPlural} been copied to clipboard!s</span>
+        <span>${copiedText} ${singularPlural} been copied to clipboard</span>
     `;
 
   copyAlertMessage.classList.add("copy-alert");
@@ -758,6 +751,9 @@ function copyAlert(copiedText) {
     copyAlertMessage.classList.remove("copy-show");
     copyAlertMessage.classList.add("copy-hide");
   }, 2500);
+  setTimeout(() => {
+    removeCopyBoxes();
+  }, 3000);
 }
 //todo=========================================== Conversion ===========================================
 import {
@@ -923,7 +919,6 @@ dateboxes.forEach((box) => {
         parseInt(conversionBoxMonth.value) == 2 &&
         parseInt(conversionBoxDay.value)
       ) {
-        console.log("Happy Birthday");
         window.open("soon.html");
       } else if (
         parseInt(conversionBoxYear.value) < 0 ||
@@ -1002,9 +997,12 @@ function pressAlert(text) {
     pressAlertMessage.classList.remove("press-alert-show");
     pressAlertMessage.classList.add("press-alert-hide");
   }, 2500);
+  pressAlertMessage.remove();
+  setTimeout(() => {
+    removeCopyBoxes();
+  }, 3000);
 }
 document.addEventListener("keydown", (key) => {
-  console.log(randomSentenceIndex);
   if (key.key == Object.keys(allSentences)[randomSentenceIndex]) {
     pressAlert(allSentences[key.key][1]);
   }
