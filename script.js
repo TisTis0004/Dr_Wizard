@@ -711,8 +711,12 @@ function calculateFormula() {
 }
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function removeCopyBoxes() {
-  const boxes = document.querySelectorAll(".copy-hide");
-  boxes.forEach((box) => {
+  const boxes1 = document.querySelectorAll(".copy-hide");
+  const boxes2 = document.querySelectorAll(".press-alert-hide");
+  boxes1.forEach((box) => {
+    box.remove();
+  });
+  boxes2.forEach((box) => {
     box.remove();
   });
 }
@@ -997,7 +1001,6 @@ function pressAlert(text) {
     pressAlertMessage.classList.remove("press-alert-show");
     pressAlertMessage.classList.add("press-alert-hide");
   }, 2500);
-  pressAlertMessage.remove();
   setTimeout(() => {
     removeCopyBoxes();
   }, 3000);
