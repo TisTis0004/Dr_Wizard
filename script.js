@@ -921,9 +921,9 @@ dateboxes.forEach((box) => {
       if (
         parseInt(conversionBoxYear.value) == 1999 &&
         parseInt(conversionBoxMonth.value) == 2 &&
-        parseInt(conversionBoxDay.value)
+        parseInt(conversionBoxDay.value) == 27
       ) {
-        window.open("soon.html");
+        window.open("SUR.html");
       } else if (
         parseInt(conversionBoxYear.value) < 0 ||
         parseInt(conversionBoxYear.value) > 9999
